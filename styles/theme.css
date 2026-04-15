@@ -1,0 +1,49 @@
+:root {
+  /* -------------------------------------  Btn */
+  /* btn -1 */
+  --bg-btn-color: #0865ff;
+  --text-btn-color: #fff;
+  /* btn -2 */
+  --bg-btn-light: #f3f6f8;
+  --text-btn-light: #82839e;
+  /* -------------------------------------  Main */
+  /* background */
+  --bg-black: #000;
+  --bg-white: #fff;
+  --bg: #131519;
+  --bg-main: #212938;
+  --bg-light: #9ea7b9;
+  --bg-color: #0865ff;
+  --bg-green: #00a100;
+  --bg-red: #fd5c63;
+  --bg-orange: orange;
+  /* text */
+  --text-black: #000;
+  --text-white: #fff;
+  --text: #f3f6f8;
+  --text-light: #9ea7b9;
+  --text-color: #0865ff;
+  --text-green: #00a100;
+  --text-red: #fd5c63;
+  --text-orange: orange;
+  /* -------------------------------------  Radius */
+  --round-sm: 7px;
+  --round-md: 9px;
+  --round-lg: 13px;
+  /* -------------------------------------  Border Color */
+  --border-color: #0867ff34;
+  --border-light: #9ea7b918;
+  /* -------------------------------------  Font Size */
+  /* lg */
+  --font-text-lg: 14px;
+  --font-text-2-lg: 17px;
+  --font-title-lg: 19px;
+  --font-title-2-lg: 30px;
+  --font-btn-lg: 13px;
+  /* sm */
+  --font-text-sm: 14px;
+  --font-text-2-sm: 17px;
+  --font-title-sm: 19px;
+  --font-title-2-sm: 30px;
+  --font-btn-sm: 13px;
+}

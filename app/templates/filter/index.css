@@ -1,0 +1,23 @@
+.template-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.template-category-title h3 {
+  font-size: 25px;
+  font-weight: 800;
+  position: relative;
+  padding-right: 20px;
+}
+
+.template-category-title h3::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 42.5%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 130%;
+  background-color: var(--bg-color);
+  border-radius: 0 200px 200px 0;
+}

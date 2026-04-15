@@ -1,0 +1,44 @@
+.footer-main {
+  border-top: 1px solid var(--border-color);
+}
+.copy-right {
+  border-top: 1px solid var(--border-color);
+  font-size: 16px;
+  color: var(--text-color);
+}
+
+.footer-information-text {
+  font-size: 16px;
+  line-height: 2;
+}
+
+.social-media-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.social-medial-box {
+  border: 1px dashed var(--border-color);
+  border-radius: var(--round-lg);
+  padding: 12px;
+}
+
+.social-medial-icon {
+  border-radius: var(--round-lg);
+  background: linear-gradient(120deg, #91b4e78f, #0077ff);
+}
+
+.social-medial-text small:nth-child(1) {
+  font-size: 14px;
+  color: var(--text);
+}
+
+.social-medial-text small:nth-child(2) {
+  font-size: 13px;
+  color: var(--text-light);
+}
+
+.social-media-title h6 {
+  font-size: 16px;
+  font-weight: 800;
+}

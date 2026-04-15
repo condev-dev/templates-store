@@ -1,0 +1,86 @@
+/* Templates.Jsx */
+.template-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr !important;
+}
+/* TemplateItem.Jsx */
+.template-box {
+  background: transparent;
+  border-radius: var(--round-lg);
+  border: 1px solid var(--border-color) !important;
+  cursor: pointer;
+}
+
+.template-box img {
+  width: 100% !important;
+  object-fit: cover;
+  object-position: top right;
+  border-radius: var(--round-sm);
+  transition: all 2.7s ease-in-out;
+}
+
+.template-box-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.template-box-title {
+  font-size: 18px;
+  font-weight: 800;
+  position: relative;
+  padding-right: 15px;
+}
+
+.template-box-title::before {
+  content: "";
+  width: 5px;
+  height: 150%;
+  position: absolute;
+  right: 0px;
+  top: -7px;
+  bottom: 0px;
+  background-color: var(--bg-color);
+  border-radius: 0 200px 200px 0;
+}
+
+.template-box-category span:nth-child(1) {
+  color: var(--text-light);
+  font-size: 16px;
+}
+
+.template-box-category span:nth-child(2) {
+  margin-right: 5px;
+  color: var(--text-color);
+  font-size: 16px;
+}
+
+.template-box-price span:nth-child(1) {
+  color: var(--text-light);
+  font-weight: 800;
+  font-size: 22px;
+}
+
+.template-box:hover img {
+  object-position: bottom left;
+}
+
+/* Template Category */
+.template-category-title h3 {
+  font-size: 25px;
+  font-weight: 800;
+  position: relative;
+  padding-right: 20px;
+}
+
+.template-category-title h3::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 42.5%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 130%;
+  background-color: var(--bg-color);
+  border-radius: 0 200px 200px 0;
+}

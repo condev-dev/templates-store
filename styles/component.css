@@ -1,0 +1,58 @@
+/* ---------------------------- Btn */
+/* base */
+.btn-main,
+.btn-main > * {
+  cursor: pointer !important;
+  font-weight: 600 !important;
+  font-size: var(--font-btn-lg) !important;
+  border-radius: var(--round-sm) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  transition: all 0.3s !important;
+}
+.btn-main > * {
+  margin: 0px !important;
+  padding: 0px !important;
+}
+
+/* btn -1 */
+.btn-color {
+  background: var(--bg-btn-color);
+  padding: 13px 20px;
+  color: var(--text-btn-color);
+}
+
+.btn-color-sm {
+  padding: 13px 15px;
+}
+
+.btn-color:hover {
+  transform: scale(1.03);
+}
+
+/* btn -2 */
+.btn-light {
+  background: var(--bg-btn-light);
+  padding: 13px 15px;
+  color: var(--text-btn-light);
+}
+
+.btn-light:hover {
+  background: var(--bg-btn-color);
+  color: var(--text-btn-color);
+}
+
+/* btn -3 */
+
+.btn-dark {
+  background: var(--bg);
+  padding: 13px 15px;
+  color: var(--text);
+}
+
+.btn-dark:hover {
+  transform: scale(1.03);
+}

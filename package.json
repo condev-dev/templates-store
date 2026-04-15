@@ -1,0 +1,25 @@
+{
+  "name": "templates-store",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.8",
+    "date-fns": "^4.1.0",
+    "next": "16.2.3",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "react-icons": "^5.6.0",
+    "react-loading-skeleton": "^3.5.0",
+    "react-toastify": "^11.0.5"
+  },
+  "devDependencies": {
+    "eslint": "^9",
+    "eslint-config-next": "16.2.3"
+  }
+}

@@ -1,0 +1,39 @@
+.intro-main {
+  border-radius: var(--round-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.intro-main::before {
+  content: "";
+  position: absolute;
+  background: var(--bg-color) !important;
+  filter: blur(100px) !important;
+  width: 150% !important;
+  height: 140% !important;
+  top: 50% !important;
+  transform: translateY(-60%) !important;
+  z-index: -2;
+}
+
+.intro-main::after {
+  content: "";
+  position: absolute;
+  background: url("/img/templates/template.webp") !important;
+  width: 500px !important;
+  height: 100% !important;
+  z-index: -1;
+  left: 0px;
+  top: 0px;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.intro-main h1 {
+  font-size: 40px;
+}
+
+.intro-main h2 {
+  font-size: 20px;
+  line-height: 2;
+}
