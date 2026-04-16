@@ -1,6 +1,9 @@
 import "@/styles/index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import Container from "../components/layout/container/Container";
 import { ToastContainer } from "react-toastify";
 import AuthProvider from "./AuthProvider";

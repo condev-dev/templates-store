@@ -1,7 +1,7 @@
 import "./index.css";
 const Plans = () => {
   return (
-    <section className="d-flex justify-content-between align-items-center mt-5 '">
+    <section className="d-flex justify-content-between align-items-center mt-5 pt-5">
       {/* Title */}
       <div className="d-flex flex-column align-items-start plans-text w-25">
         <h5>پلن های ویژه</h5>

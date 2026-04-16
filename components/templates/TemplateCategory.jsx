@@ -40,7 +40,7 @@ const TemplateCategory = ({ title, filterBy }) => {
   }
 
   return (
-    <section className=" w-100 d-flex flex-column mt-5">
+    <section className=" w-100 d-flex flex-column mt-5 pt-4">
       <section className="template-category-title d-flex justify-content-between align-items-center w-100">
         <h3 className="mt-2">{title}</h3>
 
@@ -49,7 +49,7 @@ const TemplateCategory = ({ title, filterBy }) => {
         </Link>
       </section>
 
-      <section className="template-container gap-4 mt-4 pt-1">
+      <section className="template-container gap-4 mt-5 pt-1">
         {!isLoading &&
           templates
             ?.slice(0, 4)
