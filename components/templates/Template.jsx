@@ -5,6 +5,7 @@ import { FaEye } from "react-icons/fa";
 import "./index.css";
 import { Fragment } from "react";
 import ImagePlaceholder from "../common/ImagePlaceholder";
+import AddToCart from "./AddToCart";
 
 const Template = ({ image, title, categories, price, id }) => {
   return (
@@ -21,9 +22,7 @@ const Template = ({ image, title, categories, price, id }) => {
       ) : (
         <ImagePlaceholder width={500} height={300} />
       )}
-      <h5 className="mt-4 template-box-title">
-        {title} {/* <-- نمایش title واقعی */}
-      </h5>
+      <h5 className="mt-4 template-box-title">{title}</h5>
 
       <h6 className="mt-3 template-box-category">
         <span>دسته بندی :</span>
@@ -52,7 +51,7 @@ const Template = ({ image, title, categories, price, id }) => {
             <FaEye size={16} />
           </button>
 
-          <button className="btn-main btn-color">افزودن به سبد خرید</button>
+          <AddToCart templateId={id} />
         </div>
       </div>
     </div>

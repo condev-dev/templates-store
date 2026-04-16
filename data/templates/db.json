@@ -3,55 +3,61 @@
     "id": "1",
     "title": "قالب کازینویی رویال | فارسی زبان",
     "categories": ["کازینو", "فارسی"],
-    "price": "100000",
+    "price": "110000",
     "demo_url": "/",
     "file_url": "/",
-    "image": "/img/templates/template.webp"
+    "image": "/img/templates/template9.webp",
+    "sell_count": "2"
   },
   {
     "id": "4",
     "title": "قالب کازینویی رویال | فارسی زبان",
     "categories": ["کازینو", "فارسی"],
-    "price": "100000",
+    "price": "120000",
     "demo_url": "/",
     "file_url": "/",
-    "image": "/img/templates/template.webp"
+    "image": "/img/templates/template1.webp",
+    "sell_count": "2"
   },
   {
     "id": "2",
     "title": "قالب کازینویی رویال | فارسی زبان",
     "categories": ["کازینو", "فارسی", "تبلیغاتی", "ترکی"],
-    "price": "100000",
+    "price": "130000",
     "demo_url": "/",
     "file_url": "/",
-    "image": "/img/templates/template.webp"
+    "image": "/img/templates/template2.webp",
+    "sell_count": "4"
   },
   {
     "id": "3",
     "title": "قالب کازینویی رویال | فارسی زبان",
     "categories": ["کازینو", "فارسی"],
-    "price": "100000",
+    "price": "140000",
     "demo_url": "/",
     "file_url": "/",
-    "image": "/img/templates/template.webp"
+    "image": "/img/templates/template3.webp",
+    "sell_count": "1"
   },
   {
     "id": "5",
     "title": "قالب کازینویی رویال | فارسی زبان",
     "categories": ["کازینو", "فارسی"],
-    "price": "100000",
+    "price": "150000",
     "demo_url": "/",
     "file_url": "/",
-    "image": "/img/templates/template.webp"
+    "image": "/img/templates/template4.webp",
+    "sell_count": "3"
   },
   {
     "id": "6",
     "title": "قالب کازینویی رویال | فارسی زبان",
     "categories": ["کازینو", "فارسی", "فارسی", "فارسی"],
-    "price": "100000",
+    "price": "190000",
     "demo_url": "/",
     "file_url": "/",
-    "image": "/img/templates/template.webp"
+    "image": "/img/templates/template5.webp",
+    "sell_count": "6"
   },
   {
     "id": "7",
@@ -60,60 +66,67 @@
     "price": "100000",
     "demo_url": "/",
     "file_url": "/",
-    "image": "/img/templates/template.webp"
+    "image": "/img/templates/template6.webp",
+    "sell_count": "12"
   },
   {
     "id": "8",
     "title": "قالب کازینویی رویال | فارسی زبان",
     "categories": ["کازینو", "فارسی"],
-    "price": "100000",
+    "price": "180000",
     "demo_url": "/",
     "file_url": "/",
-    "image": "/img/templates/template.webp"
+    "image": "/img/templates/template7.webp",
+    "sell_count": "22"
   },
   {
     "id": "9",
     "title": "قالب کازینویی رویال | فارسی زبان",
     "categories": ["کازینو", "فارسی"],
-    "price": "100000",
+    "price": "140000",
     "demo_url": "/",
     "file_url": "/",
-    "image": "/img/templates/template.webp"
+    "image": "/img/templates/template8.webp",
+    "sell_count": "20"
   },
   {
     "id": "10",
     "title": "قالب کازینویی رویال | فارسی زبان",
     "categories": ["کازینو", "فارسی"],
-    "price": "100000",
+    "price": "130000",
     "demo_url": "/",
     "file_url": "/",
-    "image": "/img/templates/template.webp"
+    "image": "/img/templates/template9.webp",
+    "sell_count": "1"
   },
   {
     "id": "11",
     "title": "قالب کازینویی رویال | فارسی زبان",
     "categories": ["کازینو", "فارسی"],
-    "price": "100000",
+    "price": "120000",
     "demo_url": "/",
     "file_url": "/",
-    "image": "/img/templates/template.webp"
+    "image": "/img/templates/template.webp",
+    "sell_count": "1"
   },
   {
     "id": "12",
     "title": "قالب کازینویی رویال | فارسی زبان",
     "categories": ["کازینو", "فارسی"],
-    "price": "100000",
+    "price": "110000",
     "demo_url": "/",
     "file_url": "/",
-    "image": "/img/templates/template.webp"
+    "image": "/img/templates/template1.webp",
+    "sell_count": "2"
   },
   {
     "id": "13",
     "title": "قالب کازینویی رویال | فارسی زبان",
     "categories": ["کازینو", "فارسی"],
-    "price": "100000",
+    "price": "150000",
     "demo_url": "/",
     "file_url": "/",
-    "image": "/img/templates/template.webp"
+    "image": "/img/templates/template2.webp",
+    "sell_count": "2"
   }
 ]

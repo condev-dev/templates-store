@@ -1,8 +1,9 @@
 import Image from "next/image";
-import { FaCartPlus } from "react-icons/fa";
 import "./index.css";
 import Link from "next/link";
 import AuthBtn from "@/components/auth/AuthBtn";
+import { useRouter } from "next/navigation";
+import CartBtn from "../../cart/CartBtn";
 
 const Header = () => {
   return (
@@ -19,12 +20,14 @@ const Header = () => {
       </Link>
 
       {/* <div className="d-flex gap-3">
-        <button className="btn-main btn-color btn-color-sm">
-          <FaCartPlus />
-        </button>
+
         <button className="btn-main btn-light"> خرید های قبلی</button>
       </div> */}
-      <AuthBtn />
+
+      <div className="d-flex gap-2">
+        <CartBtn />
+        <AuthBtn />
+      </div>
     </header>
   );
 };

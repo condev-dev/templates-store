@@ -4,11 +4,14 @@ import Template from "./Template";
 import "./index.css";
 import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
+import { useSession } from "next-auth/react";
 
 const TemplateCategory = ({ title, filterBy }) => {
   const [templates, setTemplates] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const BaseUrl = process.env.NEXT_PUBLIC_API_URL;
+  //
+  const session = useSession();
 
   const fetchTemplates = async () => {
     try {
