@@ -12,6 +12,7 @@
   text-align: center !important;
   vertical-align: middle !important;
   transition: all 0.3s !important;
+  font-weight: 800 !important;
 }
 .btn-main > * {
   margin: 0px !important;

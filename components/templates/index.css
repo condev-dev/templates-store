@@ -13,6 +13,7 @@
 
 .template-box img {
   width: 100% !important;
+  height: 300px !important;
   object-fit: cover;
   object-position: top right;
   border-radius: var(--round-sm);
@@ -71,6 +72,7 @@
   font-weight: 800;
   position: relative;
   padding-right: 20px;
+  font-weight: 800 !important;
 }
 
 .template-category-title h3::before {

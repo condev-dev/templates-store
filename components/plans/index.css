@@ -1,5 +1,6 @@
 .plans-text h5 {
   font-size: 25px;
+  font-weight: 800 !important;
 }
 
 .plans-text p {
@@ -57,6 +58,7 @@
   font-size: 25px;
   text-align: center;
   color: var(--text);
+  font-weight: 800 !important;
 }
 
 .plan-list p {

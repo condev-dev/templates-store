@@ -10,9 +10,10 @@ const Header = () => {
         <Image
           src="/img/logo.webp"
           alt="ConDev"
-          loading="lazy"
+          loading="eager"
           width={170}
           height={40}
+          className="logo"
         />
       </Link>
 

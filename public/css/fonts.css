@@ -1,12 +1,23 @@
 @font-face {
   font-family: "Rokh";
   src: url("../fonts//Rokh/Rokh-Medium.woff2");
-  /* src: */
-  /* url("../fonts/Rokh-HairLine.eot?#iefix") format("embedded-opentype"), */
-  /* url("../fonts/Rokh-HairLine.woff2") format("woff2"), */
-  /* url("../fonts/Rokh-HairLine.woff") format("woff"), */
-  /* url("../fonts/Rokh-HairLine.ttf") format("truetype"); */
   font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rokh";
+  src: url("../fonts//Rokh/Rokh-Bold.woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rokh";
+  src: url("../fonts//Rokh/Rokh-Black.woff2");
+  font-weight: 900;
   font-style: normal;
   font-display: swap;
 }

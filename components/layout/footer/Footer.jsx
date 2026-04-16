@@ -11,8 +11,9 @@ const Footer = () => {
             width={170}
             height={40}
             alt="ConDev"
-            loading="lazy"
+            loading="eager"
             src="/img/logo.webp"
+            className="logo"
           />
           <p className="footer-information-text mt-3">
             قالب وردپرس | پوسته وردپرس | مرجع دانلود و خرید تم وردپرس اورجینال |

@@ -7,11 +7,11 @@ export default function Home() {
   return (
     <>
       <Intro />
-      <TemplateCategory title="قالب های فارسی" />
+      <TemplateCategory title="قالب های فارسی" filterBy="فارسی" />
       <BestSellers />
-      <TemplateCategory title="قالب های موبایلی" />
+      <TemplateCategory title="قالب های موبایلی" filterBy="موبایلی" />
       <Plans />
-      <TemplateCategory title="قالب های ترکی" />
+      <TemplateCategory title="قالب های ترکی" filterBy="ترکی" />
     </>
   );
 }

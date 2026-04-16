@@ -1,7 +1,7 @@
 import "./index.css";
 const Container = ({ children }) => {
   return (
-    <section className="main-container d-flex flex-column">{children}</section>
+    <section className="main-container d-flex flex-column ">{children}</section>
   );
 };
 

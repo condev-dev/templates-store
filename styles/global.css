@@ -7,3 +7,8 @@ body {
   background: var(--bg) !important;
   color: var(--text) !important;
 }
+
+.logo {
+  width: 200px !important;
+  height: fit-content !important;
+}

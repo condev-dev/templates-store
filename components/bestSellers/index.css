@@ -1,7 +1,7 @@
 .best-sellers-title h3 {
   font-size: 30px;
-  font-weight: 800;
   text-align: center;
+  font-weight: 800 !important;
 }
 
 .best-sellers-container {
