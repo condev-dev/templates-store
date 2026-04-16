@@ -1,8 +1,9 @@
 import "@/styles/index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "react-toastify/dist/ReactToastify.css";
 import Container from "../components/layout/container/Container";
-import Header from "@/components/layout/header/Header";
-import Footer from "@/components/layout/footer/Footer";
+import { ToastContainer } from "react-toastify";
+import AuthProvider from "./AuthProvider";
 
 export const metadata = {
   title: "ConDev | Casino Templates",
@@ -13,11 +14,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fa" dir="rtl">
       <body>
-        <Container>
-          <Header />
-          <main className="mb-5 pb-3">{children}</main>
-          <Footer />
-        </Container>
+        <AuthProvider>
+          <Container>
+            <main>{children}</main>
+          </Container>
+        </AuthProvider>
+        <ToastContainer position="top-right" rtl theme="colored" />
       </body>
     </html>
   );

@@ -96,6 +96,20 @@
   filter: blur(100px) !important;
 }
 
+.plan:nth-child(1)::after {
+  content: "";
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  right: -25%;
+  bottom: -25%;
+  background-color: var(--bg-main);
+  border-radius: 200px;
+  z-index: -1;
+  transform: scale(1.5);
+  opacity: 0.1;
+}
+
 /* Animation */
 @keyframes planCircle {
   0% {

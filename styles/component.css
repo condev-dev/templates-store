@@ -13,6 +13,8 @@
   vertical-align: middle !important;
   transition: all 0.3s !important;
   font-weight: 800 !important;
+  position: relative;
+  overflow: hidden;
 }
 .btn-main > * {
   margin: 0px !important;
@@ -55,5 +57,17 @@
 }
 
 .btn-dark:hover {
+  transform: scale(1.03);
+}
+
+/* btn -4 */
+
+.btn-red {
+  background: var(--bg-red);
+  padding: 13px 15px;
+  color: var(--text-white);
+}
+
+.btn-red:hover {
   transform: scale(1.03);
 }

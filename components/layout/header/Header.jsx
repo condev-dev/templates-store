@@ -2,6 +2,7 @@ import Image from "next/image";
 import { FaCartPlus } from "react-icons/fa";
 import "./index.css";
 import Link from "next/link";
+import AuthBtn from "@/components/auth/AuthBtn";
 
 const Header = () => {
   return (
@@ -17,12 +18,13 @@ const Header = () => {
         />
       </Link>
 
-      <div className="d-flex gap-3">
+      {/* <div className="d-flex gap-3">
         <button className="btn-main btn-color btn-color-sm">
           <FaCartPlus />
         </button>
         <button className="btn-main btn-light"> خرید های قبلی</button>
-      </div>
+      </div> */}
+      <AuthBtn />
     </header>
   );
 };

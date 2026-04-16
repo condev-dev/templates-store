@@ -2,15 +2,15 @@ import { readData, writeData } from "@/utils/api";
 
 // GET
 export async function GET(request) {
-  const products = await readData("templates");
+  const templates = await readData("templates");
   const { searchParams } = new URL(request.url);
 
   // By Id
   const id = searchParams.get("id");
   if (id) {
-    const product = products.find((p) => p.id === id);
-    if (product) {
-      return new Response(JSON.stringify(product), {
+    const template = templates.find((p) => p.id === id);
+    if (template) {
+      return new Response(JSON.stringify(template), {
         headers: { "Content-Type": "application/json" },
       });
     }
@@ -19,8 +19,8 @@ export async function GET(request) {
   // By Filter
   const filterBy = searchParams.get("filterBy");
   if (filterBy) {
-    const filtered = products?.filter((product) =>
-      product?.categories?.some((category) => category === filterBy),
+    const filtered = templates?.filter((template) =>
+      template?.categories?.some((category) => category === filterBy),
     );
     if (filtered) {
       return new Response(JSON.stringify(filtered), {
@@ -30,7 +30,7 @@ export async function GET(request) {
   }
 
   // Get All
-  return new Response(JSON.stringify(products), {
+  return new Response(JSON.stringify(templates), {
     headers: { "Content-Type": "application/json" },
   });
 }

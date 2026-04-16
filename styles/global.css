@@ -12,3 +12,14 @@ body {
   width: 200px !important;
   height: fit-content !important;
 }
+
+/* Toast */
+.Toastify__toast-theme--colored {
+  font-weight: 800 !important;
+  font-size: 15px !important;
+  border-radius: var(--round-sm) !important;
+}
+.Toastify__toast-theme--colored.Toastify__toast--error {
+  color: var(--bg-white) !important;
+  background: var(--text-red) !important;
+}
