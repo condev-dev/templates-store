@@ -1,6 +1,7 @@
 import FaNumber from "../common/FaNumber";
 import Toman from "../common/Toman";
 import "./index.css";
+import Link from "next/link";
 
 const CartInformation = ({ UserTemplates }) => {
   // totalItems
@@ -41,12 +42,9 @@ const CartInformation = ({ UserTemplates }) => {
         </button>
       </div>
 
-      <button
-        className="btn-main btn-light mt-4 w-100 shadow-sm"
-        onClick={() => router.push("/")}
-      >
-        ادامه خرید
-      </button>
+      <Link href={"/"} className="btn-main btn-light mt-4 w-100 shadow-sm">
+        بازگشت به صفحه ی اصلی
+      </Link>
     </div>
   );
 };

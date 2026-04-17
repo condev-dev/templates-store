@@ -40,6 +40,7 @@ export default function SignIn() {
       redirect: false,
       email: email,
       password: password,
+      id: "",
     });
 
     if (result?.error) {

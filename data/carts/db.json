@@ -1,0 +1,62 @@
+[
+  {
+    "id": "e50e9db0-eba7-48c0-afc5-ef4c92d1d8d9",
+    "user_id": "37868416-f42a-41b2-8b92-74ab3305f6b1",
+    "carts": [
+      {
+        "templateId": "4"
+      },
+      {
+        "templateId": "2"
+      },
+      {
+        "templateId": "1"
+      },
+      {
+        "templateId": "3"
+      }
+    ]
+  },
+  {
+    "id": "2169f514-7e47-4a66-a9d6-9c3bbc48be01",
+    "user_id": "2c7f3308-9918-4636-9ec3-083e06c1dba8",
+    "carts": [
+      {
+        "templateId": "4"
+      },
+      {
+        "templateId": "7"
+      }
+    ]
+  },
+  {
+    "id": "cce5dccd-a5a8-4605-b223-98c74dc5e6c3",
+    "user_id": "387984d2-ff8b-4e81-9e6f-d4ea1eb9b5a8",
+    "carts": [
+      {
+        "templateId": "1"
+      },
+      {
+        "templateId": "3"
+      },
+      {
+        "templateId": "2"
+      }
+    ]
+  },
+  {
+    "id": "0af7b468-30db-4626-8d80-776b59dfedc8",
+    "user_id": "5fd4c5df-af66-4a57-982f-e7b53705ea0a",
+    "carts": [
+      {
+        "templateId": "4"
+      },
+      {
+        "templateId": "2"
+      },
+      {
+        "templateId": "3"
+      }
+    ]
+  }
+]

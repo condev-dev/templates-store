@@ -1,36 +1,18 @@
-import { readData, writeData } from "@/utils/api";
+import { GetTemplatesByFilter } from "@/services/templates";
+import { readData } from "@/utils/api";
+import { NextResponse } from "next/server";
 
-// GET
 export async function GET(request) {
   const templates = await readData("templates");
   const { searchParams } = new URL(request.url);
-
-  // By Id
-  const id = searchParams.get("id");
-  if (id) {
-    const template = templates.find((p) => p.id === id);
-    if (template) {
-      return new Response(JSON.stringify(template), {
-        headers: { "Content-Type": "application/json" },
-      });
-    }
-  }
-
-  // By Filter
   const filterBy = searchParams.get("filterBy");
+
+  // Get By Filter
   if (filterBy) {
-    const filtered = templates?.filter((template) =>
-      template?.categories?.some((category) => category === filterBy),
-    );
-    if (filtered) {
-      return new Response(JSON.stringify(filtered), {
-        headers: { "Content-Type": "application/json" },
-      });
-    }
+    const filtered = await GetTemplatesByFilter(filterBy);
+    if (filtered) return NextResponse.json(filtered);
   }
 
   // Get All
-  return new Response(JSON.stringify(templates), {
-    headers: { "Content-Type": "application/json" },
-  });
+  return NextResponse.json(templates);
 }

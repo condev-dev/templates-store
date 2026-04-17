@@ -1,42 +1,16 @@
-"use client";
 import Link from "next/link";
 import Template from "./Template";
+//
 import "./index.css";
-import { toast } from "react-toastify";
-import { useEffect, useState } from "react";
-import { useSession } from "next-auth/react";
 
-const TemplateCategory = ({ title, filterBy }) => {
-  const [templates, setTemplates] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+const TemplateCategory = async ({ title, filterBy }) => {
   const BaseUrl = process.env.NEXT_PUBLIC_API_URL;
-  //
-  const session = useSession();
-
-  const fetchTemplates = async () => {
-    try {
-      const res = await fetch(`${BaseUrl}/api/templates`, {
-        cache: "no-store",
-      });
-      const data = await res.json();
-      setTemplates(data);
-    } catch (err) {
-      toast.error("خط در بارگیری اطلاعات");
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchTemplates();
-  }, []);
-
-  if (isLoading) {
-    return <h1>در حال لود</h1>;
-  }
-
-  if (!isLoading && !templates) {
-    return <h1>هیچ موردی یافت نشد !</h1>;
+  let templates = [];
+  const res = await fetch(`${BaseUrl}/api/templates`, {
+    cache: "no-store",
+  });
+  if (res.ok) {
+    templates = await res.json();
   }
 
   return (
@@ -50,19 +24,16 @@ const TemplateCategory = ({ title, filterBy }) => {
       </section>
 
       <section className="template-container gap-4 mt-5 pt-1">
-        {!isLoading &&
-          templates
-            ?.slice(0, 4)
-            .map((template) => (
-              <Template
-                key={template.id}
-                image={template.image}
-                title={template.title}
-                categories={template.categories}
-                price={template.price}
-                id={template.id}
-              />
-            ))}
+        {templates?.slice(0, 4).map((template) => (
+          <Template
+            key={template.id}
+            image={template.image}
+            title={template.title}
+            categories={template.categories}
+            price={template.price}
+            id={template.id}
+          />
+        ))}
       </section>
     </section>
   );

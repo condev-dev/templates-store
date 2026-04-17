@@ -6,7 +6,7 @@ const RemoveFromCart = ({ userId, templateId, handelRemoveFront }) => {
 
   const onSubmit = async () => {
     try {
-      const response = await fetch(`${BaseUrl}/api/users`, {
+      const response = await fetch(`${BaseUrl}/api/carts`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -20,11 +20,9 @@ const RemoveFromCart = ({ userId, templateId, handelRemoveFront }) => {
       if (response.ok) {
         toast.success("با موفقیت از سبد خرید حذف شد.");
         handelRemoveFront();
-      } else {
-        toast.error("حذف با مشکل مواجعه شد.");
       }
     } catch (err) {
-      console.error("Error during fetch operation:", err);
+      toast.error("حذف با مشکل مواجعه شد.");
     }
   };
 

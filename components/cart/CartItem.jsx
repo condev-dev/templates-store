@@ -1,8 +1,11 @@
+"use client";
+
 import Image from "next/image";
 import FaNumber from "../common/FaNumber";
 import Toman from "../common/Toman";
-import { FiEye, FiTrash2 } from "react-icons/fi";
-import RemoveFromCart from "../templates/RemoveFromCart";
+import { FiEye } from "react-icons/fi";
+import RemoveFromCart from "./RemoveFromCart";
+//
 import "./index.css";
 
 const CartItem = ({ image, title, price, id, userId, handelRemoveFront }) => {

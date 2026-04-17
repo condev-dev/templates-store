@@ -1,10 +1,12 @@
+"use client";
 import Image from "next/image";
 import FaNumber from "../common/FaNumber";
 import Toman from "../common/Toman";
 import { FaEye } from "react-icons/fa";
-import "./index.css";
 import { Fragment } from "react";
 import ImagePlaceholder from "../common/ImagePlaceholder";
+//
+import "./index.css";
 import AddToCart from "./AddToCart";
 
 const Template = ({ image, title, categories, price, id }) => {

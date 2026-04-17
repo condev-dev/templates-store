@@ -20,21 +20,41 @@ export default function SignUp() {
       return;
     }
 
+    const userToAdd = {
+      id: crypto.randomUUID(),
+      email: email,
+      password: password,
+      username: username,
+    };
+
     try {
-      const res = await fetch(`${BaseUrl}/api/users`, {
+      const resUser = await fetch(`${BaseUrl}/api/users`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          email: email,
-          password: password,
-          username: username,
+          id: userToAdd.id,
+          email: userToAdd.email,
+          password: userToAdd.password,
+          username: userToAdd.username,
         }),
       });
-      const data = await res.json();
 
-      if (res.ok) {
+      const resCart = await fetch(`${BaseUrl}/api/carts`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userId: userToAdd.id,
+        }),
+      });
+
+      const cartData = await resCart.json();
+      const userData = await resUser.json();
+
+      if (resCart.ok && resUser.ok) {
         toast.success("ثبت نام با موفقیت انجام شد.");
         // Set In Session Then Get From SignIn
         sessionStorage.setItem("email", email);
@@ -42,7 +62,7 @@ export default function SignUp() {
         //
         router.push("/auth/signin");
       } else {
-        toast.error(data.message);
+        toast.error(cartData.message || userData.message);
       }
     } catch (err) {
       toast.error("ثبت نام با مشکل مواجعه شد.");
@@ -70,7 +90,7 @@ export default function SignUp() {
             ورود
           </button>
           <button
-            onClick={() => router.push("/auth/signin")}
+            onClick={() => router.push("/auth/signup")}
             className={`btn-main w-50 btn-color`}
           >
             ثبت نام
