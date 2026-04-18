@@ -1,6 +1,6 @@
 "use client";
-import Template from "@/components/templates/Template";
 import { useState } from "react";
+import TemplateItem from "@/components/templates/TemplateItem";
 //
 import "./index.css";
 
@@ -13,7 +13,7 @@ export default function TemplateList({ templates }) {
     <>
       <section className="template-container gap-4 mt-4 pt-1">
         {templates.slice(0, visibleCount).map((template) => (
-          <Template key={template.id} {...template} />
+          <TemplateItem key={template.id} {...template} />
         ))}
       </section>
 

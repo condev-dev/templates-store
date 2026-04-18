@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Template from "./Template";
+import Template from "./TemplateItem";
 //
 import "./index.css";
 

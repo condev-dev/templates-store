@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
-import Template from "../templates/Template";
+import Template from "../templates/TemplateItem";
 
 import "./index.css";
 

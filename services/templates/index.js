@@ -12,3 +12,14 @@ export async function GetTemplatesByFilter(filterBy) {
     return [];
   }
 }
+
+export async function GetTemplateById(templateId) {
+  const templates = await readData("templates");
+
+  const filtered = templates?.find((template) => template.id === templateId);
+  if (filtered) {
+    return filtered;
+  } else {
+    return [];
+  }
+}

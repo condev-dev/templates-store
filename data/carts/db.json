@@ -33,14 +33,18 @@
     "id": "cce5dccd-a5a8-4605-b223-98c74dc5e6c3",
     "user_id": "387984d2-ff8b-4e81-9e6f-d4ea1eb9b5a8",
     "carts": [
+      {},
       {
-        "templateId": "2"
+        "templateId": "4"
       },
       {
         "templateId": "3"
       },
       {
-        "templateId": "4"
+        "templateId": "5"
+      },
+      {
+        "templateId": "1"
       }
     ]
   },
