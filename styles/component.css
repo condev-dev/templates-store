@@ -79,8 +79,9 @@
   }
 
   /* btn -1 */
-  .btn-color {
-    padding: 9px 12px;
+  .btn-color,
+  .btn-light {
+    padding: 11px 12px;
     font-size: 12px !important;
   }
   .btn-color-sm {

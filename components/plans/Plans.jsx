@@ -26,7 +26,7 @@ const Plans = () => {
 
           <h5 className="plan-price mb-4 pb-2">۷۰۰ هزار تومان</h5>
 
-          <button className="btn-main btn-dark ">خرید پلن</button>
+          <button className="btn-main w-50 btn-dark ">خرید پلن</button>
         </div>
         {/*  */}
         <div className="d-flex flex-column align-items-center justify-content-center plan p-5 shadow-sm">
@@ -41,7 +41,7 @@ const Plans = () => {
 
           <h5 className="plan-price mb-4 pb-2">۷۰۰ هزار تومان</h5>
 
-          <button className="btn-main btn-color ">خرید پلن</button>
+          <button className="btn-main w-50 btn-color ">خرید پلن</button>
         </div>
         {/*  */}
         <div className="d-flex flex-column align-items-center justify-content-center plan p-5 shadow-sm">
@@ -56,7 +56,7 @@ const Plans = () => {
 
           <h5 className="plan-price mb-4 pb-2">۷۰۰ هزار تومان</h5>
 
-          <button className="btn-main btn-color ">خرید پلن</button>
+          <button className="btn-main w-50 btn-color ">خرید پلن</button>
         </div>
         {/*  */}
       </div>

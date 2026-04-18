@@ -33,4 +33,26 @@ body {
     width: 150px !important;
     height: fit-content !important;
   }
+  .Toastify__toast {
+    margin-top: 2.5% !important;
+    min-height: 60px !important;
+  }
+
+  .Toastify__toast-container--rtl {
+    width: 300px !important;
+    margin-right: 3% !important;
+  }
+  .Toastify__toast-theme--colored {
+    font-size: 13px !important;
+  }
+
+  .Toastify__toast-icon {
+    width: 17px !important;
+    height: 17px !important;
+    margin-top: -3px !important;
+  }
+  .Toastify__toast--rtl .Toastify__close-button {
+    left: 11px !important;
+    top: 10px !important;
+  }
 }
