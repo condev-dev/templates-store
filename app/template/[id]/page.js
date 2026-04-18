@@ -1,26 +1,21 @@
-"use client";
 import { FaCheck } from "react-icons/fa";
 import "./index.css";
 import AddToCart from "@/components/templates/AddToCart";
 import FaNumber from "@/components/common/FaNumber";
 import Toman from "@/components/common/Toman";
-import { fetcher } from "@/services/api";
-import useSWR from "swr";
-import { useSearchParams } from "next/navigation";
-import { lazy, use } from "react";
 import Link from "next/link";
-import Intro from "@/components/intro/Intro";
 import Image from "next/image";
-const Template = ({ params }) => {
-  const { id } = use(params);
+const Template = async ({ params }) => {
+  const BaseUrl = process.env.NEXT_PUBLIC_API_URL;
+  const { id } = await params;
 
-  const { data, error, isLoading } = useSWR(
-    `templates?templateId=${id}`,
-    fetcher,
-  );
-
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error loading data</div>;
+  const res = await fetch(`${BaseUrl}/api/templates?templateId=${id}`, {
+    cache: "no-store",
+  });
+  const data = res.ok ? await res.json() : null;
+  
+  // Empty
+  if(data.length <= 0) return <div> این قالب پیدا نشد. </div>
 
   return (
     <section className="d-flex flex-column mt-4">
@@ -101,7 +96,7 @@ const Template = ({ params }) => {
             <h4>پیشنمایش کامل قالب</h4>
             <button className="btn-main btn-color shadow-lg"> دمو زنده</button>
           </section>
-
+          
           <Image
             src={data?.image}
             alt={data?.title}

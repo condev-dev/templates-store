@@ -1,17 +1,18 @@
-"use client";
-import { usePathname } from "next/navigation";
 import "./index.css";
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
+import CheckLayout from "./CheckLayout";
 
 const Container = ({ children }) => {
-  const pathname = usePathname();
-  const hideLayout = ["/auth/signin", "/auth/signup"].includes(pathname);
   return (
     <section className="main-container d-flex flex-column ">
-      {hideLayout ? "" : <Header />}
+      <CheckLayout>
+        <Header />
+      </CheckLayout>
       {children}
-      {hideLayout ? "" : <Footer />}
+      <CheckLayout>
+        <Footer />
+      </CheckLayout>
     </section>
   );
 };

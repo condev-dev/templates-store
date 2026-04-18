@@ -4,9 +4,6 @@
     "user_id": "37868416-f42a-41b2-8b92-74ab3305f6b1",
     "carts": [
       {
-        "templateId": "4"
-      },
-      {
         "templateId": "2"
       },
       {
@@ -42,6 +39,15 @@
     "carts": [
       {
         "templateId": "4"
+      }
+    ]
+  },
+  {
+    "id": "340a7691-8535-4332-a128-2bc431c5fc33",
+    "user_id": "1486886d-ca78-405e-82ab-1449367e8867",
+    "carts": [
+      {
+        "templateId": "1"
       }
     ]
   }

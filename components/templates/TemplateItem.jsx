@@ -1,15 +1,13 @@
-"use client";
 import Image from "next/image";
 import FaNumber from "../common/FaNumber";
 import Toman from "../common/Toman";
-import { FaEye } from "react-icons/fa";
 import { Fragment } from "react";
 import ImagePlaceholder from "../common/ImagePlaceholder";
-//
-import "./index.css";
 import AddToCart from "./AddToCart";
 import Link from "next/link";
-import { FiEye, FiEyeOff } from "react-icons/fi";
+import { FiEye } from "react-icons/fi";
+//
+import "./index.css";
 
 const TemplateItem = ({ image, title, categories, price, id }) => {
   return (
