@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import FaNumber from "../common/FaNumber";
 import Toman from "../common/Toman";

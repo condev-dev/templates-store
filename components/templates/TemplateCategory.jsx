@@ -5,13 +5,11 @@ import "./index.css";
 
 const TemplateCategory = async ({ title, filterBy }) => {
   const BaseUrl = process.env.NEXT_PUBLIC_API_URL;
-  let templates = [];
   const res = await fetch(`${BaseUrl}/api/templates`, {
     cache: "no-store",
   });
-  if (res.ok) {
-    templates = await res.json();
-  }
+
+  const templates = res.ok ? await res.json() : [];
 
   return (
     <section className=" w-100 d-flex flex-column mt-5 pt-4">

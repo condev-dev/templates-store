@@ -2,7 +2,6 @@ import Image from "next/image";
 import "./index.css";
 import Link from "next/link";
 import AuthBtn from "@/components/auth/AuthBtn";
-import { useRouter } from "next/navigation";
 import CartBtn from "../../cart/CartBtn";
 
 const Header = () => {
@@ -27,6 +26,9 @@ const Header = () => {
       <div className="d-flex gap-2">
         <CartBtn />
         <AuthBtn />
+        <Link className="btn-main btn-color" href="/purchases">
+          خرید های قبلی
+        </Link>
       </div>
     </header>
   );

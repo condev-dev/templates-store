@@ -3,7 +3,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcrypt";
 import { readData } from "@/utils/api";
 
-const handler = NextAuth({
+export const authOptions = {
   providers: [
     CredentialsProvider({
       credentials: {
@@ -53,6 +53,7 @@ const handler = NextAuth({
     signIn: "/auth/signin",
     SignUp: "/auth/signup",
   },
-});
+};
 
+const handler = NextAuth(authOptions);
 export { handler as GET, handler as POST };
