@@ -1,5 +1,6 @@
 .single-template img {
-  height: 600px;
+  height: 600px !important;
+  width: 100% !important;
   object-fit: cover;
   object-position: top right;
   border-radius: var(--round-md);
@@ -65,4 +66,11 @@
 .single-template-description img {
   border: 1px solid var(--border-color);
   border-radius: var(--round-md);
+}
+
+.single-template-description img {
+  width: 100% !important;
+  height: fit-content !important;
+  min-height: fit-content !important;
+  max-height: fit-content !important;
 }

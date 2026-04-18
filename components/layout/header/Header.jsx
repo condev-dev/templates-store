@@ -3,6 +3,7 @@ import "./index.css";
 import Link from "next/link";
 import AuthBtn from "@/components/auth/AuthBtn";
 import CartBtn from "../../cart/CartBtn";
+import Menu from "./Menu";
 
 const Header = () => {
   return (
@@ -24,11 +25,9 @@ const Header = () => {
       </div> */}
 
       <div className="d-flex gap-2">
-        <CartBtn />
+        <Menu />
         <AuthBtn />
-        <Link className="btn-main btn-color" href="/purchases">
-          خرید های قبلی
-        </Link>
+        <CartBtn />
       </div>
     </header>
   );

@@ -7,9 +7,10 @@ import Toman from "@/components/common/Toman";
 import { fetcher } from "@/services/api";
 import useSWR from "swr";
 import { useSearchParams } from "next/navigation";
-import { use } from "react";
+import { lazy, use } from "react";
 import Link from "next/link";
 import Intro from "@/components/intro/Intro";
+import Image from "next/image";
 const Template = ({ params }) => {
   const { id } = use(params);
 
@@ -32,9 +33,12 @@ const Template = ({ params }) => {
         {/* Intro */}
         <section className="w-100 d-flex justify-content-between align-items-start single-template mt-4 pt-2">
           <section className="w-75 ps-4">
-            <img
+            <Image
               src={data?.image}
               alt={data?.title}
+              width={1200}
+              height={600}
+              loading="lazy"
               className="w-100 shadow-sm"
             />
           </section>
@@ -98,7 +102,14 @@ const Template = ({ params }) => {
             <button className="btn-main btn-color shadow-lg"> دمو زنده</button>
           </section>
 
-          <img src={data?.image} alt="image" className="w-100 shadow-sm mt-4" />
+          <Image
+            src={data?.image}
+            alt={data?.title}
+            width={1400}
+            height={6000}
+            loading="lazy"
+            className="w-100 shadow-sm mt-4"
+          />
         </section>
       </section>
     </section>

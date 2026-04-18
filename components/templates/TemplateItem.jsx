@@ -9,6 +9,7 @@ import ImagePlaceholder from "../common/ImagePlaceholder";
 import "./index.css";
 import AddToCart from "./AddToCart";
 import Link from "next/link";
+import { FiEye, FiEyeOff } from "react-icons/fi";
 
 const TemplateItem = ({ image, title, categories, price, id }) => {
   return (
@@ -53,7 +54,7 @@ const TemplateItem = ({ image, title, categories, price, id }) => {
         <div className="d-flex gap-2">
           <button className="btn-main btn-light ms-1">
             {" "}
-            <FaEye size={16} />
+            <FiEye size={16} />
           </button>
 
           <AddToCart templateId={id} />

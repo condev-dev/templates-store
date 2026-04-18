@@ -1,3 +1,91 @@
 .main-header {
   border-bottom: 1px solid var(--border-color) !important;
 }
+
+/* Menu */
+.menu-overlay {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  inset: 0px;
+  background: var(--bg);
+  opacity: 0.5;
+  z-index: 99;
+  filter: brightness(0);
+}
+
+.menu {
+  width: 290px;
+  height: 100%;
+  position: fixed;
+  right: -340px;
+  top: 0px;
+  bottom: 0px;
+  background: var(--bg);
+  border-left: 1px solid var(--border-color);
+  z-index: 100;
+  transition: all 0.3s;
+}
+
+.menu-open {
+  right: 0px;
+}
+.menu-logo {
+  width: 160px !important;
+}
+
+.menu-btn {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  padding: 13px 20px;
+  border-radius: var(--round-md) !important;
+  cursor: pointer;
+}
+
+.menu-btn > * {
+  color: var(--text) !important;
+  font-size: 14px !important;
+}
+
+.menu-btn span {
+  padding-top: 2px !important;
+}
+
+.menu-btn:hover {
+  background: var(--bg-color) !important;
+}
+
+.menu-btn-plan {
+  background: var(--bg-btn-color);
+  padding: 13px 20px;
+  color: var(--text-btn-color);
+  font-size: 16px !important;
+  cursor: pointer !important;
+  transition: all 0.3s !important;
+  border-radius: var(--round-sm) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-btn-plan::before {
+  content: "";
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  right: -50px;
+  top: -90px;
+  background: var(--bg-main);
+  border-radius: 200px;
+  opacity: 0.2;
+  filter: blur(20);
+}
+
+.menu-btn-plan span {
+  font-weight: 800 !important;
+  padding-top: 1.5px !important;
+  margin-right: 3px !important;
+}
+
+.menu-btn-plan:hover {
+  transform: scale(1.02);
+}

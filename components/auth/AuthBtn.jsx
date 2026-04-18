@@ -2,32 +2,22 @@
 import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
-const AuthBtn = () => {
+const AuthBtn = ({ className }) => {
   const session = useSession();
   const router = useRouter();
   return (
-    <div className="d-flex gap-3">
-      {session?.status === "authenticated" ? (
-        <button onClick={signOut} className="btn-main btn-red">
-          خروج از حساب کاربری
-        </button>
-      ) : (
+    <>
+      {session?.status !== "authenticated" && (
         <>
           <button
-            onClick={() => router.push("/auth/signup")}
-            className="btn-main btn-color"
-          >
-            ثبت نام
-          </button>
-          <button
             onClick={() => router.push("/auth/signin")}
-            className="btn-main btn-color"
+            className={`btn-main btn-color ${className}`}
           >
-            ورود
+            ثبت نام / ورود
           </button>
         </>
       )}
-    </div>
+    </>
   );
 };
 

@@ -16,34 +16,43 @@ const Cart = () => {
     fetcher,
   );
   //
+  if (status !== "loading" && status !== "authenticated")
+    return <div>لطفاً برای مشاهده سبد خرید وارد حساب کاربری خود شوید. </div>;
+  //
   if (isLoading) return <div>Loading...</div>;
   //
   if (error) return <div>Error loading data</div>;
   //
-  const handelRemoveFront = async () => {
-    await mutate(`carts?userId=${session?.user?.id}`);
-  };
+  if (data?.length <= 0) return <div> سبد خرید شما خالی می باشد. </div>;
+  //
 
-  return (
-    <section className="d-flex justify-content-between align-items-start flex-row-reverse mt-4 h-100">
-      {/* Information */}
-      <CartInformation UserTemplates={data} />
-      {/* Box */}
-      <div className="cart-items-container w-75 ps-4 gap-4 h-100">
-        {data?.map((template) => (
-          <CartItem
-            key={template?.id}
-            image={template?.image}
-            title={template?.title}
-            price={template?.price}
-            id={template?.id}
-            userId={session?.user?.id}
-            handelRemoveFront={handelRemoveFront}
-          />
-        ))}
-      </div>
-    </section>
-  );
+  if (status === "authenticated") {
+    // Func For Update When Remove A Template
+    const handelRemoveFront = async () => {
+      await mutate(`carts?userId=${session?.user?.id}`);
+    };
+    //
+    return (
+      <section className="d-flex justify-content-between align-items-start flex-row-reverse mt-4 h-100">
+        {/* Information */}
+        <CartInformation UserTemplates={data} />
+        {/* Box */}
+        <div className="cart-items-container w-75 ps-4 gap-4 h-100">
+          {data?.map((template) => (
+            <CartItem
+              key={template?.id}
+              image={template?.image}
+              title={template?.title}
+              price={template?.price}
+              id={template?.id}
+              userId={session?.user?.id}
+              handelRemoveFront={handelRemoveFront}
+            />
+          ))}
+        </div>
+      </section>
+    );
+  }
 };
 
 export default Cart;
