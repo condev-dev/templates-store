@@ -12,16 +12,18 @@ const TemplateCategory = async ({ title, filterBy }) => {
   const templates = res.ok ? await res.json() : [];
 
   return (
-    <section className=" w-100 d-flex flex-column mt-5 pt-4">
+    <section className=" w-100 d-flex flex-column mt-4 mt-sm-5 pt-4">
       <section className="template-category-title d-flex justify-content-between align-items-center w-100">
         <h3 className="mt-2">{title}</h3>
 
-        <Link href={`/templates/filter/${filterBy}`}>
-          <button className="btn-main btn-color">مشاهده همه</button>
-        </Link>
+        <div className="d-none d-sm-flex">
+          <Link href={`/templates/filter/${filterBy}`}>
+            <button className="btn-main btn-color">مشاهده همه</button>
+          </Link>
+        </div>
       </section>
 
-      <section className="template-container gap-4 mt-5 pt-1">
+      <section className="template-container gap-4 mt-4 mt-sm-5 pt-1">
         {templates?.slice(0, 4).map((template) => (
           <Template
             key={template.id}

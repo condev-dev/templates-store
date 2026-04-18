@@ -3,6 +3,24 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr !important;
 }
+@media (max-width: 1450px) {
+  .template-container {
+    grid-template-columns: 1fr 1fr 1fr !important;
+  }
+}
+
+@media (max-width: 1100px) {
+  .template-container {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .template-container {
+    grid-template-columns: 1fr !important;
+  }
+}
+
 /* TemplateItem.Jsx */
 .template-box {
   background: transparent;
@@ -21,12 +39,7 @@
 }
 
 .template-box-title {
-  font-size: 18px;
-  font-weight: 800;
   color: var(--text);
-}
-
-.template-box-title {
   font-size: 18px;
   font-weight: 800;
   position: relative;
@@ -85,4 +98,45 @@
   height: 130%;
   background-color: var(--bg-color);
   border-radius: 0 200px 200px 0;
+}
+
+@media (max-width: 578px) {
+  .template-category-title h3 {
+    font-size: 20px;
+    padding-right: 25px;
+  }
+
+  .template-category-title h3::before {
+    top: 37.5%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 150%;
+  }
+
+  .template-box-title {
+    font-size: 16px !important;
+    padding-right: 18px;
+  }
+
+  .template-box-title::before {
+    height: 140%;
+    top: -6px;
+  }
+
+  .template-box-category span:nth-child(1) {
+    color: var(--text-light);
+    font-size: 14px;
+  }
+
+  .template-box-category span:nth-child(2) {
+    margin-right: 5px;
+    color: var(--text-color);
+    font-size: 14px;
+  }
+
+  .template-box-price span:nth-child(1) {
+    color: var(--text);
+    font-weight: 800;
+    font-size: 20px;
+  }
 }

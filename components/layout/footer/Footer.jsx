@@ -6,8 +6,8 @@ const Footer = () => {
   return (
     <footer className="mt-auto pt-4">
       <section className="footer-main w-100 d-flex flex-column mt-5 ">
-        <section className="w-100 d-flex justify-content-between align-items-center py-4 my-1 mt-3">
-          <div className="d-flex flex-column align-items-start w-50 ps-5">
+        <section className="w-100 d-flex justify-content-between align-items-center flex-column flex-lg-row py-4 my-1 mt-3">
+          <div className="d-flex flex-column align-items-start w-50 ps-5 footer-description">
             <Image
               width={170}
               height={40}
@@ -28,7 +28,7 @@ const Footer = () => {
             </p>
           </div>
 
-          <div className="w-50 pe-5 d-flex flex-column">
+          <div className="w-50 pe-5 d-flex flex-column footer-social">
             <div className="social-media-title gap-3">
               <h6>ما را در شبکه های اجتماعی دنبال کنید </h6>
             </div>

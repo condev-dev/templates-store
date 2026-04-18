@@ -125,3 +125,25 @@
     object-position: top right;
   }
 }
+@media (max-width: 768px) {
+  .best-sellers-container {
+    overflow: hidden !important;
+  }
+}
+
+@media (max-width: 578px) {
+  .swiper-slide-active {
+    transform: scale(1) !important;
+  }
+  .swiper-slide {
+    transform: scale(1) !important;
+  }
+
+  .swiper-slide:not(.swiper-slide-active)::after {
+    display: none !important;
+  }
+
+  .best-sellers-title h3 {
+    font-size: 20px;
+  }
+}

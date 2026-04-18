@@ -27,3 +27,10 @@ body {
   color: var(--text-white) !important;
   background: var(--bg-green) !important;
 }
+
+@media (max-width: 578px) {
+  .logo {
+    width: 150px !important;
+    height: fit-content !important;
+  }
+}

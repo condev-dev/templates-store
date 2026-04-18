@@ -71,3 +71,23 @@
 .btn-red:hover {
   transform: scale(1.03);
 }
+
+@media (max-width: 578px) {
+  .btn-main,
+  .btn-main > * {
+    font-size: 13px !important;
+  }
+
+  /* btn -1 */
+  .btn-color {
+    padding: 9px 12px;
+    font-size: 12px !important;
+  }
+  .btn-color-sm {
+    padding: 12px !important;
+  }
+  .btn-color-sm svg {
+    width: 14px !important;
+    height: 14px !important;
+  }
+}
