@@ -56,5 +56,15 @@
         "templateId": "1"
       }
     ]
+  },
+  {
+    "id": "add70f12-e16b-4a37-84bd-92cc7183367c",
+    "user_id": "e1b5f1e1-1297-4082-a4ae-b910dd5d456a",
+    "carts": []
+  },
+  {
+    "id": "811ab3a8-d0e1-4557-adc9-31992d1004be",
+    "user_id": "05d46bb9-a43c-4120-bda6-ff9e0ad21c8a",
+    "carts": []
   }
 ]

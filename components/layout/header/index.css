@@ -89,3 +89,50 @@
 .menu-btn-plan:hover {
   transform: scale(1.02);
 }
+
+
+/* NavSm.Jsx */
+.nav-sm
+{
+  width: 100% ;
+  height: 70px;
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: var(--bg);
+  z-index: 80;
+  border-top: 1px solid var(--border-color);
+}
+
+.nav-sm-item{
+  width: 18%;
+  height: 100%;
+}
+
+.nav-sm-item>*{
+  color: var(--text) !important;
+}
+
+.nav-sm-item span
+{
+  margin-top: 10px;
+  font-size: 9px;
+}
+
+.nav-sm-item-selected
+{
+  position: relative;
+}
+
+.nav-sm-item-selected::before
+{
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0px;
+  background: linear-gradient(to bottom , var(--bg-color), transparent);
+  z-index: -2;
+  opacity: .5;
+}

@@ -4,6 +4,7 @@ import Link from "next/link";
 import AuthBtn from "@/components/auth/AuthBtn";
 import CartBtn from "../../cart/CartBtn";
 import Menu from "./Menu";
+import NavSm from "./NavSm";
 
 const Header = () => {
   return (
@@ -18,17 +19,17 @@ const Header = () => {
           className="logo"
         />
       </Link>
+      
 
-      {/* <div className="d-flex gap-3">
-
-        <button className="btn-main btn-light"> خرید های قبلی</button>
-      </div> */}
 
       <div className="d-flex gap-2">
         <Menu />
         <AuthBtn />
         <CartBtn />
       </div>
+
+      {/* NavSm */}
+      <NavSm />
     </header>
   );
 };
