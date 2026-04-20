@@ -1,0 +1,35 @@
+.custom-error {
+  height: 75vh;
+}
+.custom-error h5 {
+  font-weight: 800 !important;
+  font-size: 18px !important;
+  text-align: center !important;
+  color: var(--text-light) !important;
+  position: relative !important;
+  line-height: 2;
+}
+
+.custom-error small
+{
+    font-size: 14px !important;
+    color: var(--text-light);
+  text-align: center !important;
+}
+
+
+.custom-error h5::before {
+  content: "";
+  width: 70%;
+  height: 4px;
+  position: absolute;
+  right: 0px;
+  bottom: -15px;
+  background: linear-gradient( to left , var(--bg-red) , var(--bg));
+}
+
+@media (max-width: 578px) {
+  .custom-error h5 {
+    font-size: 14px !important;
+  }
+}

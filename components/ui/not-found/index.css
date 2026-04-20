@@ -1,0 +1,63 @@
+.not-found {
+  background: var(--bg) !important;
+  min-height: 75vh !important;
+}
+
+.not-found h5 {
+  font-size: 100px !important;
+  font-weight: lighter !important;
+  color: var(--text-light) !important;
+  direction: ltr;
+  position: relative;
+  padding-right: 35px !important;
+  margin-left: -30px !important;
+  line-height: 2;
+}
+
+.not-found h5::before {
+  content: "!";
+  font-size: 100px;
+  font-weight: lighter;
+  color: var(--text-color);
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+}
+
+.not-found h5::after {
+  content: "?";
+  font-size: 100px;
+  font-weight: lighter;
+  color: var(--text-red);
+  position: absolute;
+  right: -30px;
+  top: 0px;
+  bottom: 0px;
+}
+
+.not-found h6 {
+  font-size: 18px !important;
+  font-weight: 800 !important;
+  color: var(--text-light) !important;
+}
+
+@media (max-width: 578px) {
+  .not-found h5 {
+    font-size: 70px !important;
+    padding-right: 23px !important;
+    margin-left: -23px !important;
+  }
+  .not-found h6 {
+    font-size: 16px !important;
+  }
+
+  .not-found h5::before {
+    font-size: 70px !important;
+  }
+
+  .not-found h5::after {
+    font-size: 70px !important;
+    right: -25px !important;
+  }
+}

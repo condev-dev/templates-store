@@ -1,0 +1,27 @@
+.empty {
+  height: 75vh;
+}
+.empty h5 {
+  font-weight: 800 !important;
+  font-size: 18px !important;
+  text-align: right !important;
+  color: var(--text-light) !important;
+  position: relative !important;
+  line-height: 2;
+}
+
+.empty h5::before {
+  content: "";
+  width: 50%;
+  height: 4px;
+  position: absolute;
+  right: 0px;
+  bottom: -15px;
+  background: linear-gradient( to left , var(--bg-color) , var(--bg));
+}
+
+@media (max-width: 578px) {
+  .empty h5 {
+    font-size: 14px !important;
+  }
+}

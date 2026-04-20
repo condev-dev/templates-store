@@ -13,7 +13,7 @@ const CartItem = ({ image, title, price, id, userId, handelRemoveFront }) => {
 
       <div className="me-4 mt-2 h-100">
         {/*  */}
-        <h5 className="cart-item-title">{title}</h5>
+        <h5 className="cart-item-title one-line">{title}</h5>
         {/*  */}
         <h5 className="d-flex w-100 justify-content-between align-items-center mt-3 pb-1  cart-item-price">
           <span>قیمت :</span>

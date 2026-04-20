@@ -1,0 +1,21 @@
+.not-login {
+  height: 75vh;
+}
+.not-login h5 , .not-login span {
+  font-weight: 800 !important;
+  font-size: 18px !important;
+  text-align: center !important;
+  color: var(--text-light) !important;
+  position: relative !important;
+  line-height: 2;
+}
+
+.not-login span {
+    color: var(--text-color) !important;
+}
+
+@media (max-width: 578px) {
+  .not-login h5 , .not-login span {
+    font-size: 14px !important;
+  }
+}

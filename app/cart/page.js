@@ -7,6 +7,8 @@ import { fetcher } from "@/services/api";
 import useSWR, { mutate } from "swr";
 //
 import "./index.css";
+import Empty from "@/components/ui/empty/Empty";
+import NotLogin from "@/components/ui/not-login/NotLogin";
 
 const Cart = () => {
   const { data: session, status } = useSession();
@@ -16,14 +18,14 @@ const Cart = () => {
     fetcher,
   );
   //
-  if (status !== "loading" && status !== "authenticated")
-    return <div>لطفاً برای مشاهده سبد خرید وارد حساب کاربری خود شوید. </div>;
+  if (status !== "authenticated")
+    return <NotLogin text={"برای مشاهده سبد خرید وارد حساب کاربری خود شوید."} />
   //
   if (isLoading) return <div>Loading...</div>;
   //
   if (error) return <div>Error loading data</div>;
   //
-  if (data?.length <= 0) return <div> سبد خرید شما خالی می باشد. </div>;
+  if (data?.length === 0) return <Empty text={"سبد خرید شما خالی می باشد."} />
   //
 
   if (status === "authenticated") {
@@ -33,7 +35,7 @@ const Cart = () => {
     };
     //
     return (
-      <section className="d-flex justify-content-between align-items-start flex-row-reverse mt-4 h-100">
+      <section className="d-flex justify-content-between align-items-start flex-row-reverse mt-4 h-100  ">
         {/* Information */}
         <CartInformation UserTemplates={data} />
         {/* Box */}

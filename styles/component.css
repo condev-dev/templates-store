@@ -92,3 +92,22 @@
     height: 14px !important;
   }
 }
+
+/* for text */
+
+.one-line {
+  display: -webkit-box !important;
+  -webkit-line-clamp: 1 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+
+.two-line {
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
