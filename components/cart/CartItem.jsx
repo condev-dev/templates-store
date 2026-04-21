@@ -5,6 +5,7 @@ import { FiEye } from "react-icons/fi";
 import RemoveFromCart from "./RemoveFromCart";
 //
 import "./index.css";
+import Link from "next/link";
 
 const CartItem = ({ image, title, price, id, userId, handelRemoveFront }) => {
   return (
@@ -24,15 +25,15 @@ const CartItem = ({ image, title, price, id, userId, handelRemoveFront }) => {
         </h5>
         {/*  */}
 
-        <div className="d-flex gap-2 mt-4">
+        <div className="d-flex gap-2 mt-sm-4">
           <RemoveFromCart
             userId={userId}
             templateId={id}
             handelRemoveFront={handelRemoveFront}
           />
-          <button className="btn-main btn-color btn-color-sm mx-1">
+          <Link href={`/template/${id}`} className="btn-main btn-color btn-color-sm mx-1">
             <FiEye size={16} />
-          </button>
+          </Link>
         </div>
       </div>
     </div>

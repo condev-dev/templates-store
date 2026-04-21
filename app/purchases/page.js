@@ -30,12 +30,12 @@ const Purchases = async () => {
   // If Was
   if (purchases) {
     return (
-      <section className=" w-100 d-flex flex-column mt-5 ">
+      <section className=" w-100 d-flex flex-column mt-4 pt-2 pt-sm-0 mt-sm-5 ">
         <section className="purchases-category-title d-flex justify-content-between align-items-center w-100">
           <h3 className="mt-2">خریداری شده </h3>
         </section>
 
-        <section className="purchases-container gap-4 mt-5 pt-1">
+        <section className="purchases-container gap-4 mt-4 mt-sm-5 pt-1">
           {purchases?.slice(0, 4).map((purchasedItem) => (
             <PurchasedItem
               key={purchasedItem.id}

@@ -1,11 +1,11 @@
 import Image from "next/image";
 import "./index.css";
-import { FaTelegram } from "react-icons/fa";
+import { FaGithub, FaInstagram, FaTelegram, FaWhatsapp } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="mt-auto pt-4">
-      <section className="footer-main w-100 d-flex flex-column mt-5 ">
+    <footer className="mt-auto pt-1 pb-1 pb-sm-0 pt-sm-4">
+      <section className="footer-main w-100 d-flex flex-column mt-4  mt-sm-5 ">
         <section className="w-100 d-flex justify-content-between align-items-center flex-column flex-lg-row py-4 my-1 mt-3">
           <div className="d-flex flex-column align-items-start w-50 ps-5 footer-description">
             <Image
@@ -16,7 +16,7 @@ const Footer = () => {
               src="/img/logo.webp"
               className="logo"
             />
-            <p className="footer-information-text mt-3">
+            <p className="footer-information-text mt-3 mt-sm-4 pt-sm-2 four-line">
               قالب وردپرس | پوسته وردپرس | مرجع دانلود و خرید تم وردپرس اورجینال
               | نوین وردپرسقالب وردپرس | پوسته وردپرس | مرجع دانلود و خرید تم
               وردپرس اورجینال | نوین وردپرسقالب وردپرس | پوسته وردپرس | مرجع
@@ -35,8 +35,8 @@ const Footer = () => {
             <div className="social-media-container gap-3 mt-2">
               {/*  */}
               <div className="social-medial-box d-flex align-items-center justify-content-start ">
-                <div className="social-medial-icon h-100 d-flex align-items-center justify-content-center p-3">
-                  <FaTelegram size={20} />
+                <div className="social-medial-icon h-100 d-flex align-items-center justify-content-center telegram">
+                  <FaTelegram size={25} />
                 </div>
                 <div className="social-medial-text d-flex flex-column me-3">
                   <small>کانال ما در تلگرام</small>
@@ -45,31 +45,31 @@ const Footer = () => {
               </div>
               {/*  */}
               <div className="social-medial-box d-flex align-items-center justify-content-start ">
-                <div className="social-medial-icon h-100 d-flex align-items-center justify-content-center p-3">
-                  <FaTelegram size={20} />
+                <div className="social-medial-icon h-100 d-flex align-items-center justify-content-center whatsapp">
+                  <FaWhatsapp size={25} />
                 </div>
                 <div className="social-medial-text d-flex flex-column me-3">
-                  <small>کانال ما در تلگرام</small>
+                  <small>کانال ما در واتساپ</small>
                   <small>tm::/condevtp.com</small>
                 </div>
               </div>
               {/*  */}
-              <div className="social-medial-box d-flex align-items-center justify-content-start ">
-                <div className="social-medial-icon h-100 d-flex align-items-center justify-content-center p-3">
-                  <FaTelegram size={20} />
+              <div className="social-medial-box d-flex align-items-center justify-content-start  ">
+                <div className="social-medial-icon h-100 d-flex align-items-center justify-content-center github">
+                  <FaGithub size={25} />
                 </div>
                 <div className="social-medial-text d-flex flex-column me-3">
-                  <small>کانال ما در تلگرام</small>
+                  <small>گیت هاب</small>
                   <small>tm::/condevtp.com</small>
                 </div>
               </div>
               {/*  */}
-              <div className="social-medial-box d-flex align-items-center justify-content-start ">
-                <div className="social-medial-icon h-100 d-flex align-items-center justify-content-center p-3">
-                  <FaTelegram size={20} />
+              <div className="social-medial-box d-flex align-items-center justify-content-start  ">
+                <div className="social-medial-icon h-100 d-flex align-items-center justify-content-center instagram">
+                  <FaInstagram size={25} />
                 </div>
                 <div className="social-medial-text d-flex flex-column me-3">
-                  <small>کانال ما در تلگرام</small>
+                  <small>اینستاگرام</small>
                   <small>tm::/condevtp.com</small>
                 </div>
               </div>

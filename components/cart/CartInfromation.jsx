@@ -15,7 +15,7 @@ const CartInformation = ({ UserTemplates }) => {
     : 0;
 
   return (
-    <div className="w-25 h-100">
+    <div className="w-25 h-100 cart-information-container">
       <div className="cart-information p-4 shadow-sm">
         <h6 className="text-center 2-100 mt-2 cart-information-title mb-5">
           اطلاعات سبد خرید

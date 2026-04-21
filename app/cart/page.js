@@ -35,7 +35,7 @@ const Cart = () => {
     };
     //
     return (
-      <section className="d-flex justify-content-between align-items-start flex-row-reverse mt-4 h-100  ">
+      <section className="d-flex cart-container justify-content-between align-items-start flex-row-reverse mt-4 h-100  w-100">
         {/* Information */}
         <CartInformation UserTemplates={data} />
         {/* Box */}

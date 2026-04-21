@@ -26,8 +26,8 @@ const Template = async ({ params }) => {
 
       <section className="w-100 d-flex flex-column">
         {/* Intro */}
-        <section className="w-100 d-flex justify-content-between align-items-start single-template mt-4 pt-2">
-          <section className="w-75 ps-4">
+        <section className="w-100 d-flex justify-content-between align-items-start flex-column flex-lg-row single-template mt-4 pt-2">
+          <section className="w-75 ps-4 single-template-image-container">
             <Image
               src={data?.image}
               alt={data?.title}
@@ -38,7 +38,7 @@ const Template = async ({ params }) => {
             />
           </section>
 
-          <section className="d-flex flex-column single-template-information p-4 w-25 shadow-sm">
+          <section className="d-flex flex-column single-template-information p-4 mt-4 mt-lg-0 w-25 shadow-sm">
             <div className="single-template-price mt-3 mb-4">
               <h5 className="w-100 d-flex justify-content-center align-items-center gap-2">
                 <FaNumber number={data?.price} />
@@ -76,11 +76,11 @@ const Template = async ({ params }) => {
         </section>
         {/* Show All Image , ... */}
 
-        <section className="w-100 mt-4 single-template-description ">
-          <section className="d-flex align-items-start justify-content-start flex-column mt-5 mb-4 pb-1 single-template-description-title">
+        <section className="w-100 mb-3 mb-lg-0 mt-lg-4 single-template-description ">
+          <section className="d-flex align-items-start justify-content-start flex-column mt-5 mb-4 pb-1 single-template-description-title ">
             <h4>یکی از بهترین قالب های فروشگاهی در سطح جهان</h4>
 
-            <p className="mt-4 ">
+            <p className=" mt-3 mt-sm-4 three-line ">
               {" "}
               این حجم از فروش و رضایت کاربران شانسی و اتفاقی بدست نمی آید. شاید
               این شرکت هم مانند تیم ابزار وردپرس هدفی جز رضایت کاربران خود
@@ -92,7 +92,7 @@ const Template = async ({ params }) => {
             </p>
           </section>
 
-          <section className="w-100 d-flex justify-content-between align-items-center single-template-title pb-2 ">
+          <section className="w-100 pt-2 pt-sm-0 d-flex justify-content-between align-items-center single-template-title pb-2 ">
             <h4>پیشنمایش کامل قالب</h4>
             <button className="btn-main btn-color shadow-lg"> دمو زنده</button>
           </section>

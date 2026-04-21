@@ -10,12 +10,32 @@
 
 .footer-information-text {
   font-size: 16px;
-  line-height: 2;
+  line-height: 2.4;
 }
 
 .social-media-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
+}
+
+.social-media-container .instagram
+{
+  background: linear-gradient(120deg, #a611f2, #fe1077);
+}
+
+.social-media-container .github
+{
+  background: linear-gradient(120deg, #22262a, #2b3034);
+}
+
+.social-media-container .whatsapp
+{
+  background: linear-gradient(120deg, #4ac257, #50cc5e);
+}
+
+.social-media-container .telegram
+{
+  background: linear-gradient(120deg, #91b4e78f, #0077ff);
 }
 
 .social-medial-box {
@@ -26,7 +46,7 @@
 
 .social-medial-icon {
   border-radius: var(--round-lg);
-  background: linear-gradient(120deg, #91b4e78f, #0077ff);
+  padding: 12px !important;
 }
 
 .social-medial-text small:nth-child(1) {

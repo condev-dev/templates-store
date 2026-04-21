@@ -19,7 +19,8 @@ export default function RootLayout({ children }) {
       <body>
         <AuthProvider>
           <Container>
-            <main className="d-flex flex-column flex-grow-1 align-items-center justify-content-center" >{children}</main>
+            {/* flex-grow-1 */}
+            <main className="d-flex flex-column  align-items-center justify-content-center" >{children}</main>
           </Container>
         </AuthProvider>
         <ToastContainer position="top-right" rtl theme="colored" />

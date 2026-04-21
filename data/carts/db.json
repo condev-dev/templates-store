@@ -65,6 +65,19 @@
   {
     "id": "811ab3a8-d0e1-4557-adc9-31992d1004be",
     "user_id": "05d46bb9-a43c-4120-bda6-ff9e0ad21c8a",
-    "carts": []
+    "carts": [
+      {
+        "templateId": "2"
+      },
+      {
+        "templateId": "3"
+      },
+      {
+        "templateId": "4"
+      },
+      {
+        "templateId": "1"
+      }
+    ]
   }
 ]
