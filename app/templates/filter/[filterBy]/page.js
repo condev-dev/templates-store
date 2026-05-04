@@ -7,9 +7,13 @@ const TemplateCategories = async ({ params }) => {
   const decode_filterBy = decodeURIComponent(filterBy);
   //
   const BaseUrl = process.env.NEXT_PUBLIC_API_URL;
+  const ApiKey = process.env.NEXT_API_SECRET_KEY;
   //
   const res = await fetch(`${BaseUrl}/api/templates?filterBy=${filterBy}`, {
     cache: "no-store",
+        headers :{
+      "api-key": ApiKey,
+    }
   });
 
   const templates = res.ok ? await res.json() : [];

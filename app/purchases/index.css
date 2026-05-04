@@ -4,6 +4,8 @@
   position: relative;
   padding-right: 20px;
   font-weight: 800 !important;
+  font-family: var(--font-rokh);
+
 }
 
 .purchases-category-title h3::before {

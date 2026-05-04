@@ -1,12 +1,16 @@
+// Bootstrap
 import "@/styles/index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "react-toastify/dist/ReactToastify.css";
+// Swiper
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+// Fonts
+import { fontIranSans, fontRokh } from "@/lib/fonts";
+// Components
 import Container from "../components/layout/container/Container";
-import { ToastContainer } from "react-toastify";
 import AuthProvider from "./AuthProvider";
+import ToastProvider from "@/components/common/ToastProvider";
 
 export const metadata = {
   title: "ConDev | Casino Templates",
@@ -15,15 +19,21 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="fa" dir="rtl">
+    <html
+      lang="fa"
+      dir="rtl"
+      className={`${fontIranSans.variable} ${fontRokh.variable}`}
+    >
       <body>
         <AuthProvider>
           <Container>
             {/* flex-grow-1 */}
-            <main className="d-flex flex-column  align-items-center justify-content-center" >{children}</main>
+            <main className="d-flex flex-column  align-items-center justify-content-center">
+              {children}
+            </main>
           </Container>
         </AuthProvider>
-        <ToastContainer position="top-right" rtl theme="colored" />
+        <ToastProvider />
       </body>
     </html>
   );

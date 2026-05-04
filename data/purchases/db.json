@@ -52,5 +52,14 @@
         "templateId": "4"
       }
     ]
+  },
+  {
+    "id": "08fbd174-2bed-41f5-8843-eacbf302ebbd",
+    "user_id": "dfbb2bf2-9b47-4371-be17-f38e16094eed",
+    "purchases": [
+      {
+        "templateId": "1"
+      }
+    ]
   }
 ]

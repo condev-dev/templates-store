@@ -3,7 +3,6 @@
 .btn-main,
 .btn-main > * {
   cursor: pointer !important;
-  font-weight: 600 !important;
   font-size: var(--font-btn-lg) !important;
   border-radius: var(--round-sm) !important;
   display: flex !important;
@@ -12,7 +11,7 @@
   text-align: center !important;
   vertical-align: middle !important;
   transition: all 0.3s !important;
-  font-weight: 800 !important;
+  font-weight: 900 !important;
   position: relative;
   overflow: hidden;
 }

@@ -9,16 +9,20 @@ import NotLogin from "@/components/ui/not-login/NotLogin";
 const Purchases = async () => {
   const session = await getServerSession(authOptions);
   const BaseUrl = process.env.NEXT_PUBLIC_API_URL;
+  const ApiKey = process.env.NEXT_API_SECRET_KEY;
 
   // Not Login
   if (!session?.user?.id) {
-    return <NotLogin text={"برای مشاهده خریدها وارد حساب کاربری خود شوید."} />
+    return <NotLogin text={"برای مشاهده خریدها وارد حساب کاربری خود شوید."} />;
   }
   // Get Data
   const res = await fetch(
     `${BaseUrl}/api/purchases?userId=${session?.user?.id}`,
     {
       cache: "no-store",
+      headers: {
+        "api-key": ApiKey,
+      },
     },
   );
   const purchases = res.ok ? await res.json() : null;

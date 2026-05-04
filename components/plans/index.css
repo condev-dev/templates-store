@@ -1,11 +1,13 @@
 .plans-text h5 {
   font-size: 25px;
+  font-family: var(--font-rokh) !important;
   font-weight: 800 !important;
 }
 
 .plans-text p {
   font-size: 16px;
   line-height: 2.3;
+  
 }
 
 .plans-container {
@@ -59,6 +61,8 @@
   text-align: center;
   color: var(--text);
   font-weight: 800 !important;
+  font-family: var(--font-rokh) !important;
+  
 }
 
 .plan-list p {

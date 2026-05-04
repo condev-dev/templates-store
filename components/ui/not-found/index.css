@@ -3,6 +3,12 @@
   min-height: 75vh !important;
 }
 
+.not-found,
+.not-found > * {
+  font-family: var(--font-rokh) !important;
+  font-weight: 600 !important;
+}
+
 .not-found h5 {
   font-size: 100px !important;
   font-weight: lighter !important;

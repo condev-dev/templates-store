@@ -65,6 +65,8 @@
   border-radius: var(--round-sm) !important;
   position: relative;
   overflow: hidden;
+
+  
 }
 
 .menu-btn-plan::before {
@@ -84,6 +86,7 @@
   font-weight: 800 !important;
   padding-top: 1.5px !important;
   margin-right: 3px !important;
+  font-family: var(--font-rokh) !important;
 }
 
 .menu-btn-plan:hover {

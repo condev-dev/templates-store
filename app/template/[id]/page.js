@@ -7,10 +7,14 @@ import Link from "next/link";
 import Image from "next/image";
 const Template = async ({ params }) => {
   const BaseUrl = process.env.NEXT_PUBLIC_API_URL;
+  const ApiKey = process.env.NEXT_API_SECRET_KEY;
   const { id } = await params;
 
   const res = await fetch(`${BaseUrl}/api/templates?templateId=${id}`, {
     cache: "no-store",
+    headers :{
+      "api-key": ApiKey,
+    }
   });
   const data = res.ok ? await res.json() : null;
   
