@@ -1,0 +1,27 @@
+.categories-container
+{
+    min-height: 90vh;
+}
+.btn-categories
+{
+    background: var(--bg-main);
+    padding: 15px 20px;
+    border-radius: var(--round-md);
+    cursor: pointer;
+}
+
+.btn-categories span{
+    font-size: 18px;
+    color: var(--text);
+    margin-top: 1px !important;
+}
+
+.btn-categories-icon
+{
+    border: 1px solid var(--text-light);
+    color: var(--text);
+    border-radius: 200px;
+    width: 33px;
+    height: 33px;
+    padding: 7px;
+}

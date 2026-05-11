@@ -3,11 +3,12 @@ import { useState } from "react";
 import TemplateItem from "@/components/templates/TemplateItem";
 //
 import "./index.css";
+import Empty from "@/components/ui/empty/Empty";
 
 export default function TemplateList({ templates }) {
   const [visibleCount, setVisibleCount] = useState(8);
 
-  if (!templates?.length) return <div>هیچ قالب پرفروشی پیدا نشد.</div>;
+  if (!templates?.length) return <Empty text={"هیچ قالبی در این دسته بندی یافت نشد"} />
 
   return (
     <>
