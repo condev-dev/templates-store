@@ -60,7 +60,7 @@ export default function SignUpPage() {
         sessionStorage.setItem("email", email);
         sessionStorage.setItem("pass", password);
         //
-        router.push("/auth/signin");
+        router.replace("/auth/signin");
       } else {
         toast.error(cartData.message || userData.message);
       }
@@ -70,16 +70,11 @@ export default function SignUpPage() {
   };
 
   return (
-    <section
-      className="d-flex justify-content-center align-items-center auth-container"
-      onClick={() =>
-        typeof window !== "undefined" &&
-        window.innerWidth < 992 &&
-        router.back()
-      }
-    >
+    <section className="d-flex justify-content-center align-items-center auth-container">
+      {/* Overlay in Mobile */}
+      <div className="auth-container-overlay"onClick={() => router.back()} ></div>
       <section className="d-flex justify-content-center align-items-center flex-column gap-3 auth-box p-5 shadow-sm">
-        <div onClick={() => router.back()} className="show-lg">
+        <div onClick={() => router.back()} className="show-lg" style={{cursor:"pointer"}} >
           <Image
             src="/img/logo.webp"
             alt="ConDev"
@@ -90,14 +85,20 @@ export default function SignUpPage() {
           />
         </div>
         <div className="d-flex justify-content-center align-content-center gap-2 w-75 mt-3 show-lg">
-          <Link className={`btn-main w-50 btn-light`} href={"/auth/signin"}>
+          <div
+            className={`btn-main w-50 btn-light`}
+            onClick={() => router.replace("/auth/signin")}
+          >
             ورود
-          </Link>
-          <Link href={"/auth/signup"} className={`btn-main w-50 btn-color`}>
+          </div>
+          <div
+            onClick={() => router.replace("/auth/signup")}
+            className={`btn-main w-50 btn-color `}
+          >
             ثبت نام
-          </Link>
+          </div>
         </div>
-        <h2 className="auth-title mt-lg-4 pt-lg-3">ثبت نام</h2>
+        <h2 className="auth-title  mt-3 mt-lg-4 pt-lg-3">ثبت نام</h2>
         <input
           className="input-group-text mt-2"
           type="text"
@@ -106,7 +107,7 @@ export default function SignUpPage() {
           onChange={(e) => setUserName(e.target.value)}
         />{" "}
         <input
-          className="input-group-text my-1"
+          className="input-group-text my-lg-1"
           type="email"
           placeholder="ایمیل"
           value={email}
@@ -119,9 +120,20 @@ export default function SignUpPage() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button className="btn-main btn-color w-100 mt-2" onClick={OnSignUp}>
+        <button
+          className="btn-main btn-color w-100 mt-1 mt-lg-2"
+          onClick={OnSignUp}
+        >
           ثبت نام
         </button>
+        <small className=" w-100 small px-1  mt-1 mt-lg-0 d-lg-none ">
+          حساب کاربری دارید؟
+          <small
+            onClick={() => router.replace("/auth/signin")}
+          className="mx-2">
+            ورود به سایت
+          </small>
+        </small>
       </section>
     </section>
   );

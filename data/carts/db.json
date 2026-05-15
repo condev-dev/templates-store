@@ -88,5 +88,45 @@
         "templateId": "1"
       }
     ]
+  },
+  {
+    "id": "9ed78768-d98f-42f8-8b3e-24c508541401",
+    "user_id": "0ac92fad-fa7a-4d51-9108-a8c724eb6db2",
+    "carts": []
+  },
+  {
+    "id": "9821ae79-7014-4c60-9306-96ca65348990",
+    "user_id": "b7ceffc7-b14d-4e8c-9fab-441f1d5df41d",
+    "carts": []
+  },
+  {
+    "id": "dbe2f752-3b1f-4bca-a5b3-320463c7e636",
+    "user_id": "16008491-e2a5-46e0-8fcd-dd74b18f1905",
+    "carts": []
+  },
+  {
+    "id": "c5f89953-367a-4765-9058-f6e38d90d9cc",
+    "user_id": "3008c7e3-1714-4147-af3c-1e6b5337dc1b",
+    "carts": []
+  },
+  {
+    "id": "94ff33ec-5f67-460b-bc93-83d0eaf7a362",
+    "user_id": "3c99ae62-b4a6-420d-bd5c-fa4e661a4632",
+    "carts": []
+  },
+  {
+    "id": "1b7f1544-f730-4481-9867-93f8dbdce3c9",
+    "user_id": "fb4d6723-c23b-4ebf-9d00-81dff5bca727",
+    "carts": []
+  },
+  {
+    "id": "0eae761f-46fc-41de-bcc0-231740360333",
+    "user_id": "5e0a700e-ed5c-4364-ab02-f805e47919fe",
+    "carts": []
+  },
+  {
+    "id": "ea56b2aa-921e-4fab-9cce-90e9808b2a19",
+    "user_id": "e70237e7-77f9-40a8-888d-0c86fc2b2c7d",
+    "carts": []
   }
 ]
