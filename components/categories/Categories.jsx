@@ -9,7 +9,7 @@ const Categories = () => {
         <h3 className="mt-2">دسته بندی ها</h3>
       </section>
       <section className="w-100 categories-container-lg mt-4 pt-2 pt-lg-0 mt-lg-5">
-        <div className="category-item d-flex p-4 shadow-lg">
+        <div className="category-item d-flex p-3 p-lg-4 shadow-lg">
           <div className="d-flex flex-column w-50 align-items-start justify-content-center gap-2">
             <h5>
               قالب های <span>فارسی زبان</span>
@@ -31,7 +31,7 @@ const Categories = () => {
           <div className="w-50 h-100 category-image-1"></div>
         </div>
         {/*  */}
-        <div className="category-item d-flex p-4 shadow-lg">
+        <div className="category-item d-flex p-3 p-lg-4 shadow-lg">
           <div className="d-flex flex-column w-50 align-items-start justify-content-center gap-2">
             <h5>
               قالب های <span>ترکی زبان</span>
@@ -53,7 +53,7 @@ const Categories = () => {
           <div className="w-50 h-100 category-image-2"></div>
         </div>
         {/*  */}
-        <div className="category-item d-flex p-4 shadow-lg">
+        <div className="category-item d-flex p-3 p-lg-4 shadow-lg">
           <div className="d-flex flex-column w-50 align-items-start justify-content-center gap-2">
             <h5>
               قالب های <span>تبلیغاتی</span>
@@ -75,7 +75,7 @@ const Categories = () => {
           <div className="w-50 h-100 category-image-3"></div>
         </div>
         {/*  */}
-        <div className="category-item d-flex p-4 shadow-lg">
+        <div className="category-item d-flex p-3 p-lg-4 shadow-lg">
           <div className="d-flex flex-column w-50 align-items-start justify-content-center gap-2">
             <h5>
               قالب های <span>بازی</span>

@@ -87,6 +87,9 @@
 .swiper-slide-active img {
   animation: Image 5.3s ease-in-out;
 }
+.swiper-pagination-bullet {
+  background-color: var(--bg-light);
+}
 
 /* Animation */
 
@@ -146,5 +149,10 @@
 
   .best-sellers-title h3 {
     font-size: 20px;
+  }
+
+  .swiper-pagination-bullet {
+    width: 5px !important;
+    height: 5px !important;
   }
 }

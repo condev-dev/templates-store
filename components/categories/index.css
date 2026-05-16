@@ -105,6 +105,12 @@
   .category-item small {
     font-size: 12px;
   }
+
+  /* Hide For Mobile */
+  .categories-container-lg,
+  .categories-container-lg-title {
+    display: none !important;
+  }
 }
 
 /*  */

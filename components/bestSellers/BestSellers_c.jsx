@@ -18,21 +18,18 @@ export default function BestSellers_c({ templates }) {
         <h3 className="mt-2">پرفروش‌ترین قالب‌ها</h3>
       </section>
 
-      <section className="best-sellers-container pt-sm-4 mt-md-5 pt-md-5">
+      <section className="best-sellers-container pt-sm-4 mt-md-5 pt-md-5 ">
         <Swiper
           className="pt-4 pb-1 mt-3 mt-md-0 py-sm-5"
-          modules={[Autoplay]}
-          ref={swiperRef}
+          modules={[Autoplay, Pagination]}
           slidesPerView={3}
           spaceBetween={20}
           loop
           centeredSlides
+          pagination={{ clickable: true }}
           autoplay={{
             delay: 5700,
             disableOnInteraction: false,
-          }}
-          onSwiper={(swiper) => {
-            swiperRef.current = swiper;
           }}
           breakpoints={{
             1: { slidesPerView: 1, spaceBetween: 0 },
@@ -42,7 +39,7 @@ export default function BestSellers_c({ templates }) {
           }}
         >
           {templates.slice(0, 10).map((template) => (
-            <SwiperSlide key={template.id}>
+            <SwiperSlide key={template.id} className="pb-5" >
               <Template {...template} />
             </SwiperSlide>
           ))}
