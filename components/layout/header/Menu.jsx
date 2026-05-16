@@ -52,19 +52,19 @@ const Menu = () => {
           </button>
         </div>
 
-        <button className="menu-btn-plan mt-5 gap-2 shadow-lg d-flex justify-content-center align-items-center">
+        <Link href={"/#plans"} className="menu-btn-plan mt-5 gap-2 shadow-lg d-flex justify-content-center align-items-center">
           <FaStar size={18} />
           <span>پلن های ویژه</span>
-        </button>
+        </Link>
 
         {session?.status !== "authenticated" && (
           <AuthBtn className="mt-3 w-100" />
         )}
 
-        <button className="btn-main menu-btn mt-4 justify-content-start gap-3 shadow-sm">
+        <Link href={"/#categories"} className="btn-main menu-btn mt-4 justify-content-start gap-3 shadow-sm">
           <FiGrid size={18} />
           <span>دسته بندی ها</span>
-        </button>
+        </Link>
 
         <Link
           href="/purchases"

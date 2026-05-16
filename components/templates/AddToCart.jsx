@@ -29,7 +29,6 @@ const AddToCart = ({ templateId }) => {
     if (isExists) return router.push("/cart");
 
     if (status !== "authenticated") {
-      router.push("/");
       return toast.error("لطفا وارد حساب خود شوید.");
     }
 

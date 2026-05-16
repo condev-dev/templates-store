@@ -1,6 +1,11 @@
-import Link from "next/link";
+"use client";
+
 import "./index.css";
-const NotLogin = ({ text }) => {
+import { useRouter } from "next/navigation";
+
+const NotLogin = ({ text, className }) => {
+  const router = useRouter();
+
   return (
     <div className=" w-100 d-flex justify-content-center align-items-center not-login px-3 flex-column ">
       <h5>
@@ -9,8 +14,12 @@ const NotLogin = ({ text }) => {
       </h5>
 
       <div className="d-flex gap-2 gap-sm-3 mt-3 ">
-        <Link href="/auth/signup" className="btn-main btn-color pb-2"> ثبت نام</Link>
-        <Link href="/auth/signin" className="btn-main btn-color pb-2"> ورود</Link>
+        <button
+          onClick={() => router.push("/auth/signin")}
+          className={`btn-main btn-color ${className}`}
+        >
+          ثبت نام / ورود
+        </button>
       </div>
     </div>
   );

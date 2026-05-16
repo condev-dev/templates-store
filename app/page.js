@@ -1,4 +1,5 @@
 import BestSellers_s from "@/components/bestSellers/BestSellers_s";
+import Categories from "@/components/categories/Categories";
 import Intro from "@/components/intro/Intro";
 import Plans from "@/components/plans/Plans";
 import TemplateCategory from "@/components/templates/TemplateCategory";
@@ -16,6 +17,7 @@ export default function Home() {
       {/* <div>{data.title}</div>; */}
       <Intro />
       <TemplateCategory title="قالب های فارسی" filterBy="فارسی" />
+      <Categories />
       <BestSellers_s />
       <TemplateCategory title="قالب های موبایلی" filterBy="موبایلی" />
       <Plans />

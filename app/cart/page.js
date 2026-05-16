@@ -1,5 +1,4 @@
 "use client";
-import Toman from "@/components/common/Toman";
 import { useSession } from "next-auth/react";
 import CartItem from "@/components/cart/CartItem";
 import CartInformation from "@/components/cart/CartInfromation";
