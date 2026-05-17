@@ -1,0 +1,49 @@
+.profile {
+  border-radius: var(--round-md);
+  border: 1px solid var(--border-color);
+}
+
+.profile hr {
+  border-color: var(--text-light) !important;
+}
+
+.profile h6 {
+  font-size: 20px !important;
+  position: relative;
+  padding-right: 20px;
+  font-weight: 900 !important;
+}
+
+.profile h6:before {
+  content: "";
+  background-color: var(--bg-color);
+  border-radius: 0 200px 200px 0;
+  width: 5px;
+  height: 120%;
+  position: absolute;
+  top: 42.5%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.box-profile {
+  display: grid;
+  grid-template-columns: 20% 80%;
+}
+
+.box-profile input {
+  text-align: right !important;
+  font-size: 14px !important;
+  background-color: transparent;
+  color: var(--text);
+  border: none !important;
+}
+
+.box-profile input::placeholder {
+  color: var(--text-light) !important;
+}
+
+.box-profile label {
+  font-size: 14px !important;
+  color: var(--text);
+}

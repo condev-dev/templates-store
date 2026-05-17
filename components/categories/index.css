@@ -131,6 +131,8 @@
   position: absolute;
   background: url("/img/templates/template1.webp");
   left: 0px !important;
+  background-size: cover !important;
+  border-right: 2.5px solid var(--bg) !important;
 }
 
 .category-image-1::after {
@@ -140,6 +142,8 @@
   position: absolute;
   background: url("/img/templates/template2.webp");
   right: 0px !important;
+  background-size: cover !important;
+  border-left: 2.5px solid var(--bg) !important;
 }
 
 .category-image-2::before {
@@ -149,6 +153,9 @@
   position: absolute;
   background: url("/img/templates/template3.webp");
   left: 0px !important;
+  background-size: cover !important;
+  border-right: 2.5px solid var(--bg) !important;
+
 }
 
 .category-image-2::after {
@@ -158,6 +165,9 @@
   position: absolute;
   background: url("/img/templates/template4.webp");
   right: 0px !important;
+  background-size: cover !important;
+  border-left: 2.5px solid var(--bg) !important;
+
 }
 
 .category-image-3::before {
@@ -167,6 +177,9 @@
   position: absolute;
   background: url("/img/templates/template5.webp");
   left: 0px !important;
+  background-size: cover !important;
+  border-right: 2.5px solid var(--bg) !important;
+
 }
 
 .category-image-3::after {
@@ -176,6 +189,9 @@
   position: absolute;
   background: url("/img/templates/template6.webp");
   right: 0px !important;
+  background-size: cover !important;
+  border-left: 2.5px solid var(--bg) !important;
+
 }
 
 .category-image-4::before {
@@ -185,6 +201,9 @@
   position: absolute;
   background: url("/img/templates/template7.webp");
   left: 0px !important;
+  background-size: cover !important;
+  border-right: 2.5px solid var(--bg) !important;
+
 }
 
 .category-image-4::after {
@@ -194,4 +213,7 @@
   position: absolute;
   background: url("/img/templates/template8.webp");
   right: 0px !important;
+  background-size: cover !important;
+  border-left: 2.5px solid var(--bg) !important;
+
 }

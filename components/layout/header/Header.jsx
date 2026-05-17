@@ -5,10 +5,11 @@ import AuthBtn from "@/components/auth/AuthBtn";
 import CartBtn from "../../cart/CartBtn";
 import Menu from "./Menu";
 import NavSm from "./NavSm";
+import ProfileBtn from "@/components/profile/ProfileBtn";
 
 const Header = () => {
   return (
-    <header className="main-header w-100 d-flex flex-row-reverse justify-content-between align-items-center mt-4 pb-3">
+    <header className="main-header w-100 d-flex flex-row-reverse justify-content-between align-items-center pt-3 pb-3">
       <Link href="/">
         <Image
           src="/img/logo.webp"
@@ -26,6 +27,7 @@ const Header = () => {
         <Menu />
         <AuthBtn />
         <CartBtn />
+        <ProfileBtn />
       </div>
 
       {/* NavSm */}

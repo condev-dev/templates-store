@@ -39,7 +39,7 @@ const Categories = () => {
             <div className="d-flex align-items-center w-100 flex-wrap">
               <small className=" ">30 +</small>
               <small className="  mx-2">|</small>
-              <small className="  mx-2">FA</small>
+              <small className="  mx-2">TR</small>
             </div>
             <Link
               href={"/templates/filter/ترکی"}

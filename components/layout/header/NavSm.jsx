@@ -12,7 +12,7 @@ const NavSm = () => {
     if (pathname === '/categories') return 'دسته بندی ها';
     if (pathname === '/purchases') return 'خرید های قبلی';
     if (pathname === '/') return 'خانه';
-    if (pathname === '/account') return 'حساب کاربری';
+    if (pathname === '/profile') return 'حساب کاربری';
     if (pathname === '/cart') return 'سبد خرید';
     return 'خانه';
   });
@@ -21,7 +21,7 @@ const NavSm = () => {
     if (pathname === '/categories') setSelectedItem('دسته بندی ها');
     else if (pathname === '/purchases') setSelectedItem('خرید های قبلی');
     else if (pathname === '/') setSelectedItem('خانه');
-    else if (pathname === '/account') setSelectedItem('حساب کاربری');
+    else if (pathname === '/profile') setSelectedItem('حساب کاربری');
     else if (pathname === '/cart') setSelectedItem('سبد خرید');
     else setSelectedItem('خانه');
   }, [pathname]);
@@ -54,7 +54,7 @@ const NavSm = () => {
         <span>خانه</span>
       </Link>
 
-      <Link href="/account"
+      <Link href="/profile"
         className={`d-flex flex-column align-items-center justify-content-center nav-sm-item pt-1 ${selectedItem === 'حساب کاربری' ? 'nav-sm-item-selected' : ''}`}
         onClick={() => handleItemClick('حساب کاربری')}
       >

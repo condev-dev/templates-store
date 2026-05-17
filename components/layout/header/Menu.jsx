@@ -74,10 +74,10 @@ const Menu = () => {
           <span>خرید های قبلی</span>
         </Link>
 
-        <button className="btn-main menu-btn mt-3 justify-content-start gap-3 shadow-sm">
+        <Link href={"/profile"} className="btn-main menu-btn mt-3 justify-content-start gap-3 shadow-sm">
           <FiUser size={18} />
           <span>حساب کاربری</span>
-        </button>
+        </Link>
 
         <Link
           href="/cart"

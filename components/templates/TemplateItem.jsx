@@ -11,7 +11,7 @@ import "./index.css";
 
 const TemplateItem = ({ image, title, categories, price, id }) => {
   return (
-    <div className="template-box d-flex flex-column p-3 shadow-sm">
+    <div className="template-box d-flex flex-column  shadow-sm">
       <Link href={`/template/${id}`}>
         {image ? (
           <Image

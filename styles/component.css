@@ -3,7 +3,7 @@
 .btn-main,
 .btn-main > * {
   cursor: pointer !important;
-  font-size: var(--font-btn-lg) !important;
+  font-size: 13px !important;
   border-radius: var(--round-sm) !important;
   display: flex !important;
   align-items: center !important;

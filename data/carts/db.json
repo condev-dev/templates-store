@@ -128,5 +128,19 @@
     "id": "ea56b2aa-921e-4fab-9cce-90e9808b2a19",
     "user_id": "e70237e7-77f9-40a8-888d-0c86fc2b2c7d",
     "carts": []
+  },
+  {
+    "id": "f12f3084-3ebd-4305-922f-fdff8319f415",
+    "user_id": "b78de6de-39ce-432d-bcb4-9c847348cb71",
+    "carts": []
+  },
+  {
+    "id": "742f5877-6a1b-4b34-a07a-dc1ab668d0ad",
+    "user_id": "869168f9-8e25-4e4b-a964-47a2f0246f27",
+    "carts": [
+      {
+        "templateId": "1"
+      }
+    ]
   }
 ]

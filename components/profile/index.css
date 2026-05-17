@@ -1,0 +1,91 @@
+.profile-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 200px;
+  border: 1px solid var(--bg-color);
+}
+
+.profile-btn img {
+  width: 80%;
+  height: 80%;
+  border-radius: 200px;
+}
+.btn-profile-con {
+  position: absolute;
+  z-index: -1;
+  right: 110px;
+  top: 25px;
+  width: 270px;
+  height: auto;
+  transform: scale(0.9) translateY(-35px) translateX(15px);
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.btn-profile {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg);
+  border-radius: var(--round-md);
+  backdrop-filter: blur(20);
+}
+
+.btn-profile:before {
+  content: "";
+  background: url(/img/line.png);
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: right top;
+  transform: rotate(20deg) translateX(-90px) translateY(10px);
+  filter: blur(20);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.btn-profile-name {
+  font-size: 14px;
+  font-weight: 900 !important;
+  color: var(--text);
+}
+
+.btn-profile-info {
+  color: var(--text) !important;
+  font-size: 13px;
+}
+
+.btn-profile-info-logout {
+  color: var(--text-red) !important;
+}
+
+.profile-btn:hover + .btn-profile-con {
+  transform: scale(1) translateY(0) translateX(0);
+  opacity: 1;
+  z-index: 1000;
+  pointer-events: auto;
+}
+
+.btn-profile-con:hover {
+  transform: scale(1) translateY(0) translateX(0);
+  opacity: 1;
+  z-index: 1000;
+  pointer-events: auto;
+}
+
+.btn-profile-info-logout {
+  position: relative;
+}
+
+.btn-profile-info-logout::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--bg-color));
+}
