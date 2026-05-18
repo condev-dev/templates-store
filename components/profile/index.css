@@ -13,9 +13,9 @@
 .btn-profile-con {
   position: absolute;
   z-index: -1;
-  right: 110px;
+  right: 50px;
   top: 25px;
-  width: 270px;
+  width: 250px;
   height: auto;
   transform: scale(0.9) translateY(-35px) translateX(15px);
   opacity: 0;

@@ -3,6 +3,10 @@
   font-weight: 800 !important;
 }
 
+a{
+  cursor: pointer !important;
+}
+
 body {
   background: var(--bg) !important;
   color: var(--text) !important;

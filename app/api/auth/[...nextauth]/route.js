@@ -38,6 +38,8 @@ export const authOptions = {
       if (user) {
         token.id = user.id;
         token.email = user.email;
+        token.username = user.username; 
+        token.fullname = user.fullname; 
       }
       return token;
     },
@@ -45,6 +47,8 @@ export const authOptions = {
       if (token) {
         session.user.id = token.id;
         session.user.email = token.email;
+        session.user.username = token.username;
+        session.user.fullname = token.fullname;
       }
       return session;
     },

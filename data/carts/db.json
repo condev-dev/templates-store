@@ -142,5 +142,15 @@
         "templateId": "1"
       }
     ]
+  },
+  {
+    "id": "61ffd5a2-e9ef-42ce-bb3c-b6f2e5f44f02",
+    "user_id": "79f0047e-0f30-4857-bc24-d3ef11802052",
+    "carts": []
+  },
+  {
+    "id": "2eb45345-0175-4896-97a8-447efb0ed184",
+    "user_id": "49bd1db9-da24-4d92-bb90-3a0d1913a726",
+    "carts": []
   }
 ]

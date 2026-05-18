@@ -25,6 +25,7 @@ export default function SignUpPage() {
       email: email,
       password: password,
       username: username,
+      fullname: "",
     };
 
     try {
@@ -38,6 +39,7 @@ export default function SignUpPage() {
           email: userToAdd.email,
           password: userToAdd.password,
           username: userToAdd.username,
+          fullname: userToAdd.fullname
         }),
       });
 
@@ -72,9 +74,16 @@ export default function SignUpPage() {
   return (
     <section className="d-flex justify-content-center align-items-center auth-container">
       {/* Overlay in Mobile */}
-      <div className="auth-container-overlay"onClick={() => router.back()} ></div>
+      <div
+        className="auth-container-overlay"
+        onClick={() => router.back()}
+      ></div>
       <section className="d-flex justify-content-center align-items-center flex-column gap-3 auth-box p-5 shadow-sm">
-        <div onClick={() => router.back()} className="show-lg" style={{cursor:"pointer"}} >
+        <div
+          onClick={() => router.back()}
+          className="show-lg"
+          style={{ cursor: "pointer" }}
+        >
           <Image
             src="/img/logo.webp"
             alt="ConDev"
@@ -130,7 +139,8 @@ export default function SignUpPage() {
           حساب کاربری دارید؟
           <small
             onClick={() => router.replace("/auth/signin")}
-          className="mx-2">
+            className="mx-2"
+          >
             ورود به سایت
           </small>
         </small>

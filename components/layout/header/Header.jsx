@@ -26,7 +26,7 @@ const Header = () => {
       <div className="d-flex gap-2">
         <Menu />
         <AuthBtn />
-        <CartBtn />
+        {/* <CartBtn /> */}
         <ProfileBtn />
       </div>
 

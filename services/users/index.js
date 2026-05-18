@@ -11,6 +11,7 @@ export async function AddUser(data) {
     email: data?.email,
     password: hashedPassword,
     username: data?.username,
+    fullname: data?.fullname,
   };
 
   users.push(userToAdd);
