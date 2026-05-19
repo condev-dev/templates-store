@@ -3,7 +3,7 @@
   font-weight: 800 !important;
 }
 
-a{
+a {
   cursor: pointer !important;
 }
 
@@ -43,6 +43,7 @@ body {
   color: var(--text-white) !important;
   background: var(--bg-green) !important;
 }
+
 
 @media (max-width: 578px) {
   .logo {

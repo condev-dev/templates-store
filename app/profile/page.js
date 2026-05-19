@@ -9,7 +9,7 @@ import { useState } from "react";
 const Profile = () => {
   const [activeTab, setActiveTab] = useState("info");
   return (
-    <section className="box-profile w-100 mt-5">
+    <section className="box-profile w-100 mt-4 mt-md-5">
       <div className="d-flex flex-column gap-4 ms-2">
         <button
           className={`btn-main ${activeTab === "info" ? "btn-color" : "btn-light"}`}

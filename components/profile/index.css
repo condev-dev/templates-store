@@ -89,3 +89,18 @@
   height: 1px;
   background: linear-gradient(to right, transparent, var(--bg-color));
 }
+
+@media (max-width: 578px) {
+  .btn-profile-info svg {
+    margin-right: 5px !important;
+  }
+  .profile-btn {
+    width: 38px;
+    height: 38px;
+  }
+  .btn-profile-con {
+    right: 30px;
+    top: 25px;
+    width: 220px;
+  }
+}
