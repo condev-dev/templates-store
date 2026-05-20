@@ -12,5 +12,12 @@
     "password": "$2b$10$8mk2e626k2qZ9efkR2XEKut1ZUXKLIHMJTLab8hfNdlLuBuqe1RXu",
     "username": "ConDev",
     "fullname": "آرش چوبدار"
+  },
+  {
+    "id": "fac183cb-2732-4f99-a197-95231e753efe",
+    "email": "arash@gmail.com",
+    "password": "$2b$10$6D0Fwh1mxxXW.aDXNt/GWuWhoBff5VWEK/hivwtki1xAaV9BsHEP2",
+    "username": "Arash",
+    "fullname": ""
   }
 ]

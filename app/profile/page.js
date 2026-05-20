@@ -5,9 +5,18 @@ import "./index.css";
 import { FiUser, FiLock } from "react-icons/fi";
 import ProfilePassword from "@/components/profile/ProfilePassword";
 import { useState } from "react";
+import { useSession } from "next-auth/react";
+import NotLogin from "@/components/ui/not-login/NotLogin";
 
 const Profile = () => {
   const [activeTab, setActiveTab] = useState("info");
+  const { data: session, status } = useSession();
+
+  if (status !== "authenticated")
+    return <NotLogin text={"برای مشاهده پروفایل وارد حساب کاربری خود شوید."} />;
+
+  console.log("HEllo", session);
+
   return (
     <section className="box-profile w-100 mt-4 mt-md-5">
       <div className="d-flex flex-column gap-4 ms-2">
