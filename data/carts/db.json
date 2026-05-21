@@ -1,161 +1,17 @@
 [
   {
-    "id": "e50e9db0-eba7-48c0-afc5-ef4c92d1d8d9",
-    "user_id": "37868416-f42a-41b2-8b92-74ab3305f6b1",
-    "carts": [
-      {
-        "templateId": "2"
-      },
-      {
-        "templateId": "1"
-      },
-      {
-        "templateId": "3"
-      }
-    ]
-  },
-  {
-    "id": "2169f514-7e47-4a66-a9d6-9c3bbc48be01",
-    "user_id": "2c7f3308-9918-4636-9ec3-083e06c1dba8",
-    "carts": [
-      {
-        "templateId": "4"
-      },
-      {
-        "templateId": "7"
-      }
-    ]
-  },
-  {
-    "id": "cce5dccd-a5a8-4605-b223-98c74dc5e6c3",
-    "user_id": "387984d2-ff8b-4e81-9e6f-d4ea1eb9b5a8",
-    "carts": [
-      {},
-      {
-        "templateId": "1"
-      },
-      {
-        "templateId": "4"
-      }
-    ]
-  },
-  {
-    "id": "0af7b468-30db-4626-8d80-776b59dfedc8",
-    "user_id": "5fd4c5df-af66-4a57-982f-e7b53705ea0a",
-    "carts": [
-      {
-        "templateId": "4"
-      }
-    ]
-  },
-  {
-    "id": "340a7691-8535-4332-a128-2bc431c5fc33",
-    "user_id": "1486886d-ca78-405e-82ab-1449367e8867",
-    "carts": [
-      {
-        "templateId": "1"
-      }
-    ]
-  },
-  {
-    "id": "add70f12-e16b-4a37-84bd-92cc7183367c",
-    "user_id": "e1b5f1e1-1297-4082-a4ae-b910dd5d456a",
+    "id": "f427ba5a-60d5-4095-997e-e874d8c29347",
+    "user_id": "246a20bb-56a5-46df-a3b3-642bb8b91813",
     "carts": []
   },
   {
-    "id": "811ab3a8-d0e1-4557-adc9-31992d1004be",
-    "user_id": "05d46bb9-a43c-4120-bda6-ff9e0ad21c8a",
-    "carts": [
-      {
-        "templateId": "4"
-      },
-      {
-        "templateId": "1"
-      },
-      {
-        "templateId": "3"
-      }
-    ]
-  },
-  {
-    "id": "08fbd174-2bed-41f5-8843-eacbf302ebbd",
-    "user_id": "dfbb2bf2-9b47-4371-be17-f38e16094eed",
-    "carts": [
-      {
-        "templateId": "4"
-      },
-      {
-        "templateId": "1"
-      }
-    ]
-  },
-  {
-    "id": "9ed78768-d98f-42f8-8b3e-24c508541401",
-    "user_id": "0ac92fad-fa7a-4d51-9108-a8c724eb6db2",
+    "id": "7bffeef4-a455-4564-a7fe-d4921ada9155",
+    "user_id": "13a0e967-d1fb-4deb-a0c1-b9ee7d7a7eac",
     "carts": []
   },
   {
-    "id": "9821ae79-7014-4c60-9306-96ca65348990",
-    "user_id": "b7ceffc7-b14d-4e8c-9fab-441f1d5df41d",
-    "carts": []
-  },
-  {
-    "id": "dbe2f752-3b1f-4bca-a5b3-320463c7e636",
-    "user_id": "16008491-e2a5-46e0-8fcd-dd74b18f1905",
-    "carts": []
-  },
-  {
-    "id": "c5f89953-367a-4765-9058-f6e38d90d9cc",
-    "user_id": "3008c7e3-1714-4147-af3c-1e6b5337dc1b",
-    "carts": []
-  },
-  {
-    "id": "94ff33ec-5f67-460b-bc93-83d0eaf7a362",
-    "user_id": "3c99ae62-b4a6-420d-bd5c-fa4e661a4632",
-    "carts": []
-  },
-  {
-    "id": "1b7f1544-f730-4481-9867-93f8dbdce3c9",
-    "user_id": "fb4d6723-c23b-4ebf-9d00-81dff5bca727",
-    "carts": []
-  },
-  {
-    "id": "0eae761f-46fc-41de-bcc0-231740360333",
-    "user_id": "5e0a700e-ed5c-4364-ab02-f805e47919fe",
-    "carts": []
-  },
-  {
-    "id": "ea56b2aa-921e-4fab-9cce-90e9808b2a19",
-    "user_id": "e70237e7-77f9-40a8-888d-0c86fc2b2c7d",
-    "carts": []
-  },
-  {
-    "id": "f12f3084-3ebd-4305-922f-fdff8319f415",
-    "user_id": "b78de6de-39ce-432d-bcb4-9c847348cb71",
-    "carts": []
-  },
-  {
-    "id": "742f5877-6a1b-4b34-a07a-dc1ab668d0ad",
-    "user_id": "869168f9-8e25-4e4b-a964-47a2f0246f27",
-    "carts": [
-      {
-        "templateId": "1"
-      }
-    ]
-  },
-  {
-    "id": "61ffd5a2-e9ef-42ce-bb3c-b6f2e5f44f02",
-    "user_id": "79f0047e-0f30-4857-bc24-d3ef11802052",
-    "carts": []
-  },
-  {
-    "id": "2eb45345-0175-4896-97a8-447efb0ed184",
-    "user_id": "49bd1db9-da24-4d92-bb90-3a0d1913a726",
-    "carts": []
-  },
-  {
-    "id": "5e464398-d6ec-4b49-aacc-48335d0bf421",
-    "user_id": "fac183cb-2732-4f99-a197-95231e753efe",
+    "id": "e8415a95-4bb9-4ea5-a0fc-183c9abde8ae",
+    "user_id": "e70efe9d-60c9-4a38-b95b-9f1d3a43c90a",
     "carts": []
   }
 ]

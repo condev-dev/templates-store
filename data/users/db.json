@@ -1,23 +1,16 @@
 [
   {
-    "id": "79f0047e-0f30-4857-bc24-d3ef11802052",
+    "id": "246a20bb-56a5-46df-a3b3-642bb8b91813",
     "email": "condev@gmail.com",
-    "fullname": "آرش چوبدار",
-    "password": "$2b$10$Mug9tJkshw.mmArcgODgMuHAVGuBqoBdZfo9fh3tc2/lU2gMZNB1m",
-    "username": "ConDev"
-  },
-  {
-    "id": "49bd1db9-da24-4d92-bb90-3a0d1913a726",
-    "email": "22",
-    "password": "$2b$10$8mk2e626k2qZ9efkR2XEKut1ZUXKLIHMJTLab8hfNdlLuBuqe1RXu",
+    "password": "$2b$10$GzVSuKDd.MIJVJsT1rlhA.1zHtG4aXC2qKyuLmeDfo5cRqFt4GTdS",
     "username": "ConDev",
     "fullname": "آرش چوبدار"
   },
   {
-    "id": "fac183cb-2732-4f99-a197-95231e753efe",
-    "email": "arash@gmail.com",
-    "password": "$2b$10$6D0Fwh1mxxXW.aDXNt/GWuWhoBff5VWEK/hivwtki1xAaV9BsHEP2",
-    "username": "Arash",
-    "fullname": ""
+    "id": "e70efe9d-60c9-4a38-b95b-9f1d3a43c90a",
+    "email": "arashchobdarr12@gmail.com",
+    "password": "$2b$10$euWvo.J9XMmuDW7J5wN3MevdUVjGXgJ9xZQTOZpiLJgTkFi.0QxpO",
+    "username": "22",
+    "fullname": "22"
   }
 ]

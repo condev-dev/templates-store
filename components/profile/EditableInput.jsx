@@ -1,17 +1,40 @@
 "use client";
+import { useSession } from "next-auth/react";
 import { useRef, useState } from "react";
 import { FiEdit } from "react-icons/fi";
+import { toast } from "react-toastify";
 
-const EditableInput = ({ label, value, type = "text" }) => {
+const EditableInput = ({ label, value, type = "text", name }) => {
   const inputRef = useRef(null);
   const [disabled, setDisabled] = useState(true);
+  const { data: session } = useSession();
+  const BaseUrl = process.env.NEXT_PUBLIC_API_URL;
 
-  const handleEdit = () => {
+  const handleEdit = async () => {
     if (disabled) {
       setDisabled(false);
       requestAnimationFrame(() => inputRef.current?.select());
     } else {
+      const newValue = inputRef.current.value;
+
       setDisabled(true);
+      const res = await fetch(`${BaseUrl}/api/users`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userId: session?.user?.id,
+          [name]: newValue,
+        }),
+      });
+
+      if (res.ok) {
+        toast.success("پروفایل با موفقیت آپدیت شد.");
+      } else {
+        const errorData = await res.json();
+        toast.error(errorData.message);
+      }
     }
   };
 

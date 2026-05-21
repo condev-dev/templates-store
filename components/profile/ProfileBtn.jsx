@@ -3,7 +3,6 @@ import { signOut, useSession } from "next-auth/react";
 import "./index.css";
 import Link from "next/link";
 import {
-  FiGrid,
   FiLogOut,
   FiSettings,
   FiShoppingBag,
@@ -57,13 +56,13 @@ const ProfileBtn = () => {
               <FiShoppingCart size={14} className="mx-3 mb-1" />
               سبد خرید
             </Link>
-            {/* <Link
+            <Link
               href="/"
               className="btn-profile-info d-flex align-items-center mt-3 pt-1"
             >
               <FiSettings size={14} className="mx-3 mb-1" />
               تنظیمات
-            </Link> */}
+            </Link>
 
             <a
               onClick={signOut}

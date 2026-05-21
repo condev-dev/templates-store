@@ -41,3 +41,61 @@ export async function POST(request) {
     );
   }
 }
+
+// PUT
+export async function PUT(request) {
+  try {
+    const users = await readData("users");
+    const body = await request.json();
+
+    const updatedUserData = { ...users[userIndex] };
+    let hasChanges = false;
+
+    // For FullName
+    if (body.fullname !== undefined) {
+      updatedUserData.fullname = body.fullname;
+      hasChanges = true;
+    }
+
+    // For UserName
+    if (body.username !== undefined) {
+      updatedUserData.username = body.username;
+      hasChanges = true;
+    }
+
+    // For Email
+    if (body.email !== undefined) {
+      const emailExists = users.find((user) => user.email === body.email);
+      if (emailExists) {
+        return NextResponse.json(
+          { message: "این ایمیل موجود می باشد." },
+          { status: 409 },
+        );
+      } else {
+        updatedUserData.email = body.email;
+        hasChanges = true;
+      }
+    }
+
+    // If Was Any Change Here Change It.
+    if (hasChanges) {
+      users[userIndex] = updatedUserData;
+      await writeData("users", users);
+      return NextResponse.json(
+        { message: "پروفایل با موفقیت آپدیت شد." },
+        { status: 200 },
+      );
+    } else {
+      // If Was'nt Any Change
+      return NextResponse.json(
+        { message: "لطفا یک مورد رو تغییر دهید!" },
+        { status: 200 },
+      );
+    }
+  } catch (error) {
+    return NextResponse.json(
+      { message: "ادیت با مشکل روبرو شد!" },
+      { status: 500 },
+    );
+  }
+}
