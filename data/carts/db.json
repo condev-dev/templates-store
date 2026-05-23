@@ -12,6 +12,15 @@
   {
     "id": "e8415a95-4bb9-4ea5-a0fc-183c9abde8ae",
     "user_id": "e70efe9d-60c9-4a38-b95b-9f1d3a43c90a",
+    "carts": [
+      {
+        "templateId": "4"
+      }
+    ]
+  },
+  {
+    "id": "b1b85ddb-40dd-4ec8-963d-a6b83fc4845d",
+    "user_id": "7b44d7d0-4dc3-4293-983c-64c91703c542",
     "carts": []
   }
 ]

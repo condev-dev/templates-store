@@ -1,6 +1,6 @@
 .profile-btn {
-  width: 44px;
-  height: 44px;
+  width: 42px;
+  height: 42px;
   border-radius: 200px;
   border: 1px solid var(--bg-color);
 }
@@ -10,6 +10,34 @@
   height: 80%;
   border-radius: 200px;
 }
+.btn-profile-info {
+  transition: ll 0.3s !important;
+  position: relative;
+  padding: 5px 0px;
+  padding-top: 8px;
+  margin: 10px 0px;
+}
+
+.btn-profile-info::before {
+  content: "";
+  width: 0%;
+  height: 100%;
+  position: absolute;
+  right: 0px;
+  top: 0%;
+  bottom: 0px;
+  background: linear-gradient(to left, var(--bg-color), transparent);
+  opacity: 0;
+  transition: all 0.3s !important;
+  z-index: -1;
+  border-radius: var(--round-sm);
+}
+
+.btn-profile-info:hover::before {
+  width: 100%;
+  opacity: 0.4;
+}
+
 .btn-profile-con {
   position: absolute;
   z-index: -1;
@@ -23,12 +51,21 @@
   pointer-events: none;
 }
 
+.btn-profile .profile-btn {
+  border-radius: var(--round-lg) !important;
+}
+.btn-profile .profile-btn img {
+  border-radius: var(--round-md) !important;
+}
+
 .btn-profile {
   position: relative;
   overflow: hidden;
   background: var(--bg);
   border-radius: var(--round-md);
   backdrop-filter: blur(20);
+  padding: 20px !important;
+  box-shadow: 0px 0px 3px 0px var(--bg-color) !important;
 }
 
 .btn-profile:before {
@@ -57,10 +94,6 @@
   font-size: 13px;
 }
 
-.btn-profile-info-logout {
-  color: var(--text-red) !important;
-}
-
 .profile-btn:hover + .btn-profile-con {
   transform: scale(1) translateY(0) translateX(0);
   opacity: 1;
@@ -76,23 +109,17 @@
 }
 
 .btn-profile-info-logout {
-  position: relative;
-}
-
-.btn-profile-info-logout::before {
-  content: "";
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  width: 100%;
-  height: 1px;
-  background: linear-gradient(to right, transparent, var(--bg-color));
+  font-size: 12px !important;
+  padding: 10px 5px !important;
 }
 
 @media (max-width: 578px) {
   .btn-profile-info svg {
     margin-right: 5px !important;
+  }
+  .btn-profile {
+    width: auto !important;
+    height: auto !important;
   }
   .profile-btn {
     width: 38px;

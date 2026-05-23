@@ -4,7 +4,8 @@
   overflow: hidden;
 }
 
-.intro-main h1 , .intro-main h2{
+.intro-main h1,
+.intro-main h2 {
   font-family: var(--font-rokh) !important;
   font-weight: 600 !important;
 }

@@ -9,6 +9,7 @@ import {
   FiShoppingCart,
   FiUser,
 } from "react-icons/fi";
+import Image from "next/image";
 
 const ProfileBtn = () => {
   const { data: session, status } = useSession();
@@ -17,22 +18,36 @@ const ProfileBtn = () => {
     return (
       <div className="profile-wrapper">
         <button className="profile-btn d-flex align-items-center justify-content-center ">
-          <img src="/img/profile.jfif" alt="" />
+          <Image
+            width={42}
+            height={42}
+            src="/img/profile.jfif"
+            alt="Profile Image"
+            loading="lazy"
+          />
         </button>
 
-        <section className="btn-profile-con pt-5">
-          <section className="btn-profile p-4">
-            <div className="d-flex align-items-center mb-4 pb-2">
+        <section className="btn-profile-con pt-5 mt-2">
+          <section className="btn-profile  ">
+            <div className="d-flex align-items-center ">
               <Link
                 href="/profile"
                 className="profile-btn d-flex align-items-center justify-content-center "
               >
-                <img src="/img/profile.jfif" alt="" />
+                <Image
+                  width={42}
+                  height={42}
+                  src="/img/profile.jfif"
+                  alt="Profile Image"
+                  loading="lazy"
+                />
               </Link>
               <h6 className="btn-profile-name mx-3 mt-2">
                 {session?.user?.username}
               </h6>
             </div>
+
+            <hr />
 
             <Link
               href="/profile"
@@ -43,7 +58,7 @@ const ProfileBtn = () => {
             </Link>
             <Link
               href="/purchases"
-              className="btn-profile-info d-flex align-items-center  mt-3 pt-1"
+              className="btn-profile-info d-flex align-items-center  "
             >
               <FiShoppingBag size={14} className="mx-3 mb-1" />
               خرید های قبلی
@@ -51,14 +66,14 @@ const ProfileBtn = () => {
 
             <Link
               href="/cart"
-              className="btn-profile-info d-flex align-items-center mt-3 pt-1"
+              className="btn-profile-info d-flex align-items-center "
             >
               <FiShoppingCart size={14} className="mx-3 mb-1" />
               سبد خرید
             </Link>
             <Link
               href="/"
-              className="btn-profile-info d-flex align-items-center mt-3 pt-1"
+              className="btn-profile-info d-flex align-items-center "
             >
               <FiSettings size={14} className="mx-3 mb-1" />
               تنظیمات
@@ -66,9 +81,8 @@ const ProfileBtn = () => {
 
             <a
               onClick={signOut}
-              className="btn-profile-info btn-profile-info-logout d-flex align-items-center mt-3 pt-3"
+              className="btn-main btn-red btn-profile-info-logout d-flex align-items-center mt-3"
             >
-              <FiLogOut size={14} className="mx-3 mb-1" />
               خروج از حساب کاربری
             </a>
           </section>

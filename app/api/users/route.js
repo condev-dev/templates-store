@@ -48,6 +48,7 @@ export async function PUT(request) {
     const users = await readData("users");
     const body = await request.json();
 
+    const userIndex = users.findIndex((user) => user.id === body.userId);
     const updatedUserData = { ...users[userIndex] };
     let hasChanges = false;
 
