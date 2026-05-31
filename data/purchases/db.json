@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "id": "e8415a95-4bb9-4ea5-a0fc-183c9abde8ae",
+    "user_id": "7b44d7d0-4dc3-4293-983c-64c91703c542",
+    "purchases": [
+      {
+        "templateId": "4"
+      }
+    ]
+  }
+]
