@@ -1,38 +1,45 @@
 :root {
   /* -------------------------------------  Btn */
   /* btn -1 */
-  --bg-btn-color: #0865ff;
-  --text-btn-color: #fff;
+  --bg-btn-color: #6366f1;
+  --text-btn-color: #ffffff;
+
   /* btn -2 */
-  --bg-btn-light: #cfcfcf;
-  --text-btn-light: #131519;
+  --bg-btn-light: #1e293b;
+  --text-btn-light: #94a3b8;
+
   /* -------------------------------------  Main */
   /* background */
-  --bg-black: #000;
-  --bg-white: #fff;
-  --bg: #131519;
-  --bg-main: #212938;
-  --bg-light: #cfcfcf;
-  --bg-color: #0865ff;
-  --bg-green: #00c300;
-  --bg-red: #fd5c63;
-  --bg-orange: orange;
+  --bg-black: #020617;
+  --bg-white: #ffffff;
+  --bg: #0f172a;
+  --bg-main: #1e293b;
+  --bg-light: #334155;
+  --bg-color: #6366f1;
+  --bg-green: #10b981;
+  --bg-red: #ef4444;
+  --bg-orange: #f59e0b;
+
   /* text */
-  --text-black: #000;
-  --text-white: #fff;
-  --text: #f3f6f8;
-  --text-light: #9ea7b9;
-  --text-color: #0865ff;
-  --text-green: #00c300;
-  --text-red: #fd5c63;
-  --text-orange: orange;
+  /* text color, background color, font size, font selection, and font height */
+  --text-black: #020617;
+  --text-white: #ffffff;
+  --text: #f8fafc;
+  --text-light: #94a3b8;
+  --text-color: #6366f1;
+  --text-green: #10b981;
+  --text-red: #ef4444;
+  --text-orange: #f59e0b;
+
   /* -------------------------------------  Radius */
-  --round-sm: 7px;
-  --round-md: 9px;
-  --round-lg: 13px;
+  --round-sm: 6px;
+  --round-md: 10px;
+  --round-lg: 16px;
+
   /* -------------------------------------  Border Color */
-  --border-color: #0867ff34;
-  --border-light: #9ea7b918;
+  --border-color: #6366f130;
+  --border-light: #33415571;
+
   /* -------------------------------------  Font Size */
   /* lg */
   --font-text-lg: 14px;
@@ -47,49 +54,3 @@
   --font-title-2-sm: 30px;
   --font-btn-sm: 13px;
 }
-
-
-
-
-
-/* Purple Palette Color */
-
-  /* --bg-btn-color: #8B5CF6; */
-  /* --text-btn-color: #FFFFFF; */
-
-  /* btn -2 */
-  /* --bg-btn-light: #232136; */
-  /* --text-btn-light: #F8FAFC; */
-
-  /* -------------------------------------  Main */
-  /* background */
-  /* --bg-black: #000000; */
-  /* --bg-white: #FFFFFF; */
-  /* --bg: #0F172A; */
-  /* --bg-main: #1E293B; */
-  /* --bg-light: #334155; */
-  /* --bg-color: #8B5CF6; */
-  /* --bg-green: #22C55E; */
-  /* --bg-red: #EF4444; */
-  /* --bg-orange: #F59E0B; */
-
-  /* text */
-  /* --text-black: #000000; */
-  /* --text-white: #FFFFFF; */
-  /* --text: #F8FAFC; */
-  /* --text-light: #94A3B8; */
-  /* --text-color: #8B5CF6; */
-  /* --text-green: #22C55E; */
-  /* --text-red: #EF4444; */
-  /* --text-orange: #F59E0B; */
-
-  /* -------------------------------------  Radius */
-  /* --round-sm: 7px; */
-  /* --round-md: 9px; */
-  /* --round-lg: 13px; */
-
-  /* -------------------------------------  Border Color */
-  /* --border-color: #8B5CF633; */
-  /* --border-light: #FFFFFF14; */
-
-  /* -------------------------------------  Font Size */

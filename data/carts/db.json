@@ -22,5 +22,23 @@
     "id": "b1b85ddb-40dd-4ec8-963d-a6b83fc4845d",
     "user_id": "7b44d7d0-4dc3-4293-983c-64c91703c542",
     "carts": []
+  },
+  {
+    "id": "f09630bd-0a1c-42e9-9031-358b4cbea858",
+    "user_id": "1cc180df-93f5-4d0a-b685-2c95c81c2561",
+    "carts": [
+      {
+        "templateId": "1"
+      },
+      {
+        "templateId": "4"
+      },
+      {
+        "templateId": "2"
+      },
+      {
+        "templateId": "3"
+      }
+    ]
   }
 ]

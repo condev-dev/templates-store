@@ -122,6 +122,15 @@
   overflow: hidden;
   position: relative;
   border-radius: var(--round-sm);
+  transition: all 0.3s;
+}
+
+.category-item:hover .category-image-1,
+.category-item:hover .category-image-2,
+.category-item:hover .category-image-3,
+.category-item:hover .category-image-4 {
+  transform: translateX(10px);
+  width: 60% !important;
 }
 
 .category-image-1::before {
@@ -155,7 +164,6 @@
   left: 0px !important;
   background-size: cover !important;
   border-right: 2.5px solid var(--bg) !important;
-
 }
 
 .category-image-2::after {
@@ -167,7 +175,6 @@
   right: 0px !important;
   background-size: cover !important;
   border-left: 2.5px solid var(--bg) !important;
-
 }
 
 .category-image-3::before {
@@ -179,7 +186,6 @@
   left: 0px !important;
   background-size: cover !important;
   border-right: 2.5px solid var(--bg) !important;
-
 }
 
 .category-image-3::after {
@@ -191,7 +197,6 @@
   right: 0px !important;
   background-size: cover !important;
   border-left: 2.5px solid var(--bg) !important;
-
 }
 
 .category-image-4::before {
@@ -203,7 +208,6 @@
   left: 0px !important;
   background-size: cover !important;
   border-right: 2.5px solid var(--bg) !important;
-
 }
 
 .category-image-4::after {
@@ -215,5 +219,4 @@
   right: 0px !important;
   background-size: cover !important;
   border-left: 2.5px solid var(--bg) !important;
-
 }

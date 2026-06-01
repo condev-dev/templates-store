@@ -3,10 +3,6 @@
   border: 1px solid var(--border-color);
 }
 
-.profile hr {
-  border-color: var(--text-light) !important;
-}
-
 .profile h6 {
   font-size: 20px !important;
   position: relative;

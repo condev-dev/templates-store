@@ -36,7 +36,7 @@
   position: relative;
   border: 1px solid var(--border-light);
   transition: all 0.3s;
-  background: #13151998;
+  background: var(--bg-dark);
   overflow: hidden;
 }
 .plan::before {

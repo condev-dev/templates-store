@@ -43,7 +43,7 @@
 .best-sellers-container .template-box {
   position: relative;
   overflow: hidden;
-  background: #131519ce !important;
+  background: var(--bg) !important;
 }
 
 .best-sellers-container .template-box::before {

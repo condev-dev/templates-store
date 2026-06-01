@@ -5,7 +5,7 @@ const Toman = ({ size }) => {
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
-      fill="#0865ff"
+      fill="#6366f1"
       viewBox="0 0 14 14"
       className="mb-2"
     >
