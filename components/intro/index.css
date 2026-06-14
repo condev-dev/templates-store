@@ -25,14 +25,15 @@
 .intro-main::after {
   content: "";
   position: absolute;
-  background: url("/img/templates/template.webp") !important;
+  background: url("https://i.postimg.cc/Pqg6s3Px/Template-8-B.webp") !important;
+  background-size: cover !important;
   width: 600px !important;
   height: 100% !important;
   z-index: -1;
   left: 0px;
   top: 0px;
-  object-fit: cover;
-  object-position: center top;
+  object-fit: cover !important;
+  object-position: center top !important;
 }
 
 .intro-main h1 {

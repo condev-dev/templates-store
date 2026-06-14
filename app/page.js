@@ -16,10 +16,10 @@ export default function Home() {
     <>
       {/* <div>{data.title}</div>; */}
       <Intro />
-      <TemplateCategory title="قالب های فارسی" filterBy="فارسی" />
+      <TemplateCategory title="قالب های فارسی" filterBy="لندینگ فارسی" />
       <Categories />
       <BestSellers_s />
-      <TemplateCategory title="قالب های موبایلی" filterBy="موبایلی" />
+      <TemplateCategory title="قالب های بایو" filterBy="بایو" />
       <Plans />
       <TemplateCategory title="قالب های ترکی" filterBy="ترکی" />
     </>

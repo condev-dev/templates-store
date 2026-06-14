@@ -1,26 +1,48 @@
+"use client";
 import Image from "next/image";
 import FaNumber from "../common/FaNumber";
 import Toman from "../common/Toman";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import ImagePlaceholder from "../common/ImagePlaceholder";
 import AddToCart from "./AddToCart";
 import Link from "next/link";
 import { FiEye } from "react-icons/fi";
+import { ImSpinner2 } from "react-icons/im";
 //
 import "./index.css";
 
-const TemplateItem = ({ image, title, categories, price, id }) => {
+const TemplateItem = ({ image, title, categories, price, id, demo_url }) => {
+  // For Image
+  const [isLoading, setIsLoading] = useState(true);
+  const [imgSrc, setImgSrc] = useState(image);
+  const [retryCount, setRetryCount] = useState(0);
+
+  const handleImgError = () => {
+    if (retryCount < 1) {
+      setRetryCount((prev) => prev + 1);
+      setImgSrc(`${image}?retry=${Date.now()}`);
+    } else {
+      setImgSrc(null);
+      setIsLoading(false);
+    }
+  };
+
   return (
-    <div className="template-box d-flex flex-column  shadow-sm">
+    <div className="template-box d-flex flex-column position-relative  shadow-sm">
       <Link href={`/template/${id}`}>
-        {image ? (
+        {isLoading && imgSrc && <ImSpinner2 size={24} className="template-box-spiner" />}
+
+        {imgSrc ? (
           <Image
             src={image}
             alt={title}
             loading="lazy"
             width={500}
             height={300}
-            className="mb-1 "
+            className="mb-1 img-fluid"
+            unoptimized
+            onLoad={() => setIsLoading(false)}
+            onError={handleImgError}
           />
         ) : (
           <ImagePlaceholder width={500} height={300} />
@@ -50,10 +72,14 @@ const TemplateItem = ({ image, title, categories, price, id }) => {
         </h6>
 
         <div className="d-flex gap-2">
-          <button className="btn-main btn-light ms-1">
+          <Link
+            href={demo_url}
+            target="_blank"
+            className="btn-main btn-light ms-1"
+          >
             {" "}
             <FiEye size={16} />
-          </button>
+          </Link>
 
           <AddToCart templateId={id} />
         </div>

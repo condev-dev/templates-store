@@ -5,14 +5,17 @@ import Link from "next/link";
 const Categories = () => {
   return (
     <>
-      <section id="categories" className="categories-container-lg-title d-flex justify-content-between align-items-center w-100 mt-5 pt-3">
+      <section
+        id="categories"
+        className="categories-container-lg-title d-flex justify-content-between align-items-center w-100 mt-5 pt-3"
+      >
         <h3 className="mt-2">دسته بندی ها</h3>
       </section>
       <section className="w-100 categories-container-lg mt-4 pt-2 pt-lg-0 mt-lg-5">
         <div className="category-item d-flex p-3 p-lg-4 shadow-lg">
           <div className="d-flex flex-column w-50 align-items-start justify-content-center gap-2">
             <h5>
-              قالب های <span>فارسی زبان</span>
+              قالب های <span className="mx-1">فارسی زبان</span>
             </h5>
             <div className="d-flex align-items-center w-100 flex-wrap">
               <small className=" ">80 +</small>
@@ -34,7 +37,7 @@ const Categories = () => {
         <div className="category-item d-flex p-3 p-lg-4 shadow-lg">
           <div className="d-flex flex-column w-50 align-items-start justify-content-center gap-2">
             <h5>
-              قالب های <span>ترکی زبان</span>
+              قالب های <span className="mx-1">ترکی زبان</span>
             </h5>
             <div className="d-flex align-items-center w-100 flex-wrap">
               <small className=" ">30 +</small>
@@ -56,7 +59,7 @@ const Categories = () => {
         <div className="category-item d-flex p-3 p-lg-4 shadow-lg">
           <div className="d-flex flex-column w-50 align-items-start justify-content-center gap-2">
             <h5>
-              قالب های <span>تبلیغاتی</span>
+              قالب های <span className="mx-1">بایو</span>
             </h5>
             <div className="d-flex align-items-center w-100 flex-wrap">
               <small className=" ">50 +</small>
@@ -78,7 +81,7 @@ const Categories = () => {
         <div className="category-item d-flex p-3 p-lg-4 shadow-lg">
           <div className="d-flex flex-column w-50 align-items-start justify-content-center gap-2">
             <h5>
-              قالب های <span>بازی</span>
+              قالب های <span className="mx-1">بازی</span>
             </h5>
             <div className="d-flex align-items-center w-100 flex-wrap">
               <small className=" ">8 +</small>

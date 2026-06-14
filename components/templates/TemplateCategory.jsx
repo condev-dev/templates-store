@@ -1,13 +1,13 @@
 import Link from "next/link";
-import Template from "./TemplateItem";
 //
 import "./index.css";
+import TemplateItem from "./TemplateItem";
 
 const TemplateCategory = async ({ title, filterBy }) => {
   const BaseUrl = process.env.NEXT_PUBLIC_API_URL;
   const ApiKey = process.env.NEXT_API_SECRET_KEY;
 
-  const res = await fetch(`${BaseUrl}/api/templates`, {
+  const res = await fetch(`${BaseUrl}/api/templates?filterBy=${filterBy}`, {
     cache: "no-store",
     headers: {
       "api-key": ApiKey,
@@ -30,13 +30,14 @@ const TemplateCategory = async ({ title, filterBy }) => {
 
       <section className="template-container gap-4 mt-4 mt-sm-5 pt-1">
         {templates?.slice(0, 4).map((template) => (
-          <Template
+          <TemplateItem
             key={template.id}
             image={template.image}
             title={template.title}
             categories={template.categories}
             price={template.price}
             id={template.id}
+            demo_url={template.demo_url}
           />
         ))}
       </section>

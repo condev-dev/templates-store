@@ -20,10 +20,10 @@ const Categories = () => {
         <FaAngleLeft size={20} className="btn-categories-icon" />
       </Link>
       <Link
-        href="/templates/filter/تبلیغاتی"
+        href="/templates/filter/بایو"
         className="btn-categories w-100 d-flex justify-content-between align-items-center shadow-lg mt-3"
       >
-        <span> قالب های تبلیغاتی</span>
+        <span> قالب های بایو</span>
         <FaAngleLeft size={20} className="btn-categories-icon" />
       </Link>
     </section>
