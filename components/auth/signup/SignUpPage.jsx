@@ -15,8 +15,33 @@ export default function SignUpPage() {
   const BaseUrl = process.env.NEXT_PUBLIC_API_URL;
   //
   const OnSignUp = async () => {
-    if (email === "" || password === "" || username === "") {
+    // ------- Checks
+    // Check Empty Fields
+    if (
+      email.trim() === "" ||
+      password.trim() === "" ||
+      username.trim() === ""
+    ) {
       toast.error("لطفا تمام فیلد ها را پر کنید. ");
+      return;
+    }
+
+    // Check Username Length
+    if (username.length < 3) {
+      toast.error("نام کاربری باید حداقل ۳ کاراکتر باشد.");
+      return;
+    }
+
+    // Check Email Format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      toast.error("فرمت ایمیل وارد شده معتبر نیست.");
+      return;
+    }
+
+    // Check if the new password is at least 6 characters long
+    if (password.length < 6) {
+      toast.error("رمز عبور جدید باید حداقل ۶ کاراکتر باشد.");
       return;
     }
 
@@ -39,7 +64,7 @@ export default function SignUpPage() {
           email: userToAdd.email,
           password: userToAdd.password,
           username: userToAdd.username,
-          fullname: userToAdd.fullname
+          fullname: userToAdd.fullname,
         }),
       });
 

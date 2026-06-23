@@ -34,12 +34,15 @@ export const authOptions = {
   },
   secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
-    async jwt({ token, user }) {
+    async jwt({ token, user, trigger, session }) {
       if (user) {
         token.id = user.id;
         token.email = user.email;
-        token.username = user.username; 
-        token.fullname = user.fullname; 
+        token.username = user.username;
+        token.fullname = user.fullname;
+      }
+      if (trigger === "update" && session?.user) {
+        return { ...token, ...session.user };
       }
       return token;
     },

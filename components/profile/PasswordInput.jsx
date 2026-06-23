@@ -1,7 +1,13 @@
+import { useSession } from "next-auth/react";
 import { useRef, useState } from "react";
 import { FiEdit } from "react-icons/fi";
+import { toast } from "react-toastify";
 
 const PasswordInput = () => {
+  const BaseUrl = process.env.NEXT_PUBLIC_API_URL;
+  //
+  const { data: session, update } = useSession();
+  //
   const currentPasswordRef = useRef(null);
   const newPasswordRef = useRef(null);
   const repeatPasswordRef = useRef(null);
@@ -12,21 +18,59 @@ const PasswordInput = () => {
     requestAnimationFrame(() => currentPasswordRef.current?.focus());
   };
 
-  const handleSaveClick = () => {
+  const handleSaveClick = async () => {
     const currentPassword = currentPasswordRef.current?.value;
     const newPassword = newPasswordRef.current?.value;
     const repeatPassword = repeatPasswordRef.current?.value;
 
-    if (newPassword !== repeatPassword) {
-      alert("رمز عبور جدید با تکرار آن مطابقت ندارد!");
-      return;
-    }
+    // ------- Checks
+    // Check if any field is empty
     if (!currentPassword || !newPassword || !repeatPassword) {
-      alert("لطفاً تمام فیلدها را پر کنید.");
+      toast.error("لطفاً تمام فیلدها را پر کنید.");
       return;
     }
 
-    console.log("Saving password:", { currentPassword, newPassword });
+    // Check if the new password is at least 6 characters long
+    if (newPassword.length < 6) {
+      toast.error("رمز عبور جدید باید حداقل ۶ کاراکتر باشد.");
+      return;
+    }
+
+    // Check if the new password matches the repeat password
+    if (newPassword !== repeatPassword) {
+      toast.error("رمز عبور جدید با تکرار آن مطابقت ندارد!");
+      return;
+    }
+
+    const res = await fetch(`${BaseUrl}/api/users`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        userId: session?.user?.id,
+        password: newPassword,
+      }),
+    });
+
+    if (res.ok) {
+      await update({
+        ...session,
+        user: {
+          ...session?.user,
+          password: newPassword,
+        },
+      });
+      toast.success("پسورد با موفقیت آپدیت شد.");
+    } else {
+      const errorData = await res.json();
+      toast.error(errorData.message);
+      if (newPasswordRef.current) {
+        newPasswordRef.current.value = "";
+      }
+    }
+
+    // console.log("Saving password:", { currentPassword, newPassword });
     setIsEditing(false);
   };
 
@@ -100,7 +144,10 @@ const PasswordInput = () => {
             >
               ذخیره
             </button>
-            <button onClick={handleCancelClick} className="btn-main btn-red w-50">
+            <button
+              onClick={handleCancelClick}
+              className="btn-main btn-red w-50"
+            >
               انصراف
             </button>
           </div>

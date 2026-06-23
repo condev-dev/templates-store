@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 const EditableInput = ({ label, value, type = "text", name }) => {
   const inputRef = useRef(null);
   const [disabled, setDisabled] = useState(true);
-  const { data: session } = useSession();
+  const { data: session, update } = useSession();
   const BaseUrl = process.env.NEXT_PUBLIC_API_URL;
 
   const handleEdit = async () => {
@@ -16,8 +16,45 @@ const EditableInput = ({ label, value, type = "text", name }) => {
       requestAnimationFrame(() => inputRef.current?.select());
     } else {
       const newValue = inputRef.current.value;
-
       setDisabled(true);
+
+      // ---------- Checks
+      // Check if the new value is empty
+      if (newValue.trim() === "") {
+        toast.error("این فیلد نمی‌تواند خالی باشد.");
+        inputRef.current.value = value || "";
+        setDisabled(true);
+        return;
+      }
+
+      // Check if the new value is the same as the old value
+      if (newValue === value) {
+        toast.info("مقدار جدید با مقدار قبلی یکسان است.");
+        inputRef.current.value = value || "";
+        setDisabled(true);
+        return;
+      }
+
+      // Check if the new value is less than 3 characters for username
+      if (name === "username" && newValue.length < 3) {
+        toast.error("نام کاربری باید حداقل ۳ کاراکتر باشد.");
+        inputRef.current.value = value || "";
+        setDisabled(true);
+        return;
+      }
+
+      // Check if the new value is a valid email format for email field
+      if (name === "email") {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(newValue)) {
+          toast.error("فرمت ایمیل وارد شده معتبر نیست.");
+          inputRef.current.value = value || "";
+          setDisabled(true);
+          return;
+        }
+      }
+
+      //---------- Update the user data via API
       const res = await fetch(`${BaseUrl}/api/users`, {
         method: "PUT",
         headers: {
@@ -30,10 +67,20 @@ const EditableInput = ({ label, value, type = "text", name }) => {
       });
 
       if (res.ok) {
+        await update({
+          ...session,
+          user: {
+            ...session?.user,
+            [name]: newValue,
+          },
+        });
         toast.success("پروفایل با موفقیت آپدیت شد.");
       } else {
         const errorData = await res.json();
         toast.error(errorData.message);
+        if (inputRef.current) {
+          inputRef.current.value = value || "";
+        }
       }
     }
   };

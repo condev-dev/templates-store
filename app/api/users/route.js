@@ -1,4 +1,10 @@
-import { AddUser } from "@/services/users";
+import {
+  AddUser,
+  EditEmail,
+  EditFullName,
+  EditPassword,
+  EditUserName,
+} from "@/services/users";
 import { readData, writeData } from "@/utils/api";
 import { NextResponse } from "next/server";
 
@@ -22,7 +28,7 @@ export async function POST(request) {
     const users = await readData("users");
     const body = await request.json();
 
-    // Check Email
+    // Check Email Already Exists
     if (users?.find((user) => user.email === body?.email)) {
       return Response.json(
         { message: "این ایمیل موجود می باشد." },
@@ -30,7 +36,7 @@ export async function POST(request) {
       );
     }
 
-    // ‍Add User
+    // add user
     const newUser = await AddUser(body);
 
     return NextResponse.json(newUser, { status: 201 });
@@ -54,43 +60,51 @@ export async function PUT(request) {
 
     // For FullName
     if (body.fullname !== undefined) {
-      updatedUserData.fullname = body.fullname;
+      await EditFullName(body);
       hasChanges = true;
     }
 
     // For UserName
     if (body.username !== undefined) {
-      updatedUserData.username = body.username;
+      await EditUserName(body);
       hasChanges = true;
     }
 
     // For Email
     if (body.email !== undefined) {
-      const emailExists = users.find((user) => user.email === body.email);
+      // Check Email Already Exists
+      const emailExists = users.find(
+        (user) => user.email === body.email && user.id !== body.userId,
+      );
+
       if (emailExists) {
         return NextResponse.json(
           { message: "این ایمیل موجود می باشد." },
           { status: 409 },
         );
-      } else {
-        updatedUserData.email = body.email;
-        hasChanges = true;
       }
+
+      // Edit Email
+      await EditEmail(body);
+      hasChanges = true;
+    }
+
+    // For Password
+    if (body.password !== undefined) {
+      await EditPassword(body);
+      hasChanges = true;
     }
 
     // If Was Any Change Here Change It.
     if (hasChanges) {
-      users[userIndex] = updatedUserData;
-      await writeData("users", users);
       return NextResponse.json(
         { message: "پروفایل با موفقیت آپدیت شد." },
         { status: 200 },
       );
     } else {
-      // If Was'nt Any Change
       return NextResponse.json(
         { message: "لطفا یک مورد رو تغییر دهید!" },
-        { status: 200 },
+        { status: 400 },
       );
     }
   } catch (error) {
