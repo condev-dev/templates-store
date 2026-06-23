@@ -30,7 +30,9 @@ const TemplateItem = ({ image, title, categories, price, id, demo_url }) => {
   return (
     <div className="template-box d-flex flex-column position-relative  shadow-sm">
       <Link href={`/template/${id}`}>
-        {isLoading && imgSrc && <ImSpinner2 size={24} className="template-box-spiner" />}
+        {isLoading && imgSrc && (
+          <ImSpinner2 size={24} className="template-box-spiner" />
+        )}
 
         {imgSrc ? (
           <Image
@@ -75,6 +77,7 @@ const TemplateItem = ({ image, title, categories, price, id, demo_url }) => {
           <Link
             href={demo_url}
             target="_blank"
+            rel="noopener noreferrer"
             className="btn-main btn-light ms-1"
           >
             {" "}

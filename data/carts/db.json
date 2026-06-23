@@ -96,6 +96,10 @@
   {
     "id": "6855e27d-620a-425c-8ea5-56faae93a8c4",
     "user_id": "c31d6c8c-23a0-4202-8faa-ce0d568fa60b",
-    "carts": []
+    "carts": [
+      {
+        "templateId": "57"
+      }
+    ]
   }
 ]

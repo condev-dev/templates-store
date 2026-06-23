@@ -4,7 +4,8 @@ import AddToCart from "@/components/templates/AddToCart";
 import FaNumber from "@/components/common/FaNumber";
 import Toman from "@/components/common/Toman";
 import Link from "next/link";
-import Image from "next/image";
+import CustomLoadingImage from "@/components/ui/loading-image/CustomLoadingImage";
+
 const Template = async ({ params }) => {
   const BaseUrl = process.env.NEXT_PUBLIC_API_URL;
   const ApiKey = process.env.NEXT_API_SECRET_KEY;
@@ -12,32 +13,28 @@ const Template = async ({ params }) => {
 
   const res = await fetch(`${BaseUrl}/api/templates?templateId=${id}`, {
     cache: "no-store",
-    headers :{
+    headers: {
       "api-key": ApiKey,
-    }
+    },
   });
   const data = res.ok ? await res.json() : null;
-  
-  // Empty
-  if(data.length <= 0) return <div> این قالب پیدا نشد. </div>
+
+  if (!data || data.length <= 0) return <div> این قالب پیدا نشد. </div>;
 
   return (
     <section className="d-flex flex-column mt-4">
-      {/* Title */}
       <section className="w-100 d-flex justify-content-start align-items-center single-template-title mt-3">
         <h4>{data?.title}</h4>
       </section>
 
       <section className="w-100 d-flex flex-column">
-        {/* Intro */}
         <section className="w-100 d-flex justify-content-between align-items-start flex-column flex-lg-row single-template mt-4 pt-2">
           <section className="w-75 ps-4 single-template-image-container">
-            <Image
+            <CustomLoadingImage
               src={data?.image}
               alt={data?.title}
               width={1200}
               height={600}
-              loading="lazy"
               className="w-100 shadow-sm"
             />
           </section>
@@ -71,6 +68,8 @@ const Template = async ({ params }) => {
             </div>
             <Link
               href={data?.demo_url}
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-100 btn-main btn-light mt-4 mb-3 "
             >
               پیشنمایش قالب
@@ -78,14 +77,11 @@ const Template = async ({ params }) => {
             <AddToCart templateId={data?.id} />
           </section>
         </section>
-        {/* Show All Image , ... */}
 
         <section className="w-100 mb-3 mb-lg-0 mt-lg-4 single-template-description ">
           <section className="d-flex align-items-start justify-content-start flex-column mt-5 mb-4 pb-1 single-template-description-title ">
             <h4>یکی از بهترین قالب های فروشگاهی در سطح جهان</h4>
-
             <p className=" mt-3 mt-sm-4 three-line ">
-              {" "}
               این حجم از فروش و رضایت کاربران شانسی و اتفاقی بدست نمی آید. شاید
               این شرکت هم مانند تیم ابزار وردپرس هدفی جز رضایت کاربران خود
               نداشته باشد و با ارائه هر نوع قالب وردپرس با ارائه هر نوع قالب
@@ -98,15 +94,21 @@ const Template = async ({ params }) => {
 
           <section className="w-100 pt-2 pt-sm-0 d-flex justify-content-between align-items-center single-template-title pb-2 ">
             <h4>پیشنمایش کامل قالب</h4>
-            <button className="btn-main btn-color shadow-lg"> دمو زنده</button>
+            <Link
+              href={data?.demo_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-main btn-color shadow-lg "
+            >
+              پیشنمایش قالب
+            </Link>
           </section>
-          
-          <Image
+
+          <CustomLoadingImage
             src={data?.image}
             alt={data?.title}
             width={1400}
             height={6000}
-            loading="lazy"
             className="w-100 shadow-sm mt-4"
           />
         </section>
