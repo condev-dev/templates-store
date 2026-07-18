@@ -11,6 +11,9 @@ import { fontIranSans, fontRokh } from "@/lib/fonts";
 import Container from "../components/layout/container/Container";
 import AuthProvider from "./AuthProvider";
 import ToastProvider from "@/components/common/ToastProvider";
+// Loading Skeleton
+import "react-loading-skeleton/dist/skeleton.css";
+
 
 export const metadata = {
   title: "ConDev | Casino Templates",

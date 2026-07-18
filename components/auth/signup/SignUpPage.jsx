@@ -41,7 +41,7 @@ export default function SignUpPage() {
 
     // Check if the new password is at least 6 characters long
     if (password.length < 6) {
-      toast.error("رمز عبور جدید باید حداقل ۶ کاراکتر باشد.");
+      toast.error("رمز عبور باید حداقل ۶ کاراکتر باشد.");
       return;
     }
 

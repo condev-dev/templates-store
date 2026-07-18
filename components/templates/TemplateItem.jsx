@@ -1,54 +1,25 @@
 "use client";
-import Image from "next/image";
 import FaNumber from "../common/FaNumber";
 import Toman from "../common/Toman";
-import { Fragment, useState } from "react";
-import ImagePlaceholder from "../common/ImagePlaceholder";
+import { Fragment } from "react";
 import AddToCart from "./AddToCart";
 import Link from "next/link";
 import { FiEye } from "react-icons/fi";
-import { ImSpinner2 } from "react-icons/im";
 //
 import "./index.css";
+import CustomLoadingImage from "../ui/loading-image/CustomLoadingImage";
 
 const TemplateItem = ({ image, title, categories, price, id, demo_url }) => {
-  // For Image
-  const [isLoading, setIsLoading] = useState(true);
-  const [imgSrc, setImgSrc] = useState(image);
-  const [retryCount, setRetryCount] = useState(0);
-
-  const handleImgError = () => {
-    if (retryCount < 1) {
-      setRetryCount((prev) => prev + 1);
-      setImgSrc(`${image}?retry=${Date.now()}`);
-    } else {
-      setImgSrc(null);
-      setIsLoading(false);
-    }
-  };
-
   return (
     <div className="template-box d-flex flex-column position-relative  shadow-sm">
       <Link href={`/template/${id}`}>
-        {isLoading && imgSrc && (
-          <ImSpinner2 size={24} className="template-box-spiner" />
-        )}
-
-        {imgSrc ? (
-          <Image
-            src={image}
-            alt={title}
-            loading="lazy"
-            width={500}
-            height={300}
-            className="mb-1 img-fluid"
-            unoptimized
-            onLoad={() => setIsLoading(false)}
-            onError={handleImgError}
-          />
-        ) : (
-          <ImagePlaceholder width={500} height={300} />
-        )}
+        <CustomLoadingImage
+          src={image}
+          alt={title}
+          width={1200}
+          height={600}
+          className="w-100 shadow-sm"
+        />
         <h5 className="mt-4 template-box-title">{title}</h5>
 
         <h6 className="mt-3 template-box-category">

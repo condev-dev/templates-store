@@ -17,13 +17,18 @@ const Footer = () => {
               className="logo"
             />
             <p className="footer-information-text mt-3 mt-sm-4 pt-sm-2 four-line">
-      condev از ابتدا با این چشم‌انداز شکل گرفت که ابزارهای قدرتمند و جذابی برای ساختن فضاهای آنلاین موفق، به‌خصوص در عرصه بازی و شرط‌بندی، فراهم کند. ما با اشتیاق، قالب‌هایی را طراحی و کدنویسی می‌کنیم که نه تنها ظاهری حرفه‌ای دارند، بلکه به کسب‌وکارها کمک می‌کنند تا مخاطبان بیشتری جذب کرده و به اهدافشان سریع‌تر دست یابند. از سال [سال شروع فعالیت condev را اینجا وارد کنید]، ما در کنار شما بوده‌ایم تا ایده‌های دیجیتال شما را به بهترین شکل ممکن به تصویر بکشیم.
+              condev از ابتدا با این چشم‌انداز شکل گرفت که ابزارهای قدرتمند و
+              جذابی برای ساختن فضاهای آنلاین موفق، به‌خصوص در عرصه بازی و
+              شرط‌بندی، فراهم کند. ما با اشتیاق، قالب‌هایی را طراحی و کدنویسی
+              می‌کنیم که نه‌تنها ظاهری حرفه‌ای دارند، بلکه به کسب‌وکارها کمک
+              می‌کنند تا مخاطبان بیشتری جذب کرده و به اهدافشان سریع‌تر دست
+              یابند.
             </p>
           </div>
 
           <div className="w-50 pe-5 d-flex flex-column footer-social">
             <div className="social-media-title gap-3">
-              <h6>ما را در شبکه های اجتماعی دنبال کنید </h6>
+              <h6>ما را در شبکه‌های اجتماعی دنبال کنید</h6>
             </div>
             <div className="social-media-container gap-3 mt-2">
               {/*  */}
@@ -33,7 +38,7 @@ const Footer = () => {
                 </div>
                 <div className="social-medial-text d-flex flex-column me-3">
                   <small>کانال ما در تلگرام</small>
-                  <small>tm::/condevtp.com</small>
+                  <small>t.me/condev</small>
                 </div>
               </div>
               {/*  */}
@@ -42,8 +47,8 @@ const Footer = () => {
                   <FaWhatsapp size={25} />
                 </div>
                 <div className="social-medial-text d-flex flex-column me-3">
-                  <small>کانال ما در واتساپ</small>
-                  <small>tm::/condevtp.com</small>
+                  <small>پشتیبانی ما در واتساپ</small>
+                  <small>wa.me/condev</small>
                 </div>
               </div>
               {/*  */}
@@ -52,8 +57,8 @@ const Footer = () => {
                   <FaGithub size={25} />
                 </div>
                 <div className="social-medial-text d-flex flex-column me-3">
-                  <small>گیت هاب</small>
-                  <small>tm::/condevtp.com</small>
+                  <small>گیت‌هاب</small>
+                  <small>github.com/condev</small>
                 </div>
               </div>
               {/*  */}
@@ -63,7 +68,7 @@ const Footer = () => {
                 </div>
                 <div className="social-medial-text d-flex flex-column me-3">
                   <small>اینستاگرام</small>
-                  <small>tm::/condevtp.com</small>
+                  <small>instagram.com/condev</small>
                 </div>
               </div>
               {/*  */}

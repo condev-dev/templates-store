@@ -82,5 +82,12 @@
     "password": "$2b$10$OHiynJw9DwhSbA6oT.FIn.UTX.of9n41OgZ5tFYTkhgaL1D1EKxs6",
     "username": "222",
     "fullname": "11"
+  },
+  {
+    "id": "4e810452-f25d-411a-8f84-4148b87598bd",
+    "email": "Arash@gmail.com",
+    "password": "$2b$10$uq0SB1.4cAmzzQYZejUpuuQnh8OCPlQpAg33yyJ//Frx9o1Mm01H.",
+    "username": "arash",
+    "fullname": ""
   }
 ]

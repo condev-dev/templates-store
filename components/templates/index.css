@@ -30,13 +30,15 @@
   padding: 12px;
 }
 
-.template-box img {
-  width: 100% !important;
-  height: 300px !important;
+.template-box img,
+.image-placeholder-container {
+  min-height: 300px !important;
   object-fit: cover;
   object-position: top right;
   border-radius: var(--round-sm);
-  transition: all 2.7s ease-in-out;
+  transition:
+    all 2.7s ease-in-out,
+    opacity 0.3s ease-in-out, filter 0.5s ease-in-out;
 }
 
 .template-box-title {

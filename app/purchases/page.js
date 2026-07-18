@@ -23,7 +23,7 @@ const Purchases = async () => {
       headers: {
         "api-key": ApiKey,
       },
-    },
+    }, 
   );
   const purchases = res.ok ? await res.json() : null;
 
