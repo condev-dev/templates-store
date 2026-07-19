@@ -116,5 +116,10 @@
         "templateId": "1"
       }
     ]
+  },
+  {
+    "id": "4343cd45-68b5-4e12-9ad6-7d7d1a6c810c",
+    "user_id": "02eef855-4919-438f-b9ef-d4b49ee22199",
+    "carts": []
   }
 ]

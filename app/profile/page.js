@@ -2,11 +2,12 @@
 
 import ProfileInformation from "@/components/profile/ProfileInformation";
 import "./index.css";
-import { FiUser, FiLock } from "react-icons/fi";
+import { FiUser, FiLock, FiDelete } from "react-icons/fi";
 import ProfilePassword from "@/components/profile/ProfilePassword";
 import { useState } from "react";
 import { useSession } from "next-auth/react";
 import NotLogin from "@/components/ui/not-login/NotLogin";
+import ProfileDelete from "@/components/profile/ProfileDelete";
 
 const Profile = () => {
   const [activeTab, setActiveTab] = useState("info");
@@ -14,8 +15,6 @@ const Profile = () => {
 
   if (status !== "authenticated")
     return <NotLogin text={"برای مشاهده پروفایل وارد حساب کاربری خود شوید."} />;
-
-  console.log("HEllo", session);
 
   return (
     <section className="box-profile w-100 mt-4 mt-md-5">
@@ -36,6 +35,14 @@ const Profile = () => {
           تغییر گذرواژه
         </button>
 
+        <button
+          className={`btn-main ${activeTab === "delete" ? "btn-color" : "btn-light"}`}
+          onClick={() => setActiveTab("delete")}
+        >
+          <FiDelete className="ms-3" size={18} />
+          حذف حساب
+        </button>
+
         {/* <button className="btn-main btn-light ">
           <FiSettings className="ms-3" size={18} />
           تنظیمات اعلانیه‌ها
@@ -49,6 +56,7 @@ const Profile = () => {
 
       {activeTab === "info" && <ProfileInformation />}
       {activeTab === "password" && <ProfilePassword />}
+      {activeTab === "delete" && <ProfileDelete />}
     </section>
   );
 };

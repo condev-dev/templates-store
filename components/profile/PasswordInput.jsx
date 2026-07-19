@@ -82,7 +82,7 @@ const PasswordInput = () => {
   };
 
   return (
-    <div className="d-flex flex-column gap-4 mt-4">
+    <div className="d-flex flex-column gap-4 mt-3">
       {!isEditing ? (
         <div className="d-flex align-items-md-center align-items-start justify-content-end w-100 flex-column flex-md-row ">
           <label className="w-25 w-md-100">رمز عبور</label>

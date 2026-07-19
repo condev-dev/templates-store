@@ -1,5 +1,6 @@
 import {
   AddUser,
+  DeleteUser,
   EditEmail,
   EditFullName,
   EditPassword,
@@ -110,6 +111,26 @@ export async function PUT(request) {
   } catch (error) {
     return NextResponse.json(
       { message: "ادیت با مشکل روبرو شد!" },
+      { status: 500 },
+    );
+  }
+}
+
+// DELETE
+export async function DELETE(request) {
+  try {
+    const body = await request.json();
+    const { userId } = body;
+
+    await DeleteUser(userId);
+
+    return NextResponse.json(
+      { message: "حساب کاربری شما با موفقیت حذف شد." },
+      { status: 200 },
+    );
+  } catch (error) {
+    return NextResponse.json(
+      { message: "خطا در حذف حساب کاربری!" },
       { status: 500 },
     );
   }

@@ -70,3 +70,13 @@ export async function EditEmail(data) {
 
   return users[userIndex];
 }
+
+// Delete User
+export async function DeleteUser(userId) {
+  const users = await readData("users");
+
+  const updatedUsers = users.filter((user) => user.id !== userId);
+
+  await writeData("users", updatedUsers);
+  return updatedUsers;
+}

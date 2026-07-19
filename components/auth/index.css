@@ -35,7 +35,7 @@
   direction: ltr !important;
 }
 
-.auth-container .btn-color ,
+.auth-container .btn-color,
 .auth-container .btn-light {
   padding: 13px 15px !important;
 }
@@ -44,7 +44,7 @@
   font-size: 12px !important;
 }
 
-.auth-box .small small{
+.auth-box .small small {
   color: var(--text-color) !important;
   cursor: pointer !important;
 }
@@ -104,5 +104,53 @@
   }
   .auth-container input {
     font-size: 14px;
+  }
+}
+
+/* DeleteAccountBtn */
+
+.alert-delete-account {
+  background-color: var(--bg-main) !important;
+  border-right: 3px solid var(--bg-red) !important;
+  color: var(--text-light) !important;
+  border-radius: var(--round-md) !important;
+  font-size: 16px !important;
+}
+
+.alert-delete-account h5 {
+  color: var(--text-red) !important;
+  font-weight: 900 !important;
+  font-size: 18px !important;
+}
+
+/* modal */
+.swal2-modal {
+  border-radius: var(--round-md) !important;
+  border: 1px solid var(--bg-red) !important;
+  width: 400px;
+}
+.swal2-icon {
+  width: 60px;
+  height: 60px;
+  margin-top: 30px !important;
+}
+.swal2-icon-content {
+  margin-top: 10px !important;
+  font-size: 42px !important;
+}
+.swal2-modal h2 {
+  font-size: 20px !important;
+}
+@media (max-width: 576px) {
+  .swal2-modal {
+    width: 90% !important;
+  }
+  .alert-delete-account {
+    font-size: 14px !important;
+    line-height: 2 !important;
+  }
+
+  .alert-delete-account h5 {
+    font-size: 14px !important;
   }
 }
