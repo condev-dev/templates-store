@@ -23,7 +23,7 @@ const Categories = () => {
               <small className="  mx-2">FA</small>
             </div>
             <Link
-              href={"/templates/filter/فارسی"}
+              href={"/templates/filter/لندینگ فارسی"}
               className="btn-main btn-color mt-2 mt-lg-3"
             >
               مشاهده همه
@@ -67,7 +67,7 @@ const Categories = () => {
               <small className="  mx-2"> ADVERTISEMENT</small>
             </div>
             <Link
-              href={"/templates/filter/تبلیغاتی"}
+              href={"/templates/filter/بایو"}
               className="btn-main btn-color  mt-2 mt-lg-3"
             >
               مشاهده همه
@@ -84,7 +84,7 @@ const Categories = () => {
               قالب های <span className="mx-1">بازی</span>
             </h5>
             <div className="d-flex align-items-center w-100 flex-wrap">
-              <small className=" ">8 +</small>
+              <small className=" ">5 +</small>
               <small className="  mx-2">|</small>
               <small className="  mx-2">GAME</small>
             </div>

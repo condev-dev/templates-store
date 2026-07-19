@@ -1,11 +1,18 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ImagePlaceholder from "@/components/common/ImagePlaceholder";
 import Skeleton from "react-loading-skeleton";
 
 const CustomLoadingImage = ({ src, alt, width, height, className, style }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
+  const imgRef = useRef(null);
+
+  useEffect(() => {
+    if (imgRef.current && imgRef.current.complete) {
+      setIsLoading(false);
+    }
+  }, [src]);
 
   return (
     <div
@@ -31,14 +38,15 @@ const CustomLoadingImage = ({ src, alt, width, height, className, style }) => {
         <ImagePlaceholder />
       ) : (
         <img
+          ref={imgRef}
           src={src}
           alt={alt}
+          loading="lazy"
           style={{
             width: "100%",
             height: "100%",
             objectFit: "cover",
             opacity: isLoading ? 0 : 1,
-            filter: isLoading ? "blur(10px)" : "none",
           }}
           onLoad={() => setIsLoading(false)}
           onError={() => {

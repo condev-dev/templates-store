@@ -72,7 +72,7 @@ const Template = async ({ params }) => {
               rel="noopener noreferrer"
               className="w-100 btn-main btn-light mt-4 mb-3 "
             >
-              پیش‌نمایش قالب
+          پیشنمایش قالب
             </Link>
             <AddToCart templateId={data?.id} />
           </section>
@@ -100,7 +100,7 @@ const Template = async ({ params }) => {
               rel="noopener noreferrer"
               className="btn-main btn-color shadow-lg "
             >
-              پیش‌نمایش قالب
+              دمو زنده
             </Link>
           </section>
 

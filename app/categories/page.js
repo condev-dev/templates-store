@@ -6,7 +6,7 @@ const Categories = () => {
   return (
     <section className="d-flex flex-column w-100 mt-4 categories-container">
       <Link
-        href="/templates/filter/فارسی"
+        href="/templates/filter/لندینگ فارسی"
         className="btn-categories w-100 d-flex justify-content-between align-items-center shadow-lg"
       >
         <span> قالب های فارسی</span>

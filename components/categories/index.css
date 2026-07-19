@@ -204,9 +204,10 @@
   width: 50%;
   height: 100%;
   position: absolute;
-  background: url("/img/templates/template7.webp");
+  background: url("https://i.postimg.cc/SmGyJZyT/Home-Demo2.png");
   left: 0px !important;
   background-size: cover !important;
+  background-position: center !important;
   border-right: 2.5px solid var(--bg) !important;
 }
 
@@ -215,8 +216,9 @@
   width: 50%;
   height: 100%;
   position: absolute;
-  background: url("/img/templates/template8.webp");
+  background: url("https://i.postimg.cc/2mjn6JC5/Home-Demo.png");
   right: 0px !important;
   background-size: cover !important;
+  background-position: center !important;
   border-left: 2.5px solid var(--bg) !important;
 }

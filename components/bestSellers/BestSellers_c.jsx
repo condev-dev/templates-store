@@ -19,7 +19,10 @@ export default function BestSellers_c({ templates: templatesProp }) {
   }
 
   return (
-    <section className="w-100 d-flex flex-column mt-3 my-sm-5 py-md-5 best-sellers-main-container">
+    <section
+      className="w-100 d-flex flex-column mt-3 my-sm-5 py-md-5 best-sellers-main-container"
+      id="demo"
+    >
       <section className="best-sellers-title d-flex justify-content-center align-items-center w-100 mt-5">
         <h3 className="mt-2">پرفروش‌ترین قالب‌ها</h3>
       </section>
@@ -50,7 +53,7 @@ export default function BestSellers_c({ templates: templatesProp }) {
         >
           {isSkeleton
             ? Array(3)
-                .fill(0)
+                .fill()
                 .map((_, index) => (
                   <SwiperSlide key={index} className="pb-5">
                     <TemplateItemLoading />

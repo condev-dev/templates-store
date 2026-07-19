@@ -11,10 +11,12 @@ const Intro = () => {
         </h2>
 
         <div className="d-flex gap-2 gap-sm-3 mt-4">
-          <button className="btn-main btn-color shadow-sm">
+          <a href="#categories" className="btn-main btn-color shadow-sm">
             مشاهده قالب ها
-          </button>
-          <button className="btn-main btn-dark shadow-sm ">دموهای زنده</button>
+          </a>
+          <a href="#demo" className="btn-main btn-dark shadow-sm ">
+            دموهای زنده
+          </a>
         </div>
       </div>
     </section>
