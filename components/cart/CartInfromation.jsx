@@ -1,9 +1,10 @@
 import FaNumber from "../common/FaNumber";
 import Toman from "../common/Toman";
+import Skeleton from "react-loading-skeleton";
 import "./index.css";
 import Link from "next/link";
 
-const CartInformation = ({ UserTemplates }) => {
+const CartInformation = ({ UserTemplates, isLoading }) => {
   // totalItems
   const totalItems = Array.isArray(UserTemplates) ? UserTemplates.length : 0;
   // totalPrice
@@ -13,6 +14,10 @@ const CartInformation = ({ UserTemplates }) => {
         return sum + price;
       }, 0)
     : 0;
+
+  // Determine if we should show skeleton based on prop or empty array during parent loading
+  const showSkeleton =
+    isLoading || !UserTemplates || UserTemplates.length === 0;
 
   return (
     <div className="w-25 h-100 cart-information-container">
@@ -24,20 +29,35 @@ const CartInformation = ({ UserTemplates }) => {
         <div className="d-flex justify-content-between align-items-center w-100 mt-3 cart-information-text pb-2">
           <h6>تعداد</h6>
           <h6 className="d-flex justify-content-center align-items-center gap-2">
-            <FaNumber number={totalItems} />
-            <span>مورد</span>
+            {showSkeleton ? (
+              <Skeleton width={35} height={18} />
+            ) : (
+              <>
+                <FaNumber number={totalItems} />
+                <span>مورد</span>
+              </>
+            )}
           </h6>
         </div>
 
         <div className="d-flex justify-content-between align-items-center w-100 mt-3 ">
           <h6>جمع سبد خرید</h6>
           <h6 className="d-flex justify-content-center align-items-center gap-2">
-            <FaNumber number={totalPrice} />
-            <Toman size={20} />{" "}
+            {showSkeleton ? (
+              <Skeleton width={80} height={18} />
+            ) : (
+              <>
+                <FaNumber number={totalPrice} />
+                <Toman size={20} />
+              </>
+            )}
           </h6>
         </div>
 
-        <button className="btn-main btn-color mt-4 w-100 shadow-sm">
+        <button
+          className="btn-main btn-color mt-4 w-100 shadow-sm"
+          disabled={showSkeleton}
+        >
           تسویه حساب
         </button>
       </div>

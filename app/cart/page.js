@@ -1,6 +1,7 @@
 "use client";
 import { useSession } from "next-auth/react";
 import CartItem from "@/components/cart/CartItem";
+import CartItemloading from "@/components/cart/CartItemloading";
 import CartInformation from "@/components/cart/CartInfromation";
 import { fetcher } from "@/services/api";
 import useSWR, { mutate } from "swr";
@@ -18,13 +19,35 @@ const Cart = () => {
   );
   //
   if (status !== "authenticated")
-    return <NotLogin text={"برای مشاهده سبد خرید وارد حساب کاربری خود شوید."} />
+    return (
+      <NotLogin text={"برای مشاهده سبد خرید وارد حساب کاربری خود شوید."} />
+    );
   //
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) {
+    return (
+      <section className="d-flex cart-container justify-content-between align-items-start flex-row-reverse mt-4 h-100 w-100">
+        {/* Information Placeholder */}
+        <CartInformation UserTemplates={[]} />
+        {/* Box */}
+        <div
+          className="cart-items-container w-75 ps-4 gap-4 h-100"
+          style={{ display: "grid" }}
+        >
+          {Array(4)
+            .fill(0)
+            .map((_, index) => (
+              <div key={index} className="w-100" style={{ minWidth: "100%" }}>
+                <CartItemloading />
+              </div>
+            ))}
+        </div>
+      </section>
+    );
+  }
   //
   if (error) return <div>Error loading data</div>;
   //
-  if (data?.length === 0) return <Empty text={"سبد خرید شما خالی می باشد."} />
+  if (data?.length === 0) return <Empty text={"سبد خرید شما خالی می باشد."} />;
   //
 
   if (status === "authenticated") {

@@ -1,4 +1,5 @@
 import "./index.css";
+
 const Plans = () => {
   return (
     <section className="d-flex justify-content-between align-items-center plans-main-container mt-4 mt-sm-5 pt-5" id="plans" >
@@ -13,7 +14,7 @@ const Plans = () => {
       {/* Box */}
       <div className="w-75 plans-container gap-5 pe-5 my-5">
         {/*  */}
-        <div className="d-flex flex-column align-items-center justify-content-center plan p-5 shadow-sm ">
+        <div className="d-flex flex-column align-items-center justify-content-center plan plan-soon p-5 shadow-sm ">
           <h5 className="plan-title">پلاس</h5>
 
           <div className="plan-list d-flex justify-content-center align-items-center flex-column my-4 py-2">
@@ -25,10 +26,10 @@ const Plans = () => {
 
           <h5 className="plan-price mb-4 pb-2">۷۰۰ هزار تومان</h5>
 
-          <button className="btn-main w-50 btn-dark ">خرید پلن</button>
+          <button className="btn-main w-50 btn-dark" disabled>خرید پلن</button>
         </div>
         {/*  */}
-        <div className="d-flex flex-column align-items-center justify-content-center plan p-5 shadow-sm">
+        <div className="d-flex flex-column align-items-center justify-content-center plan plan-soon p-5 shadow-sm">
           <h5 className="plan-title">پرو</h5>
 
           <div className="plan-list d-flex justify-content-center align-items-center flex-column my-4 py-2">
@@ -40,10 +41,10 @@ const Plans = () => {
 
           <h5 className="plan-price mb-4 pb-2">۱٬۲۰۰ هزار تومان</h5>
 
-          <button className="btn-main w-50 btn-color ">خرید پلن</button>
+          <button className="btn-main w-50 btn-color" disabled>خرید پلن</button>
         </div>
         {/*  */}
-        <div className="d-flex flex-column align-items-center justify-content-center plan p-5 shadow-sm">
+        <div className="d-flex flex-column align-items-center justify-content-center plan plan-soon p-5 shadow-sm">
           <h5 className="plan-title">پرو مکس</h5>
 
           <div className="plan-list d-flex justify-content-center align-items-center flex-column my-4 py-2">
@@ -55,7 +56,7 @@ const Plans = () => {
 
           <h5 className="plan-price mb-4 pb-2">۱٬۵۰۰ هزار تومان</h5>
 
-          <button className="btn-main w-50 btn-color ">خرید پلن</button>
+          <button className="btn-main w-50 btn-color" disabled>خرید پلن</button>
         </div>
         {/*  */}
       </div>

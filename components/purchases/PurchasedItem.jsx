@@ -1,22 +1,17 @@
-import Image from "next/image";
-import ImagePlaceholder from "../common/ImagePlaceholder";
 import "./index.css";
+import CustomLoadingImage from "../ui/loading-image/CustomLoadingImage";
 
 const PurchasedItem = ({ image, title }) => {
   return (
     <div className="purchasedItem-box d-flex flex-column p-3 shadow-sm">
-      {image ? (
-        <Image
-          src={image}
-          alt={title}
-          loading="lazy"
-          width={500}
-          height={300}
-          className="mb-1 "
-        />
-      ) : (
-        <ImagePlaceholder width={500} height={300} />
-      )}
+      <CustomLoadingImage
+        src={image}
+        alt={title}
+        width={500}
+        height={300}
+        className="mb-1 "
+      />
+
       <h5 className="mt-4 purchasedItem-box-title">{title}</h5>
 
       <div className="mt-3  d-flex flex-row-reverse justify-content-between align-items-center">

@@ -1,22 +1,27 @@
+import { Suspense } from "react";
 import TemplateList from "./TemplateList";
 //
 import "./index.css";
 
-const TemplateCategories = async ({ params }) => {
-  const { filterBy } = await params;
-  const decode_filterBy = decodeURIComponent(filterBy);
-  //
+async function fetchTemplates(filterBy) {
   const BaseUrl = process.env.NEXT_PUBLIC_API_URL;
   const ApiKey = process.env.NEXT_API_SECRET_KEY;
-  //
+  
   const res = await fetch(`${BaseUrl}/api/templates?filterBy=${filterBy}`, {
     cache: "no-store",
-        headers :{
+    headers: {
       "api-key": ApiKey,
     }
   });
 
-  const templates = res.ok ? await res.json() : [];
+  return res.ok ? await res.json() : [];
+}
+
+const TemplateCategories = async ({ params }) => {
+  const { filterBy } = await params;
+  const decode_filterBy = decodeURIComponent(filterBy);
+  
+  const templatesPromise = fetchTemplates(filterBy);
 
   return (
     <>
@@ -25,7 +30,9 @@ const TemplateCategories = async ({ params }) => {
           قالب های {decode_filterBy ? decode_filterBy : ""}
         </h3>
       </section>
-      <TemplateList templates={templates} />
+      <Suspense fallback={<TemplateList templates={null} />}>
+        <TemplateList templates={templatesPromise} />
+      </Suspense>
     </>
   );
 };

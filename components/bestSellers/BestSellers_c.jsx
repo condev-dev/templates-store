@@ -1,16 +1,22 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, use } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import Template from "../templates/TemplateItem";
 
 import "./index.css";
+import TemplateItemLoading from "../templates/TemplateItemLoading";
 
-export default function BestSellers_c({ templates }) {
+export default function BestSellers_c({ templates: templatesProp }) {
   const swiperRef = useRef(null);
 
-  if (!templates?.length) return <div>هیچ قالب پرفروشی پیدا نشد.</div>;
+  const isSkeleton = templatesProp === null;
+  const templates = isSkeleton ? [] : use(templatesProp);
+
+  if (!isSkeleton && !templates?.length) {
+    return <div>هیچ قالب پرفروشی پیدا نشد.</div>;
+  }
 
   return (
     <section className="w-100 d-flex flex-column mt-3 my-sm-5 py-md-5 best-sellers-main-container">
@@ -21,16 +27,20 @@ export default function BestSellers_c({ templates }) {
       <section className="best-sellers-container pt-sm-4 mt-md-5 pt-md-5 ">
         <Swiper
           className="pt-4 pb-1 mt-3 mt-md-0 py-sm-5"
-          modules={[Autoplay, Pagination]}
+          modules={isSkeleton ? [Pagination] : [Autoplay, Pagination]}
           slidesPerView={3}
           spaceBetween={20}
-          loop
-          centeredSlides
+          loop={!isSkeleton}
+          centeredSlides={!isSkeleton}
           pagination={{ clickable: true }}
-          autoplay={{
-            delay: 5700,
-            disableOnInteraction: false,
-          }}
+          autoplay={
+            isSkeleton
+              ? false
+              : {
+                  delay: 5700,
+                  disableOnInteraction: false,
+                }
+          }
           breakpoints={{
             1: { slidesPerView: 1, spaceBetween: 0 },
             490: { slidesPerView: 1.5, spaceBetween: 20 },
@@ -38,11 +48,19 @@ export default function BestSellers_c({ templates }) {
             1100: { slidesPerView: 3, spaceBetween: 20 },
           }}
         >
-          {templates.slice(0, 10).map((template) => (
-            <SwiperSlide key={template.id} className="pb-5" >
-              <Template {...template} />
-            </SwiperSlide>
-          ))}
+          {isSkeleton
+            ? Array(3)
+                .fill(0)
+                .map((_, index) => (
+                  <SwiperSlide key={index} className="pb-5">
+                    <TemplateItemLoading />
+                  </SwiperSlide>
+                ))
+            : templates.slice(0, 10).map((template) => (
+                <SwiperSlide key={template.id} className="pb-5">
+                  <Template {...template} />
+                </SwiperSlide>
+              ))}
         </Swiper>
       </section>
     </section>
