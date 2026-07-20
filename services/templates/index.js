@@ -1,5 +1,4 @@
 import { getDb } from "@/lib/getDb";
-import { readData } from "@/utils/api";
 
 export async function GetTemplatesByFilter(filterBy) {
   const db = await getDb();

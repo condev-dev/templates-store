@@ -1,5 +1,4 @@
 import { getDb } from "@/lib/getDb";
-import { readData, writeData } from "@/utils/api";
 import bcrypt from "bcrypt";
 import { randomUUID } from "crypto";
 
