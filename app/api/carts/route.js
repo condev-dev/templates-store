@@ -8,7 +8,6 @@ import { NextResponse } from "next/server";
 
 // // GET
 export async function GET(request) {
-
   // ----------------------------------------------------------------- Check Api Key - If Was Like backend then return data
   // get public of front - show in client too
   const res_ApiKey = request.headers.get("api-key");
@@ -61,9 +60,16 @@ export async function POST(request) {
 export async function PUT(request) {
   try {
     const body = await request.json();
-    await AddTemplate(body);
+    const result = await AddTemplate(body);
 
-    return NextResponse.json({ status: 201 });
+    if (result.matchedCount === 0) {
+      return NextResponse.json(
+        { message: "سبد خریدی برای این کاربر پیدا نشد." },
+        { status: 404 },
+      );
+    }
+
+    return NextResponse.json({ message: "قالب اضافه شد." }, { status: 201 });
   } catch (error) {
     return NextResponse.json(
       { message: "خطا در ساخت سبد خرید." },

@@ -130,11 +130,19 @@
   {
     "id": "3f69aab1-8a3e-42c5-b85d-5ef1c45e0e1d",
     "user_id": "bdc2ff9e-a248-41ee-8649-d28384ad260a",
-    "carts": []
+    "carts": [
+      {
+        "templateId": "57"
+      }
+    ]
   },
   {
     "id": "381518fe-f861-46f3-9bd0-e4c049530276",
-    "user_id": "979b6247-b9ea-453c-a6ef-d364a87616af",
-    "carts": []
+    "user_id": "bdc2ff9e-a248-41ee-8649-d28384ad260a",
+    "carts": [
+      {
+        "templateId": "57"
+      }
+    ]
   }
 ]

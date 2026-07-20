@@ -1,76 +1,73 @@
-import { readData, writeData } from "@/utils/api";
+import { getDb } from "@/lib/getDb";
 
 export async function AddCart(userId) {
-  const carts = await readData("carts");
+  const db = await getDb();
 
-  const CartToAdd = {
+  // // اگه از قبل سبدی برای این یوزر ساخته شده، دوباره نساز
+  // const existingCart = await db
+  //   .collection("carts")
+  //   .findOne({ user_id: userId });
+  // if (existingCart) {
+  //   return existingCart;
+  // }
+
+  const cartToAdd = {
     id: crypto.randomUUID(),
     user_id: userId,
     carts: [],
   };
 
-  carts.push(CartToAdd);
-  await writeData("carts", carts);
+  await db.collection("carts").insertOne(cartToAdd);
 
-  return carts;
+  return cartToAdd;
 }
 
 export async function GetUserCart(userId) {
-  const carts = await readData("carts");
-  const templates = await readData("templates");
+  const db = await getDb();
 
-  const userCart = carts.find((cart) => cart.user_id === userId);
+  const userCart = await db.collection("carts").findOne({ user_id: userId });
 
   const userCartTemplateIds = userCart?.carts?.map(
     (cartItem) => cartItem.templateId,
   );
 
   const uniqueTemplateIds = [...new Set(userCartTemplateIds)];
-  const UserTemplates = templates
-    ? templates.filter((template) => uniqueTemplateIds?.includes(template.id))
-    : [];
 
-  return UserTemplates;
+  if (!uniqueTemplateIds.length) {
+    return [];
+  }
+
+  const userTemplates = await db
+    .collection("templates")
+    .find({ id: { $in: uniqueTemplateIds } })
+    .toArray();
+
+  return userTemplates;
 }
 
 export async function AddTemplate(data) {
-  const carts = await readData("carts");
-  const cartIndex = carts.findIndex((cart) => cart.user_id === data?.userId);
+  const db = await getDb();
 
-  if (cartIndex !== -1) {
-    const newItemInCart = {
-      templateId: data?.templateId,
-    };
+  const newItemInCart = {
+    templateId: data?.templateId,
+  };
 
-    const updatedCarts = [...carts];
+  const result = await db
+    .collection("carts")
+    .updateOne({ user_id: data?.userId }, { $push: { carts: newItemInCart } });
 
-    updatedCarts[cartIndex] = {
-      ...updatedCarts[cartIndex],
-      carts: [...updatedCarts[cartIndex].carts, newItemInCart],
-    };
-
-    await writeData("carts", updatedCarts);
-  }
+  return result;
 }
 
 export async function RemoveTemplate(data) {
-  const carts = await readData("carts");
-  const cartIndex = carts.findIndex((cart) => cart.user_id === data?.userId);
+  const db = await getDb();
 
-  if (cartIndex !== -1) {
-    const cartToUpdate = carts[cartIndex];
-    const templateIdToDelete = data?.templateId;
-
-    const updatedCart = cartToUpdate.carts.filter(
-      (cartItem) => cartItem.templateId !== templateIdToDelete,
+  const result = await db
+    .collection("carts")
+    .updateOne(
+      { user_id: data?.userId },
+      { $pull: { carts: { templateId: data?.templateId } } },
     );
 
-    const updatedCarts = [...carts];
-    updatedCarts[cartIndex] = {
-      ...cartToUpdate,
-      carts: updatedCart,
-    };
-
-    await writeData("carts", updatedCarts);
-  }
+  return result;
 }
