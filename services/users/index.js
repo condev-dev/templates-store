@@ -1,82 +1,94 @@
+import { getDb } from "@/lib/getDb";
 import { readData, writeData } from "@/utils/api";
 import bcrypt from "bcrypt";
+import { randomUUID } from "crypto";
 
 // Add User
 export async function AddUser(data) {
-  const users = await readData("users");
+  const db = await getDb();
 
   const hashedPassword = await bcrypt.hash(data?.password, 10);
 
   const userToAdd = {
-    id: data?.id,
+    id: data?.id || randomUUID(),
     email: data?.email,
     password: hashedPassword,
     username: data?.username,
     fullname: data?.fullname,
   };
 
-  users.push(userToAdd);
-  await writeData("users", users);
+  const result = await db.collection("users").insertOne(userToAdd);
 
-  return users;
+  const { password, ...userWithoutPassword } = userToAdd;
+  return { _id: result.insertedId, ...userWithoutPassword };
 }
 
 // Edit Password
 export async function EditPassword(data) {
-  const users = await readData("users");
-  const userIndex = users.findIndex((user) => user.id === data.userId);
-
+  const db = await getDb();
   const hashedPassword = await bcrypt.hash(data.password, 10);
 
-  users[userIndex].password = hashedPassword;
+  const result = await db
+    .collection("users")
+    .findOneAndUpdate(
+      { id: data.userId },
+      { $set: { password: hashedPassword } },
+      { returnDocument: "after" },
+    );
 
-  await writeData("users", users);
-
-  return users[userIndex];
+  return result;
 }
 
 // Edit FullName
 export async function EditFullName(data) {
-  const users = await readData("users");
-  const userIndex = users.findIndex((user) => user.id === data.userId);
+  const db = await getDb();
 
-  users[userIndex].fullname = data.fullname;
+  const result = await db
+    .collection("users")
+    .findOneAndUpdate(
+      { id: data.userId },
+      { $set: { fullname: data.fullname } },
+      { returnDocument: "after" },
+    );
 
-  await writeData("users", users);
-
-  return users[userIndex];
+  return result;
 }
 
 // Edit UserName
 export async function EditUserName(data) {
-  const users = await readData("users");
-  const userIndex = users.findIndex((user) => user.id === data.userId);
+  const db = await getDb();
 
-  users[userIndex].username = data.username;
+  const result = await db
+    .collection("users")
+    .findOneAndUpdate(
+      { id: data.userId },
+      { $set: { username: data.username } },
+      { returnDocument: "after" },
+    );
 
-  await writeData("users", users);
-
-  return users[userIndex];
+  return result;
 }
 
 // Edit Email
 export async function EditEmail(data) {
-  const users = await readData("users");
-  const userIndex = users.findIndex((user) => user.id === data.userId);
+  const db = await getDb();
 
-  users[userIndex].email = data.email;
+  const result = await db
+    .collection("users")
+    .findOneAndUpdate(
+      { id: data.userId },
+      { $set: { email: data.email } },
+      { returnDocument: "after" },
+    );
 
-  await writeData("users", users);
-
-  return users[userIndex];
+  return result;
 }
 
 // Delete User
 export async function DeleteUser(userId) {
-  const users = await readData("users");
+  const db = await getDb();
 
-  const updatedUsers = users.filter((user) => user.id !== userId);
+  const result = await db.collection("users").deleteOne({ id: userId });
 
-  await writeData("users", updatedUsers);
-  return updatedUsers;
+  return result;
 }

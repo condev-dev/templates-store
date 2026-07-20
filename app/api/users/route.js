@@ -1,3 +1,4 @@
+import { getDb } from "@/lib/getDb";
 import {
   AddUser,
   DeleteUser,
@@ -6,7 +7,6 @@ import {
   EditPassword,
   EditUserName,
 } from "@/services/users";
-import { readData, writeData } from "@/utils/api";
 import { NextResponse } from "next/server";
 
 // GET
@@ -14,24 +14,40 @@ export async function GET(request) {
   const resApiKey = request.headers.get("api-key");
   const expectedApiKey = process.env.NEXT_API_SECRET_KEY;
 
-  // Check If User Write Link Like : /api/templates - redirect to not-found and don't return any data
   if (!resApiKey || resApiKey !== expectedApiKey) {
     return NextResponse.redirect(new URL("/not-found", request.url));
   }
 
-  const users = await readData("users");
-  return NextResponse.json(users);
+  try {
+    const db = await getDb();
+    const users = await db
+      .collection("users")
+      .find({}, { projection: { password: 0 } })
+      .toArray();
+
+    return NextResponse.json(users);
+  } catch (error) {
+    console.error("Error fetching users:", error);
+    return NextResponse.json(
+      { error: "خطا در دریافت اطلاعات کاربران" },
+      { status: 500 },
+    );
+  }
 }
 
 // POST
 export async function POST(request) {
   try {
-    const users = await readData("users");
+    const db = await getDb();
     const body = await request.json();
 
     // Check Email Already Exists
-    if (users?.find((user) => user.email === body?.email)) {
-      return Response.json(
+    const existingUser = await db
+      .collection("users")
+      .findOne({ email: body?.email });
+
+    if (existingUser) {
+      return NextResponse.json(
         { message: "این ایمیل موجود می باشد." },
         { status: 400 },
       );
@@ -42,6 +58,7 @@ export async function POST(request) {
 
     return NextResponse.json(newUser, { status: 201 });
   } catch (error) {
+    console.error("Error creating user:", error);
     return NextResponse.json(
       { message: "خطا در ساخت کاربر جدید." },
       { status: 500 },
@@ -52,11 +69,9 @@ export async function POST(request) {
 // PUT
 export async function PUT(request) {
   try {
-    const users = await readData("users");
+    const db = await getDb();
     const body = await request.json();
 
-    const userIndex = users.findIndex((user) => user.id === body.userId);
-    const updatedUserData = { ...users[userIndex] };
     let hasChanges = false;
 
     // For FullName
@@ -74,9 +89,10 @@ export async function PUT(request) {
     // For Email
     if (body.email !== undefined) {
       // Check Email Already Exists
-      const emailExists = users.find(
-        (user) => user.email === body.email && user.id !== body.userId,
-      );
+      const emailExists = await db.collection("users").findOne({
+        email: body.email,
+        id: { $ne: body.userId },
+      });
 
       if (emailExists) {
         return NextResponse.json(
@@ -109,6 +125,7 @@ export async function PUT(request) {
       );
     }
   } catch (error) {
+    console.error("Error updating user:", error);
     return NextResponse.json(
       { message: "ادیت با مشکل روبرو شد!" },
       { status: 500 },
@@ -122,13 +139,21 @@ export async function DELETE(request) {
     const body = await request.json();
     const { userId } = body;
 
-    await DeleteUser(userId);
+    const result = await DeleteUser(userId);
+
+    if (result.deletedCount === 0) {
+      return NextResponse.json(
+        { message: "کاربری با این مشخصات پیدا نشد." },
+        { status: 404 },
+      );
+    }
 
     return NextResponse.json(
       { message: "حساب کاربری شما با موفقیت حذف شد." },
       { status: 200 },
     );
   } catch (error) {
+    console.error("Error deleting user:", error);
     return NextResponse.json(
       { message: "خطا در حذف حساب کاربری!" },
       { status: 500 },

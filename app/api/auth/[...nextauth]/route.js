@@ -1,7 +1,7 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcrypt";
-import { readData } from "@/utils/api";
+import { getDb } from "@/lib/getDb";
 
 export const authOptions = {
   providers: [
@@ -11,8 +11,10 @@ export const authOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        const users = await readData("users");
-        const user = users?.find((user) => user.email === credentials.email);
+        const db = await getDb();
+        const user = await db
+          .collection("users")
+          .findOne({ email: credentials.email });
 
         if (user) {
           const isPasswordMatch = await bcrypt.compare(
