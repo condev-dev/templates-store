@@ -1,5 +1,5 @@
+import { getDb } from "@/lib/getDb";
 import { GetTemplateById, GetTemplatesByFilter } from "@/services/templates";
-import { readData } from "@/utils/api";
 import { NextResponse } from "next/server";
 
 export async function GET(request) {
@@ -8,10 +8,11 @@ export async function GET(request) {
 
   if (!resApiKey || resApiKey !== expectedApiKey) {
     return NextResponse.redirect(new URL("/not-found", request.url));
-  }  // Check If User Write Link Like : /api/templates - redirect to not-found and don't return any data
+  } // Check If User Write Link Like : /api/templates - redirect to not-found and don't return any data
 
+  const db = await getDb();
+  const templates = await db.collection("templates").find({}).toArray();
 
-  const templates = await readData("templates");
   const { searchParams } = new URL(request.url);
   const filterBy = searchParams.get("filterBy");
   const templateId = searchParams.get("templateId");

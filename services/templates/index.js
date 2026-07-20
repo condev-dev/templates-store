@@ -1,7 +1,9 @@
+import { getDb } from "@/lib/getDb";
 import { readData } from "@/utils/api";
 
 export async function GetTemplatesByFilter(filterBy) {
-  const templates = await readData("templates");
+  const db = await getDb();
+  const templates = await db.collection("templates").find({}).toArray();
 
   const filtered = templates?.filter((template) =>
     template?.categories?.some((category) => category === filterBy),
@@ -14,7 +16,8 @@ export async function GetTemplatesByFilter(filterBy) {
 }
 
 export async function GetTemplateById(templateId) {
-  const templates = await readData("templates");
+  const db = await getDb();
+  const templates = await db.collection("templates").find({}).toArray();
 
   const filtered = templates?.find((template) => template.id === templateId);
   if (filtered) {
