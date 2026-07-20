@@ -1,25 +1,26 @@
-import { readData } from "@/utils/api";
+import { getDb } from "@/lib/getDb";
 
 export async function GetPurchasesById(userId) {
-  const purchases = await readData("purchases");
-  const templates = await readData("templates");
+  const db = await getDb();
 
-  const userPurchases = purchases?.find(
-    (purchasedItem) => purchasedItem.user_id === userId,
-  );
+  const userPurchases = await db
+    .collection("purchases")
+    .findOne({ user_id: userId });
 
   const userPurchasesTemplateIds = userPurchases?.purchases?.map(
     (purchasedItem) => purchasedItem.templateId,
   );
 
   const uniqueTemplateIds = [...new Set(userPurchasesTemplateIds)];
-  const UserTemplates = templates
-    ? templates.filter((template) => uniqueTemplateIds?.includes(template.id))
-    : [];
 
-  if (UserTemplates) {
-    return UserTemplates;
-  } else {
+  if (!uniqueTemplateIds.length) {
     return [];
   }
+
+  const userTemplates = await db
+    .collection("templates")
+    .find({ id: { $in: uniqueTemplateIds } })
+    .toArray();
+
+  return userTemplates;
 }
