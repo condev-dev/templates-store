@@ -89,5 +89,14 @@ export async function DeleteUser(userId) {
 
   const result = await db.collection("users").deleteOne({ id: userId });
 
+  if (result.deletedCount === 0) {
+    return result;
+  }
+
+  await Promise.all([
+    db.collection("carts").deleteOne({ user_id: userId }),
+    db.collection("purchases").deleteOne({ user_id: userId }),
+  ]);
+
   return result;
 }

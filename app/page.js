@@ -3,6 +3,7 @@ import Categories from "@/components/categories/Categories";
 import Intro from "@/components/intro/Intro";
 import Plans from "@/components/plans/Plans";
 import TemplateCategory from "@/components/templates/TemplateCategory";
+import TemplateGames from "@/components/templates/TemplateGames";
 
 export default function Home() {
   // const BaseUrl = process.env.NEXT_PUBLIC_API_URL;
@@ -21,6 +22,7 @@ export default function Home() {
       <BestSellers_s />
       <TemplateCategory title="قالب های بایو" filterBy="بایو" />
       <Plans />
+      <TemplateGames />
       <TemplateCategory title="قالب های ترکی" filterBy="ترکی" />
     </>
   );

@@ -21,6 +21,102 @@
   }
 }
 
+/* TemplageGames.jsx */
+
+.template-container-game-sm {
+  width: 71%;
+}
+.template-container-game-lg {
+  width: 29%;
+}
+
+.template-container-games {
+  display: grid;
+  grid-template-columns: 1fr 1fr !important;
+}
+
+.template-box-game,
+.template-box-game img {
+  border-radius: var(--round-lg) var(--round-lg) 0px 0px !important;
+  overflow: hidden;
+}
+
+.template-box-game.lg-game {
+  background: linear-gradient(
+    to bottom,
+    var(--bg-color),
+    transparent
+  ) !important;
+  padding: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.template-box-game.lg-game::before {
+  content: "";
+  background: linear-gradient(
+    185deg,
+    var(--bg-color),
+    transparent 60%
+  ) !important;
+  width: 100%;
+  height: 80%;
+  position: absolute;
+  inset: 0px;
+  z-index: 100;
+  backdrop-filter: blur(10);
+  opacity: 0.2;
+}
+
+.template-box-game.sm-game {
+  background: linear-gradient(
+    to bottom,
+    var(--bg-color),
+    transparent 90%
+  ) !important;
+  padding: 1px !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.template-box-game.sm-game::before {
+  content: "";
+  background: linear-gradient(
+    185deg,
+    var(--bg-color),
+    transparent 50%
+  ) !important;
+  width: 100%;
+  height: 80%;
+  position: absolute;
+  inset: 0px;
+  z-index: 100;
+  backdrop-filter: blur(5);
+  opacity: 0.1;
+}
+
+.template-box-game .game-btn button {
+  border-radius: 0px 0px 0px var(--round-lg) !important;
+}
+.template-box-game .game-btn a {
+  border-radius: 0px 0px var(--round-lg) 0px !important;
+}
+
+@media (max-width: 992px) {
+  .template-container-game-sm {
+    width: 100%;
+  }
+  .template-container-game-lg {
+    width: 100%;
+  }
+}
+
+@media (max-width: 578px) {
+  .template-container-games {
+    grid-template-columns: 1fr !important;
+  }
+}
+
 /* TemplateItem.Jsx */
 .template-box {
   background: transparent;
@@ -38,7 +134,8 @@
   border-radius: var(--round-sm);
   transition:
     all 2.7s ease-in-out,
-    opacity 0.3s ease-in-out, filter 0.5s ease-in-out;
+    opacity 0.3s ease-in-out,
+    filter 0.5s ease-in-out;
 }
 
 .template-box-title {
