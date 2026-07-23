@@ -21,7 +21,7 @@ const ProfileBtn = () => {
           <Image
             width={42}
             height={42}
-            src="/img/profile.jfif"
+            src="/img/profile.webp"
             alt="Profile Image"
             loading="lazy"
           />
@@ -37,7 +37,7 @@ const ProfileBtn = () => {
                 <Image
                   width={42}
                   height={42}
-                  src="/img/profile.jfif"
+                  src="/img/profile.webp"
                   alt="Profile Image"
                   loading="lazy"
                 />
@@ -71,13 +71,13 @@ const ProfileBtn = () => {
               <FiShoppingCart size={14} className="mx-3 mb-1" />
               سبد خرید
             </Link>
-            <Link
+            {/* <Link
               href="/"
               className="btn-profile-info d-flex align-items-center "
             >
               <FiSettings size={14} className="mx-3 mb-1" />
               تنظیمات
-            </Link>
+            </Link> */}
 
             <a
               onClick={signOut}

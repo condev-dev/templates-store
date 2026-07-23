@@ -1,9 +1,6 @@
 import Link from "next/link";
 import CustomLoadingImage from "../ui/loading-image/CustomLoadingImage";
 import "./index.css";
-import TemplateItem from "./TemplateItem";
-import TemplateItemLoading from "./TemplateItemLoading";
-import { FiEye } from "react-icons/fi";
 import AddToCart from "./AddToCart";
 
 const TemplateGames = async () => {
@@ -27,7 +24,7 @@ const TemplateGames = async () => {
 
       <section className="d-flex flex-column-reverse flex-lg-row mt-4 mt-sm-5 pt-1 ">
         <div className="template-container-game-sm template-container-games gap-4 ps-lg-4">
-          {templates.slice(0, 4).map((template) => (
+          {templates.slice(1, 5).map((template) => (
             <div
               key={template.id}
               className="template-box-game sm-game"
@@ -60,7 +57,7 @@ const TemplateGames = async () => {
         </div>
 
         <div className="template-container-game-lg  gap-4 mb-4 mb-lg-0">
-          {templates.slice(4, 5).map((template) => (
+          {templates.slice(0, 1).map((template) => (
             <div
               href={template.demo_url}
               key={template.id}

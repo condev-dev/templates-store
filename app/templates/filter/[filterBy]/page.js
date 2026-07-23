@@ -25,7 +25,7 @@ const TemplateCategories = async ({ params }) => {
 
   return (
     <>
-      <section className="template-category-title d-flex justify-content-between align-items-center w-100 mt-5">
+      <section className="template-category-title d-flex justify-content-between align-items-center w-100 mt-4 mt-sm-5">
         <h3 className="mt-2">
           قالب های {decode_filterBy ? decode_filterBy : ""}
         </h3>

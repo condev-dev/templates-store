@@ -26,6 +26,13 @@ const Categories = () => {
         <span> قالب های بایو</span>
         <FaAngleLeft size={20} className="btn-categories-icon" />
       </Link>
+      <Link
+        href="/templates/filter/بازی"
+        className="btn-categories w-100 d-flex justify-content-between align-items-center shadow-lg mt-3"
+      >
+        <span> بازی ها </span>
+        <FaAngleLeft size={20} className="btn-categories-icon" />
+      </Link>
     </section>
   );
 };

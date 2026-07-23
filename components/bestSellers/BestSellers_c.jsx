@@ -15,7 +15,7 @@ export default function BestSellers_c({ templates: templatesProp }) {
   const templates = isSkeleton ? [] : use(templatesProp);
 
   if (!isSkeleton && !templates?.length) {
-    return <div>هیچ قالب پرفروشی پیدا نشد.</div>;
+    return;
   }
 
   return (
