@@ -1,169 +1,169 @@
-"use client";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-import { toast } from "react-toastify";
-import "../index.css";
-import Image from "next/image";
-import Link from "next/link";
+    "use client";
+    import { useState } from "react";
+    import { useRouter } from "next/navigation";
+    import { toast } from "react-toastify";
+    import "../index.css";
+    import Image from "next/image";
+    import Link from "next/link";
 
-export default function SignUpPage() {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [username, setUserName] = useState("");
-    const router = useRouter();
-    //
-    const BaseUrl = process.env.NEXT_PUBLIC_API_URL;
-    //
-    const OnSignUp = async () => {
-        // ------- Checks
-        // Check Empty Fields
-        if (
-            email.trim() === "" ||
-            password.trim() === "" ||
-            username.trim() === ""
-        ) {
-            toast.error("لطفا تمام فیلد ها را پر کنید. ");
-            return;
-        }
+    export default function SignUpPage() {
+        const [email, setEmail] = useState("");
+        const [password, setPassword] = useState("");
+        const [username, setUserName] = useState("");
+        const router = useRouter();
+        //
+        const BaseUrl = process.env.NEXT_PUBLIC_API_URL;
+        //
+        const OnSignUp = async () => {
+            // ------- Checks
+            // Check Empty Fields
+            if (
+                email.trim() === "" ||
+                password.trim() === "" ||
+                username.trim() === ""
+            ) {
+                toast.error("لطفا تمام فیلد ها را پر کنید. ");
+                return;
+            }
 
-        // Check Username Length
-        if (username.length < 3) {
-            toast.error("نام کاربری باید حداقل ۳ کاراکتر باشد.");
-            return;
-        }
+            // Check Username Length
+            if (username.length < 3) {
+                toast.error("نام کاربری باید حداقل ۳ کاراکتر باشد.");
+                return;
+            }
 
-        // Check Email Format
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            toast.error("فرمت ایمیل وارد شده معتبر نیست.");
-            return;
-        }
+            // Check Email Format
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                toast.error("فرمت ایمیل وارد شده معتبر نیست.");
+                return;
+            }
 
-        // Check if the new password is at least 6 characters long
-        if (password.length < 6) {
-            toast.error("رمز عبور باید حداقل ۶ کاراکتر باشد.");
-            return;
-        }
+            // Check if the new password is at least 6 characters long
+            if (password.length < 6) {
+                toast.error("رمز عبور باید حداقل ۶ کاراکتر باشد.");
+                return;
+            }
 
-        const userToAdd = {
-            id: crypto.randomUUID(),
-            email: email,
-            password: password,
-            username: username,
-            fullname: "",
+            const userToAdd = {
+                id: crypto.randomUUID(),
+                email: email,
+                password: password,
+                username: username,
+                fullname: "",
+            };
+
+            try {
+                const resUser = await fetch(`${BaseUrl}/api/users`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        id: userToAdd.id,
+                        email: userToAdd.email,
+                        password: userToAdd.password,
+                        username: userToAdd.username,
+                        fullname: userToAdd.fullname,
+                    }),
+                });
+
+                const resCart = await fetch(`${BaseUrl}/api/carts`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        userId: userToAdd.id,
+                    }),
+                });
+
+                const cartData = await resCart.json();
+                const userData = await resUser.json();
+
+                if (resCart.ok && resUser.ok) {
+                    toast.success("ثبت نام با موفقیت انجام شد.");
+                    // Set In Session Then Get From SignIn
+                    sessionStorage.setItem("email", email);
+                    sessionStorage.setItem("pass", password);
+                    //
+                    router.push("/auth/signin");
+                } else {
+                    toast.error(cartData.message || userData.message);
+                }
+            } catch (err) {
+                toast.error("ثبت نام با مشکل مواجعه شد.");
+            }
         };
 
-        try {
-            const resUser = await fetch(`${BaseUrl}/api/users`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    id: userToAdd.id,
-                    email: userToAdd.email,
-                    password: userToAdd.password,
-                    username: userToAdd.username,
-                    fullname: userToAdd.fullname,
-                }),
-            });
-
-            const resCart = await fetch(`${BaseUrl}/api/carts`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    userId: userToAdd.id,
-                }),
-            });
-
-            const cartData = await resCart.json();
-            const userData = await resUser.json();
-
-            if (resCart.ok && resUser.ok) {
-                toast.success("ثبت نام با موفقیت انجام شد.");
-                // Set In Session Then Get From SignIn
-                sessionStorage.setItem("email", email);
-                sessionStorage.setItem("pass", password);
-                //
-                router.push("/auth/signin");
-            } else {
-                toast.error(cartData.message || userData.message);
-            }
-        } catch (err) {
-            toast.error("ثبت نام با مشکل مواجعه شد.");
-        }
-    };
-
-    return (
-        <section className="d-flex justify-content-center align-items-center auth-container">
-            <section className="d-flex justify-content-center align-items-center flex-column gap-3 auth-box p-5 shadow-sm">
-                <div
-                    className="show-lg"
-                    style={{ cursor: "pointer" }}
-                >
-                    <Image
-                        src="/img/logo.webp"
-                        alt="ConDev"
-                        loading="eager"
-                        width={170}
-                        height={40}
-                        className="logo"
-                    />
-                </div>
-                <div className="d-flex justify-content-center align-content-center gap-2 w-75 mt-3 show-lg">
-                    <Link
-                        className={`btn-main w-50 btn-light`}
-                        href={"/auth/signin"}
+        return (
+            <section className="d-flex justify-content-center align-items-center auth-container">
+                <section className="d-flex justify-content-center align-items-center flex-column gap-3 auth-box p-5 shadow-sm">
+                    <div
+                        className="show-lg"
+                        style={{ cursor: "pointer" }}
                     >
-                        ورود
-                    </Link>
-                    <Link
-                        className={`btn-main w-50 btn-color `}
-                        href={"/auth/signup"}
+                        <Image
+                            src="/img/logo.webp"
+                            alt="ConDev"
+                            loading="eager"
+                            width={170}
+                            height={40}
+                            className="logo"
+                        />
+                    </div>
+                    <div className="d-flex justify-content-center align-content-center gap-2 w-75 mt-3 show-lg">
+                        <Link
+                            className={`btn-main w-50 btn-light`}
+                            href={"/auth/signin"}
+                        >
+                            ورود
+                        </Link>
+                        <Link
+                            className={`btn-main w-50 btn-color `}
+                            href={"/auth/signup"}
+                        >
+                            ثبت نام
+                        </Link>
+                    </div>
+                    <h2 className="auth-title  mt-3 mt-lg-4 pt-lg-3">ثبت نام</h2>
+                    <input
+                        className="input-group-text mt-2"
+                        type="text"
+                        placeholder="نام کاربری"
+                        value={username}
+                        onChange={(e) => setUserName(e.target.value)}
+                    />{" "}
+                    <input
+                        className="input-group-text my-lg-1"
+                        type="email"
+                        placeholder="ایمیل"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                    <input
+                        className="input-group-text "
+                        type="password"
+                        placeholder="رمز عبور"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                    <button
+                        className="btn-main btn-color w-100 mt-1 mt-lg-2"
+                        onClick={OnSignUp}
                     >
                         ثبت نام
-                    </Link>
-                </div>
-                <h2 className="auth-title  mt-3 mt-lg-4 pt-lg-3">ثبت نام</h2>
-                <input
-                    className="input-group-text mt-2"
-                    type="text"
-                    placeholder="نام کاربری"
-                    value={username}
-                    onChange={(e) => setUserName(e.target.value)}
-                />{" "}
-                <input
-                    className="input-group-text my-lg-1"
-                    type="email"
-                    placeholder="ایمیل"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
-                <input
-                    className="input-group-text "
-                    type="password"
-                    placeholder="رمز عبور"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-                <button
-                    className="btn-main btn-color w-100 mt-1 mt-lg-2"
-                    onClick={OnSignUp}
-                >
-                    ثبت نام
-                </button>
-                <small className=" w-100 small px-1  mt-1 mt-lg-0 d-lg-none ">
-                    حساب کاربری دارید؟
-                    <small
-                        onClick={() => router.push("/auth/signin")}
-                        className="mx-2"
-                    >
-                        ورود به سایت
+                    </button>
+                    <small className=" w-100 small px-1  mt-1 mt-lg-0 d-lg-none ">
+                        حساب کاربری دارید؟
+                        <small
+                            onClick={() => router.push("/auth/signin")}
+                            className="mx-2"
+                        >
+                            ورود به سایت
+                        </small>
                     </small>
-                </small>
+                </section>
             </section>
-        </section>
-    );
-}
+        );
+    }
