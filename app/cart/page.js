@@ -27,7 +27,7 @@ const Cart = () => {
     return (
       <section className="d-flex cart-container justify-content-between align-items-start flex-row-reverse mt-4 h-100 w-100">
         {/* Information Placeholder */}
-        <CartInformation UserTemplates={[]} />
+        <CartInformation UserTemplates={data} userId={session?.user?.id} />
         {/* Box */}
         <div
           className="cart-items-container w-75 ps-4 gap-4 h-100"
@@ -59,7 +59,7 @@ const Cart = () => {
     return (
       <section className="d-flex cart-container justify-content-between align-items-start flex-row-reverse mt-4 h-100  w-100">
         {/* Information */}
-        <CartInformation UserTemplates={data} />
+        <CartInformation UserTemplates={data} userId={session?.user?.id} />
         {/* Box */}
         <div className="cart-items-container w-75 ps-4 gap-4 h-100">
           {data?.map((template) => (
