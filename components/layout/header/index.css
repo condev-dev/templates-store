@@ -29,7 +29,7 @@
 }
 
 .menu {
-  width: 290px;
+  width: 280px;
   height: 100%;
   position: fixed;
   right: -340px;
@@ -45,7 +45,7 @@
   right: 0px;
 }
 .menu-logo {
-  width: 160px !important;
+  width: 150px !important;
 }
 
 .menu-btn {

@@ -42,8 +42,8 @@
   position: absolute;
   z-index: -1;
   right: 50px;
-  top: 25px;
-  width: 250px;
+  top: 16px;
+  width: 210px;
   height: auto;
   transform: scale(0.9) translateY(-35px) translateX(15px);
   opacity: 0;
@@ -62,7 +62,7 @@
   position: relative;
   overflow: hidden;
   background: var(--bg);
-  border-radius: var(--round-md);
+  border-radius: var(--round-lg);
   backdrop-filter: blur(20);
   padding: 20px !important;
   border:1px solid var(--border-color) !important;

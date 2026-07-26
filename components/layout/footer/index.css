@@ -1,6 +1,7 @@
 .footer-main {
   border-top: 1px solid var(--border-color);
 }
+
 .copy-right {
   border-top: 1px solid var(--border-color);
   font-size: 14px;
@@ -18,24 +19,24 @@
   grid-template-columns: 1fr 1fr;
 }
 
-.social-media-container .instagram
-{
-  background: linear-gradient(120deg, #a611f2, #fe1077);
+.social-media-container .instagram {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+  color: #ffffff;
 }
 
-.social-media-container .github
-{
-  background: linear-gradient(120deg, #22262a, #2b3034);
+.social-media-container .github {
+  background: linear-gradient(135deg, #2b3137 0%, #24292e 50%, #181717 100%);
+  color: #ffffff;
 }
 
-.social-media-container .whatsapp
-{
-  background: linear-gradient(120deg, #4ac257, #50cc5e);
+.social-media-container .pinterest {
+  background: linear-gradient(135deg, #ff2a4b 0%, #e60023 50%, #b3001b 100%);
+  color: #ffffff;
 }
 
-.social-media-container .telegram
-{
-  background: linear-gradient(120deg, #91b4e78f, #0077ff);
+.social-media-container .linkedin {
+  background: linear-gradient(135deg, #00a0dc 0%, #0077b5 60%, #005582 100%);
+  color: #ffffff;
 }
 
 .social-medial-box {
@@ -65,6 +66,7 @@
 }
 
 @media (max-width: 992px) {
+
   .footer-description,
   .footer-social {
     width: 100% !important;
@@ -78,6 +80,7 @@
     align-items: center !important;
     margin-bottom: 50px !important;
   }
+
   .social-media-title {
     margin-bottom: 30px !important;
   }
@@ -87,12 +90,15 @@
   .social-media-container {
     grid-template-columns: 1fr;
   }
+
   .footer-description {
     margin-bottom: 30px !important;
   }
+
   .social-media-title {
     margin-bottom: 20px !important;
   }
+
   .footer-information-text {
     font-size: 14px;
     line-height: 2.3;
@@ -100,6 +106,6 @@
   }
 
   .copy-right {
-  font-size: 12px !important;
-}
+    font-size: 12px !important;
+  }
 }

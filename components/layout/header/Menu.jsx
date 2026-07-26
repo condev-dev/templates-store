@@ -71,7 +71,7 @@ const Menu = () => {
           className="btn-main menu-btn mt-3 justify-content-start gap-3 shadow-sm"
         >
           <FiShoppingBag size={18} />
-          <span>خرید های قبلی</span>
+          <span>قالب های من</span>
         </Link>
 
         <Link href={"/profile"} className="btn-main menu-btn mt-3 justify-content-start gap-3 shadow-sm">
@@ -84,7 +84,7 @@ const Menu = () => {
           className="btn-main menu-btn mt-3 justify-content-start gap-3 shadow-sm"
         >
           <FiShoppingCart size={18} />
-          <span>سبد خرید</span>
+          <span>سبد خرید من</span>
         </Link>
 
         <div className="d-flex flex-column w-100 mt-auto">

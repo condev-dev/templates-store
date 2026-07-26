@@ -48,23 +48,23 @@ const Template = async ({ params }) => {
             </div>
             <div className="w-100 d-flex align-items-center justify-content-start px-1">
               <FaCheck size={12} className="ms-2 mb-2" />
-              <p>رده‌بندی: قالب اختصاصی گیم و بت</p>
+              <p>رده‌بندی : قالب {data?.categories?.slice(0, 2).join(" ، ")}</p>
             </div>
             <div className="w-100 d-flex align-items-center justify-content-start px-1 mt-3 pt-1">
               <FaCheck size={12} className="ms-2 mb-2" />
-              <p>پیاده‌سازی با HTML, CSS, JS</p>
+              <p>پیاده سازی با Html, Css, Js</p>
             </div>
             <div className="w-100 d-flex align-items-center justify-content-start px-1 mt-3 pt-1">
               <FaCheck size={12} className="ms-2 mb-2" />
-              <p>کاملاً ریسپانسیو در تمامی دستگاه‌ها</p>
+              <p>کاملاً ریسپانسیو روی دستگاه ها</p>
             </div>
             <div className="w-100 d-flex align-items-center justify-content-start px-1 mt-3 pt-1">
               <FaCheck size={12} className="ms-2 mb-2" />
-              <p>سئو شده و بهینه برای موتورهای جستجو</p>
+              <p>سئو شده برای موتورهای جستجو</p>
             </div>
             <div className="w-100 d-flex align-items-center justify-content-start px-1 mt-3 pt-1 mb-3">
               <FaCheck size={12} className="ms-2 mb-2" />
-              <p>پشتیبانی رایگان و راه‌اندازی آسان</p>
+              <p>کدنویسی شده به صورت کلین کد</p>
             </div>
             <Link
               href={data?.demo_url}
@@ -72,7 +72,7 @@ const Template = async ({ params }) => {
               rel="noopener noreferrer"
               className="w-100 btn-main btn-light mt-4 mb-3 "
             >
-          پیشنمایش قالب
+              پیشنمایش قالب
             </Link>
             <AddToCart templateId={data?.id} />
           </section>
@@ -80,20 +80,15 @@ const Template = async ({ params }) => {
 
         <section className="w-100 mb-3 mb-lg-0 mt-lg-4 single-template-description ">
           <section className="d-flex align-items-start justify-content-start flex-column mt-5 mb-4 pb-1 single-template-description-title ">
-            <h4>یکی از حرفه‌ای‌ترین قالب‌های گیم و بت در بازار</h4>
+            <h4>درباره و مشخصات قالب</h4>
             <p className=" mt-3 mt-sm-4 three-line ">
-              قالب رویال یکی از پرطرفدارترین محصولات مجموعه‌ی کاندو در حوزه
-              سایت‌های گیم و بت است. این قالب با استفاده از تکنولوژی‌های روز
-              HTML، CSS و JavaScript طراحی و کدنویسی شده و به‌صورت کاملاً
-              ریسپانسیو در تمامی دستگاه‌ها از جمله موبایل، تبلت و دسکتاپ نمایش
-              درستی دارد. ساختار سئو شده‌ی این قالب باعث شده رتبه‌بندی بهتری در
-              نتایج موتورهای جستجو داشته باشد و سرعت بالای بارگذاری صفحات，
-              تجربه‌ی کاربری روانی را برای بازدیدکنندگان فراهم می‌کند.
+              {
+                `قالب ${data?.title || ""} یکی از مدرن ترین و بهینه ترین قالب های تک صفحه‌ای اختصاصی برای حوزه گیم، بازی و سایت های تعاملی است. این قالب با ساختار کاملاً استاندارد و ریسپانسیو طراحی شده تا کاربران در تمامی دستگاه‌ها (موبایل، تبلت و دسکتاپ) تجربه‌ای سریع و روان داشته باشند. طراحی مدرن، سرعت بارگذاری بالا و رعایت اصول اولیه سئو از ویژگی های بارز این محصول می‌باشد.`}
             </p>
           </section>
 
           <section className="w-100 pt-2 pt-sm-0 d-flex justify-content-between align-items-center single-template-title pb-2 ">
-            <h4>پیش‌نمایش کامل قالب</h4>
+            <h4>پیش نمایش قالب</h4>
             <Link
               href={data?.demo_url}
               target="_blank"

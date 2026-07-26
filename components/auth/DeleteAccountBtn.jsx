@@ -27,7 +27,7 @@ const DeleteAccountBtn = () => {
         confirmButton: "btn-main btn-red mt-2 mb-3 mx-2",
         cancelButton: "btn-main btn-color mt-2 mb-3 mx-2",
       },
-      background: "#0f172a",
+      background: "#0f172a99",
       confirmButtonText: "حذف حساب",
       cancelButtonText: "انصراف",
     });

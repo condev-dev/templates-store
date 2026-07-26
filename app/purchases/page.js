@@ -59,7 +59,7 @@ async function PurchasesData({ userId }) {
           className="purchases-container gap-4 mt-4 mt-sm-5 pt-1 w-100"
           style={{ display: "grid" }}
         >
-          {purchases.slice(0, 4).map((purchasedItem) => (
+          {purchases.map((purchasedItem) => (
             <PurchasedItem
               key={purchasedItem.id}
               image={purchasedItem.image}

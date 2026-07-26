@@ -43,7 +43,7 @@ const ProfileBtn = () => {
                 />
               </Link>
               <h6 className="btn-profile-name mx-3 mt-2">
-                {session?.user?.username}
+                {session?.user?.fullname || session?.user?.username}
               </h6>
             </div>
 
@@ -61,7 +61,7 @@ const ProfileBtn = () => {
               className="btn-profile-info d-flex align-items-center  "
             >
               <FiShoppingBag size={14} className="mx-3 mb-1" />
-              خرید های قبلی
+              قالب های من
             </Link>
 
             <Link
@@ -70,14 +70,8 @@ const ProfileBtn = () => {
             >
               <FiShoppingCart size={14} className="mx-3 mb-1" />
               سبد خرید
-            </Link>
-            {/* <Link
-              href="/"
-              className="btn-profile-info d-flex align-items-center "
-            >
-              <FiSettings size={14} className="mx-3 mb-1" />
-              تنظیمات
-            </Link> */}
+              من            </Link>
+
 
             <a
               onClick={signOut}

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import "./index.css";
-import { FaGithub, FaInstagram, FaTelegram, FaWhatsapp } from "react-icons/fa";
+import { FaGithub, FaInstagram, FaLinkedin, FaPinterest, FaTelegram, FaWhatsapp } from "react-icons/fa";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -32,45 +33,45 @@ const Footer = () => {
             </div>
             <div className="social-media-container gap-3 mt-2">
               {/*  */}
-              <div className="social-medial-box d-flex align-items-center justify-content-start ">
-                <div className="social-medial-icon h-100 d-flex align-items-center justify-content-center telegram">
-                  <FaTelegram size={25} />
+              <Link href="https://www.linkedin.com/in/con-dev-5b43a538b" className="social-medial-box d-flex align-items-center justify-content-start ">
+                <div className="social-medial-icon h-100 d-flex align-items-center justify-content-center linkedin">
+                  <FaLinkedin size={25} />
                 </div>
                 <div className="social-medial-text d-flex flex-column me-3">
-                  <small>کانال ما در تلگرام</small>
-                  <small>t.me/condev</small>
+                  <small>کانال ما در لینکدین</small>
+                  <small>linkedin/con-dev</small>
                 </div>
-              </div>
+              </Link>
               {/*  */}
-              <div className="social-medial-box d-flex align-items-center justify-content-start ">
-                <div className="social-medial-icon h-100 d-flex align-items-center justify-content-center whatsapp">
-                  <FaWhatsapp size={25} />
+              <Link href="https://pin.it/53DQhi58N" className="social-medial-box d-flex align-items-center justify-content-start ">
+                <div className="social-medial-icon h-100 d-flex align-items-center justify-content-center pinterest">
+                  <FaPinterest size={25} />
                 </div>
                 <div className="social-medial-text d-flex flex-column me-3">
-                  <small>پشتیبانی ما در واتساپ</small>
-                  <small>wa.me/condev</small>
+                  <small>کانال ما در پینترست</small>
+                  <small>pin.it/53DQhi58N</small>
                 </div>
-              </div>
+              </Link>
               {/*  */}
-              <div className="social-medial-box d-flex align-items-center justify-content-start  ">
+              <Link href="https://github.com/condev-dev" className="social-medial-box d-flex align-items-center justify-content-start  ">
                 <div className="social-medial-icon h-100 d-flex align-items-center justify-content-center github">
                   <FaGithub size={25} />
                 </div>
                 <div className="social-medial-text d-flex flex-column me-3">
                   <small>گیت‌هاب</small>
-                  <small>github.com/condev</small>
+                  <small>github/condev-dev</small>
                 </div>
-              </div>
+              </Link>
               {/*  */}
-              <div className="social-medial-box d-flex align-items-center justify-content-start  ">
+              <Link href="https://www.instagram.com/con.dev" className="social-medial-box d-flex align-items-center justify-content-start  ">
                 <div className="social-medial-icon h-100 d-flex align-items-center justify-content-center instagram">
                   <FaInstagram size={25} />
                 </div>
                 <div className="social-medial-text d-flex flex-column me-3">
                   <small>اینستاگرام</small>
-                  <small>instagram.com/condev</small>
+                  <small>instagram/con.dev</small>
                 </div>
-              </div>
+              </Link>
               {/*  */}
             </div>
           </div>
