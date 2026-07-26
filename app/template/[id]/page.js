@@ -81,7 +81,7 @@ const Template = async ({ params }) => {
         <section className="w-100 mb-3 mb-lg-0 mt-lg-4 single-template-description ">
           <section className="d-flex align-items-start justify-content-start flex-column mt-5 mb-4 pb-1 single-template-description-title ">
             <h4>درباره و مشخصات قالب</h4>
-            <p className=" mt-3 mt-sm-4 three-line ">
+            <p className=" mt-2 mt-sm-4 three-line ">
               {
                 `قالب ${data?.title || ""} یکی از مدرن ترین و بهینه ترین قالب های تک صفحه‌ای اختصاصی برای حوزه گیم، بازی و سایت های تعاملی است. این قالب با ساختار کاملاً استاندارد و ریسپانسیو طراحی شده تا کاربران در تمامی دستگاه‌ها (موبایل، تبلت و دسکتاپ) تجربه‌ای سریع و روان داشته باشند. طراحی مدرن، سرعت بارگذاری بالا و رعایت اصول اولیه سئو از ویژگی های بارز این محصول می‌باشد.`}
             </p>

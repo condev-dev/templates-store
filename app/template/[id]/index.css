@@ -98,9 +98,9 @@
 
   .single-template-description-title
   {
-    align-items: center !important;
-    justify-content: center !important;
-    text-align: center !important;
+    align-items: right !important;
+    justify-content: right !important;
+    text-align: right !important;
   }
   .single-template-description-title h4{
     font-size: 24px;
@@ -130,7 +130,7 @@
 
      .single-template-description-title p{
     font-size: 14px;
-    line-height: 2.2;
+    line-height:2.5;
     text-align: right !important;
   }
   .single-template img{
