@@ -54,3 +54,26 @@
   --font-title-2-sm: 30px;
   --font-btn-sm: 13px;
 }
+
+
+/* For Dark Theme */
+[data-theme="light"] {
+  --bg-black: #ffffff;
+  --bg-white: #020617;
+  --bg: #f8fafc;
+  --bg-main: #ffffff;
+  --bg-light: #e2e8f0;
+  --bg-color: #6366f1;
+
+  --text-black: #ffffff;
+  --text-white: #020617;
+  --text: #0f172a;
+  --text-light: #475569;
+  --text-color: #6366f1;
+
+  --border-color: #6366f130;
+  --border-light: #cbd5e1;
+
+  --bg-btn-light: #e2e8f0;
+  --text-btn-light: #475569;
+}

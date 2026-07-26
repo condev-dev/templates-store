@@ -13,6 +13,7 @@ import {
   FiShoppingCart,
   FiUser,
 } from "react-icons/fi";
+import ThemeToggle from "@/components/ui/theme/ThemeToggle";
 
 const Menu = () => {
   const session = useSession();
@@ -86,6 +87,9 @@ const Menu = () => {
           <FiShoppingCart size={18} />
           <span>سبد خرید من</span>
         </Link>
+
+
+        <ThemeToggle />
 
         <div className="d-flex flex-column w-100 mt-auto">
           {session?.status === "authenticated" && (

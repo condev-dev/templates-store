@@ -26,7 +26,22 @@ export default function RootLayout({ children , modal }) {
       lang="fa"
       dir="rtl"
       className={`${fontIranSans.variable} ${fontRokh.variable}`}
+      suppressHydrationWarning
     >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var theme = localStorage.getItem('theme') || 'dark';
+                  document.documentElement.setAttribute('data-theme', theme);
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
+      </head>
       <body>
         <AuthProvider>
           <Container>
