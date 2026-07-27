@@ -35,7 +35,7 @@ const Template = async ({ params }) => {
               alt={data?.title}
               width={1200}
               height={600}
-              className="w-100 shadow-sm"
+              className="w-100 shadow-sm no-hover-image"
             />
           </section>
 
@@ -104,7 +104,7 @@ const Template = async ({ params }) => {
             alt={data?.title}
             width={1200}
             height={600}
-            className="w-100 shadow-sm mt-4"
+            className="w-100 shadow-sm mt-4 no-hover-image"
           />
         </section>
       </section>

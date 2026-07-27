@@ -1,11 +1,8 @@
-/* ---------------------------- Btn */
-/* base */
-.btn-main,
-.btn-main > * {
+.btn-main {
   cursor: pointer !important;
   font-size: var(--font-btn-lg) !important;
   border-radius: var(--round-sm) !important;
-  display: flex !important;
+  display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
   text-align: center !important;
@@ -15,13 +12,9 @@
   position: relative;
   overflow: hidden;
   border: 1px solid transparent !important;
-}
-.btn-main > * {
-  margin: 0px !important;
-  padding: 0px !important;
+  gap: 8px;
 }
 
-/* btn -1 */
 .btn-color {
   background: var(--bg-btn-color) !important;
   padding: 12px 15px !important;
@@ -30,10 +23,9 @@
 
 .btn-color:hover {
   opacity: 0.9 !important;
-  box-shadow: 0 0 20px 0 rgba(99, 102, 241, 0.4) !important;
+  box-shadow: 0 0 15px 0 var(--border-color) !important;
 }
 
-/* btn -2 */
 .btn-light {
   background: var(--bg-btn-light) !important;
   padding: 12px 15px !important;
@@ -47,7 +39,6 @@
   border-color: var(--border-light) !important;
 }
 
-/* btn -3 */
 .btn-dark {
   background: var(--bg-black) !important;
   padding: 12px 15px !important;
@@ -60,7 +51,6 @@
   color: var(--text-white) !important;
 }
 
-/* btn -4 */
 .btn-red {
   background: var(--bg-red) !important;
   padding: 12px 15px !important;
@@ -69,17 +59,15 @@
 
 .btn-red:hover {
   opacity: 0.9 !important;
-  box-shadow: 0 0 20px 0 rgba(239, 68, 68, 0.4) !important;
+  box-shadow: 0 0 15px 0 rgba(239, 68, 68, 0.4) !important;
 }
 
-/* Btn Sm */
 .btn-color-sm {
-  padding: 12px !important;
+  padding: 10px 12px !important;
 }
 
 @media (max-width: 578px) {
-  .btn-main,
-  .btn-main > * {
+  .btn-main {
     font-size: var(--font-btn-sm) !important;
   }
 
@@ -90,12 +78,12 @@
     padding: 10px 16px !important;
     font-size: 12px !important;
   }
+  
   .btn-color-sm {
-    padding: 10px 12px !important;
+    padding: 8px 10px !important;
   }
 }
 
-/* for text */
 .one-line {
   display: -webkit-box !important;
   -webkit-line-clamp: 1 !important;

@@ -9,7 +9,7 @@ const PurchasedItem = ({ image, title }) => {
         alt={title}
         width={500}
         height={300}
-        className="mb-1 "
+        className="mb-1 no-hover-image"
       />
 
       <h5 className="mt-4 purchasedItem-box-title">{title}</h5>

@@ -1,5 +1,5 @@
 :root {
-  /* -------------------------------------  Btn */
+  /* ------------------------------------- Btn */
   /* btn -1 */
   --bg-btn-color: #6366f1;
   --text-btn-color: #ffffff;
@@ -8,7 +8,7 @@
   --bg-btn-light: #1e293b;
   --text-btn-light: #94a3b8;
 
-  /* -------------------------------------  Main */
+  /* ------------------------------------- Main */
   /* background */
   --bg-black: #020617;
   --bg-white: #ffffff;
@@ -21,7 +21,6 @@
   --bg-orange: #f59e0b;
 
   /* text */
-  /* text color, background color, font size, font selection, and font height */
   --text-black: #020617;
   --text-white: #ffffff;
   --text: #f8fafc;
@@ -31,16 +30,16 @@
   --text-red: #ef4444;
   --text-orange: #f59e0b;
 
-  /* -------------------------------------  Radius */
+  /* ------------------------------------- Radius */
   --round-sm: 6px;
   --round-md: 10px;
   --round-lg: 16px;
 
-  /* -------------------------------------  Border Color */
+  /* ------------------------------------- Border Color */
   --border-color: #6366f130;
   --border-light: #33415571;
 
-  /* -------------------------------------  Font Size */
+  /* ------------------------------------- Font Size */
   /* lg */
   --font-text-lg: 14px;
   --font-text-2-lg: 17px;
@@ -55,25 +54,40 @@
   --font-btn-sm: 13px;
 }
 
-
-/* For Dark Theme */
+/* For Alt Theme */
 [data-theme="light"] {
-  --bg-black: #ffffff;
-  --bg-white: #020617;
-  --bg: #f8fafc;
-  --bg-main: #ffffff;
-  --bg-light: #e2e8f0;
-  --bg-color: #6366f1;
+  /* ------------------------------------- Btn */
+  /* btn -1 */
+  --bg-btn-color: #1db954;
+  --text-btn-color: #000000;
 
-  --text-black: #ffffff;
-  --text-white: #020617;
-  --text: #0f172a;
-  --text-light: #475569;
-  --text-color: #6366f1;
+  /* btn -2 */
+  --bg-btn-light: #282828;
+  --text-btn-light: #b3b3b3;
 
-  --border-color: #6366f130;
-  --border-light: #cbd5e1;
+  /* ------------------------------------- Main */
+  /* background */
+  --bg-black: #000000;
+  --bg-white: #ffffff;
+  --bg: #121212;
+  --bg-main: #181818;
+  --bg-light: #282828;
+  --bg-color: #1db954;
+  --bg-green: #1db954;
+  --bg-red: #e91429;
+  --bg-orange: #ffa600;
 
-  --bg-btn-light: #e2e8f0;
-  --text-btn-light: #475569;
+  /* text */
+  --text-black: #000000;
+  --text-white: #ffffff;
+  --text: #ffffff;
+  --text-light: #a7a7a7;
+  --text-color: #1ed760;
+  --text-green: #1ed760;
+  --text-red: #f15e6c;
+  --text-orange: #ffa600;
+
+  /* ------------------------------------- Border Color */
+  --border-color: #ffffff15;
+  --border-light: #282828;
 }

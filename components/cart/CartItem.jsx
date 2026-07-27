@@ -15,7 +15,7 @@ const CartItem = ({ image, title, price, id, userId, handelRemoveFront }) => {
         alt={title}
         width={200}
         height={200}
-        className="cart-item-image shadow-sm"
+        className="cart-item-image shadow-sm no-hover-image"
       />
 
       <div className="me-4 mt-2 h-100">

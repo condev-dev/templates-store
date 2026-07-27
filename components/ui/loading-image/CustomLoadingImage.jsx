@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import ImagePlaceholder from "@/components/common/ImagePlaceholder";
 import Skeleton from "react-loading-skeleton";
+import "./index.css";
 
 const CustomLoadingImage = ({ src, alt, width, height, className, style }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -53,6 +54,7 @@ const CustomLoadingImage = ({ src, alt, width, height, className, style }) => {
             setHasError(true);
             setIsLoading(false);
           }}
+          className={className}
         />
       )}
     </div>

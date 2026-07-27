@@ -51,7 +51,6 @@
 }
 .cart-item-image img {
   object-fit: cover !important;
-  object-position: top right !important;
   border-radius: var(--round-md) !important;
 }
 

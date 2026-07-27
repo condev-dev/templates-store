@@ -10,7 +10,7 @@ const NavSm = () => {
 
   const [selectedItem, setSelectedItem] = useState(() => {
     if (pathname === '/categories') return 'دسته بندی ها';
-    if (pathname === '/purchases') return 'خرید های قبلی';
+    if (pathname === '/purchases') return 'قالب های من';
     if (pathname === '/') return 'خانه';
     if (pathname === '/profile') return 'حساب کاربری';
     if (pathname === '/cart') return 'سبد خرید';
@@ -19,7 +19,7 @@ const NavSm = () => {
 
   useEffect(() => {
     if (pathname === '/categories') setSelectedItem('دسته بندی ها');
-    else if (pathname === '/purchases') setSelectedItem('خرید های قبلی');
+    else if (pathname === '/purchases') setSelectedItem('قالب های من');
     else if (pathname === '/') setSelectedItem('خانه');
     else if (pathname === '/profile') setSelectedItem('حساب کاربری');
     else if (pathname === '/cart') setSelectedItem('سبد خرید');
@@ -32,6 +32,14 @@ const NavSm = () => {
 
   return (
     <section className="nav-sm shadow-sm d-flex d-sm-none justify-content-evenly align-items-center">
+
+      <Link href="/purchases"
+        className={`d-flex flex-column align-items-center justify-content-center nav-sm-item pt-1 ${selectedItem === 'قالب های من' ? 'nav-sm-item-selected' : ''}`}
+        onClick={() => handleItemClick('قالب های من')}
+      >
+        <FiShoppingBag size={17} />
+        <span>قالب های من</span>
+      </Link>
       <Link href="/categories"
         className={`d-flex flex-column align-items-center justify-content-center nav-sm-item pt-1 ${selectedItem === 'دسته بندی ها' ? 'nav-sm-item-selected' : ''}`}
         onClick={() => handleItemClick('دسته بندی ها')}
@@ -39,27 +47,12 @@ const NavSm = () => {
         <FiGrid size={17} />
         <span>دسته بندی ها</span>
       </Link>
-      <Link href="/purchases"
-        className={`d-flex flex-column align-items-center justify-content-center nav-sm-item pt-1 ${selectedItem === 'خرید های قبلی' ? 'nav-sm-item-selected' : ''}`}
-        onClick={() => handleItemClick('خرید های قبلی')}
-      >
-        <FiShoppingBag size={17} />
-        <span>خرید های قبلی</span>
-      </Link>
-     <Link href="/"
+      <Link href="/"
         className={`d-flex flex-column align-items-center justify-content-center nav-sm-item pt-1 ${selectedItem === 'خانه' ? 'nav-sm-item-selected' : ''}`}
         onClick={() => handleItemClick('خانه')}
       >
         <FiHome size={17} />
         <span>خانه</span>
-      </Link>
-
-      <Link href="/profile"
-        className={`d-flex flex-column align-items-center justify-content-center nav-sm-item pt-1 ${selectedItem === 'حساب کاربری' ? 'nav-sm-item-selected' : ''}`}
-        onClick={() => handleItemClick('حساب کاربری')}
-      >
-        <FiUser size={17} />
-        <span>حساب کاربری</span>
       </Link>
       <Link href="/cart"
         className={`d-flex flex-column align-items-center justify-content-center nav-sm-item pt-1 ${selectedItem === 'سبد خرید' ? 'nav-sm-item-selected' : ''}`}
@@ -68,6 +61,14 @@ const NavSm = () => {
         <FiShoppingCart size={17} />
         <span>سبد خرید</span>
       </Link>
+      <Link href="/profile"
+        className={`d-flex flex-column align-items-center justify-content-center nav-sm-item pt-1 ${selectedItem === 'حساب کاربری' ? 'nav-sm-item-selected' : ''}`}
+        onClick={() => handleItemClick('حساب کاربری')}
+      >
+        <FiUser size={17} />
+        <span>حساب کاربری</span>
+      </Link>
+
     </section>
   );
 };

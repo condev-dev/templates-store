@@ -37,7 +37,7 @@ const Footer = () => {
                 <div className="social-medial-icon h-100 d-flex align-items-center justify-content-center linkedin">
                   <FaLinkedin size={25} />
                 </div>
-                <div className="social-medial-text d-flex flex-column me-3">
+                <div className="social-medial-text align-items-start d-flex flex-column me-3">
                   <small>کانال ما در لینکدین</small>
                   <small>linkedin/con-dev</small>
                 </div>
@@ -47,7 +47,7 @@ const Footer = () => {
                 <div className="social-medial-icon h-100 d-flex align-items-center justify-content-center pinterest">
                   <FaPinterest size={25} />
                 </div>
-                <div className="social-medial-text d-flex flex-column me-3">
+                <div className="social-medial-text d-flex align-items-start flex-column me-3">
                   <small>کانال ما در پینترست</small>
                   <small>pin.it/53DQhi58N</small>
                 </div>
@@ -57,7 +57,7 @@ const Footer = () => {
                 <div className="social-medial-icon h-100 d-flex align-items-center justify-content-center github">
                   <FaGithub size={25} />
                 </div>
-                <div className="social-medial-text d-flex flex-column me-3">
+                <div className="social-medial-text d-flex flex-column align-items-start me-3">
                   <small>گیت‌هاب</small>
                   <small>github/condev-dev</small>
                 </div>
@@ -67,7 +67,7 @@ const Footer = () => {
                 <div className="social-medial-icon h-100 d-flex align-items-center justify-content-center instagram">
                   <FaInstagram size={25} />
                 </div>
-                <div className="social-medial-text d-flex flex-column me-3">
+                <div className="social-medial-text d-flex flex-column align-items-start me-3">
                   <small>اینستاگرام</small>
                   <small>instagram/con.dev</small>
                 </div>

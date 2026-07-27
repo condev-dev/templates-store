@@ -43,5 +43,19 @@
 }
 
 .purchasedItem-box:hover img {
-  object-position: bottom left;
+  object-position: bottom left !important;
+}
+
+
+
+@media (max-width: 578px) {
+  .purchasedItem-box-title {
+    font-size: 16px !important;
+    padding-right: 18px;
+  }
+
+  .purchasedItem-box-title::before {
+    height: 140%;
+    top: -5px;
+  }
 }
