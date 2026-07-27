@@ -49,7 +49,7 @@ const TemplateItem = ({ image, title, categories, price, id, demo_url }) => {
             href={demo_url}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-main btn-light ms-1"
+            className="btn-main btn-light ms-1 btn-eys"
           >
             {" "}
             <FiEye size={16} />

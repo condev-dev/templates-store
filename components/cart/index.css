@@ -49,6 +49,7 @@
   width: 200px !important;
   min-width: 200px !important;
 }
+
 .cart-item-image img {
   object-fit: cover !important;
   border-radius: var(--round-md) !important;
@@ -72,9 +73,17 @@
   .cart-item {
     height: 154px;
   }
+
   .cart-item-image {
     width: 35% !important;
     min-width: 7px !important;
+  }
+
+  .cart-item-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center top !important;
   }
 
   .cart-item-title {
