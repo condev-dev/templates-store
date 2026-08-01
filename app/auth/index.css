@@ -34,8 +34,8 @@
         transparent
       )
       25px 25px,
-    linear-gradient(#444cf7 2px, transparent 2px) 0 -1px,
-    linear-gradient(90deg, #444cf7 2px, var(--bg) 2px) -1px 0;
+    linear-gradient(var(--bg-color) 2px, transparent 2px) 0 -1px,
+    linear-gradient(90deg, var(--bg-color) 2px, var(--bg) 2px) -1px 0;
   background-size:
     50px 50px,
     50px 50px,
@@ -44,9 +44,8 @@
 }
 
 .auth-title {
-  font-size: 25px;
+  font-size: 22px;
   font-weight: 800 !important;
-  
 }
 
 .auth-box {
@@ -109,9 +108,18 @@
   }
 
   .auth-title {
-    text-align: center !important;
+    text-align: right !important;
     font-size: 20px;
     position: relative;
+    width: 100% !important;
+  }
+
+  .auth-box input::placeholder {
+    text-align: right !important;
+  }
+  .auth-box input {
+    text-align: right !important;
+    padding-right: 15px !important;
   }
 
   .auth-box .small,

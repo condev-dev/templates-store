@@ -74,7 +74,7 @@ export default function SignIn() {
             </Link>
           </div>
 
-          <h2 className="auth-title mt-1 mt-sm-4 pt-sm-3">ورود به سایت</h2>
+          <h2 className="auth-title mt-1 mt-sm-4 pt-sm-3">سلام خوش اومدی 👋</h2>
 
           <input
             className="input-group-text mt-2"
