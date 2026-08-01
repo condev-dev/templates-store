@@ -8,7 +8,6 @@ import NotLogin from "@/components/ui/not-login/NotLogin";
 import { Suspense } from "react";
 import PurchasedItemLoading from "@/components/purchases/PurchasedItemLoading";
 
-// Helper component to handle loading & skeleton grid safely
 function PurchasesSkeleton() {
   return (
     <section className="w-100 d-flex flex-column mt-4 pt-2 pt-sm-0 mt-sm-5">
@@ -33,7 +32,7 @@ function PurchasesSkeleton() {
 
 async function PurchasesData({ userId }) {
   const BaseUrl = process.env.NEXT_PUBLIC_API_URL;
-  const ApiKey = process.env.NEXT_API_SECRET_KEY;
+  const ApiKey = process.env.NEXT_PUBLIC_API_SECRET_KEY;
 
   const res = await fetch(`${BaseUrl}/api/purchases?userId=${userId}`, {
     cache: "no-store",

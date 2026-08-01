@@ -46,8 +46,6 @@
   object-position: bottom left !important;
 }
 
-
-
 @media (max-width: 578px) {
   .purchasedItem-box-title {
     font-size: 16px !important;
@@ -57,5 +55,24 @@
   .purchasedItem-box-title::before {
     height: 140%;
     top: -5px;
+  }
+}
+
+/* Btn Purchases - For AddToCart.jsx */
+.btn-purchased {
+  background-color: color-mix(in srgb, var(--bg-color) 15%, transparent);
+  color: var(--text-color);
+  border: 1px solid var(--bg-color);
+  padding: 12px 15px !important;
+}
+
+.btn-purchased:hover {
+  background-color: color-mix(in srgb, var(--bg-color) 25%, transparent);
+}
+
+@media (max-width: 578px) {
+  .btn-purchased {
+    padding: 10px 16px !important;
+    font-size: 12px !important;
   }
 }

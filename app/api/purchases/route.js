@@ -2,10 +2,13 @@ import { getDb } from "@/lib/getDb";
 import { NextResponse } from "next/server";
 
 export async function GET(request) {
-  const resApiKey = request.headers.get("api-key");
-  const expectedApiKey = process.env.NEXT_API_SECRET_KEY;
+  const res_ApiKey = request.headers.get("api-key");
+  const ApiKey = process.env.NEXT_API_SECRET_KEY;
 
-  if (!resApiKey || resApiKey !== expectedApiKey) {
+  const Secret_Public_ApiKey = ApiKey + res_ApiKey;
+  const Secret_ApiKey = process.env.NEXT_API_SECRET_KEY + "SGVsbGeVjCEg8";
+
+  if (!Secret_Public_ApiKey || Secret_Public_ApiKey !== Secret_ApiKey) {
     return NextResponse.redirect(new URL("/not-found", request.url));
   }
 

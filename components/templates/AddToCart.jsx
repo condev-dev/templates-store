@@ -4,6 +4,7 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import useSWR, { mutate } from "swr";
+import "../purchases/index.css";
 
 const AddToCart = ({ templateId }) => {
   const { data: session, status } = useSession();
@@ -15,17 +16,28 @@ const AddToCart = ({ templateId }) => {
     fetcher,
   );
 
+  const { data: purchasesData, isLoading: isPurchasesLoading } = useSWR(
+    status === "authenticated" && `purchases?userId=${session?.user?.id}`,
+    fetcher,
+  );
+
   if (error) {
     return <button className="btn-main btn-red">خطا در بارگذاری</button>;
   }
 
-  if (isLoading) {
+  if (isLoading || isPurchasesLoading) {
     return <button className="btn-main btn-color">در حال بارگذاری...</button>;
   }
+
+  const isPurchased = purchasesData?.find(
+    (template) => template.id === templateId,
+  );
 
   const isExists = data?.find((template) => template.id === templateId);
 
   const handleAddToCart = async () => {
+    if (isPurchased) return router.push("/purchases");
+
     if (isExists) return router.push("/cart");
 
     if (status !== "authenticated") {
@@ -56,13 +68,20 @@ const AddToCart = ({ templateId }) => {
       toast.error("خطا در ارتباط با سرور.");
     }
   };
+
   return (
     <button
-      className={`btn-main ${isExists ? "btn-light" : "btn-color"}`}
+      className={`btn-main ${
+        isPurchased ? "btn-purchased" : isExists ? "btn-light" : "btn-color"
+      }`}
       onClick={handleAddToCart}
-      disabled={isLoading}
+      disabled={isLoading || isPurchasesLoading}
     >
-      {isExists ? "مشاهده سبد خرید" : "افزودن به سبد خرید"}
+      {isPurchased
+        ? "مشاهده فایل"
+        : isExists
+          ? "مشاهده سبد خرید"
+          : "افزودن به سبد خرید"}
     </button>
   );
 };
