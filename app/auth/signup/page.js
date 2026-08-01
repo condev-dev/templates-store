@@ -167,7 +167,7 @@ export default function SignUpPage() {
           onClick={OnGoogleSignIn}
           type="button"
         >
-          <FaGoogle size={24} />
+          <FaGoogle size={20} />
           ورود با گوگل
         </button>
       </section>
