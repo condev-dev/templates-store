@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { toast } from "react-toastify";
 import "../index.css";
+import Link from "next/link";
+import { FiArrowLeft } from "react-icons/fi";
 
 export default function ResetPassword() {
   const [newPassword, setNewPassword] = useState("");
@@ -51,22 +53,37 @@ export default function ResetPassword() {
       <section className="d-flex justify-content-center align-items-center flex-column gap-3 auth-box p-5 shadow-sm">
         <h2 className="auth-title">رمز عبور جدید</h2>
         <input
-          className="input-group-text mt-2"
+          className="input-group-text mt-3"
           type="password"
           placeholder="رمز عبور جدید"
           value={newPassword}
           onChange={(e) => setNewPassword(e.target.value)}
         />
         <input
-          className="input-group-text my-lg-1"
+          className="input-group-text my-lg-1 "
           type="password"
           placeholder="تکرار رمز عبور جدید"
           value={repeatPassword}
           onChange={(e) => setRepeatPassword(e.target.value)}
         />
-        <button className="btn-main btn-color w-100 mt-1" onClick={OnReset}>
+        <button className="btn-main btn-color w-100 mt-2" onClick={OnReset}>
           تغییر رمز عبور
         </button>
+
+           <small className=" w-100 small mt-2 d-flex justify-content-end ">
+         
+          <Link
+            href="/auth/ForgotPassword"
+            className=" d-flex justify-content-center"
+            style={{ color: "var(--bg-btn-color)" }}
+          >
+            بازگشت
+           <FiArrowLeft size={14} 
+           className=" mx-1"
+                      style={{ color: "var(--bg-btn-color)" }}
+          />
+          </Link>
+        </small>
       </section>
     </section>
   );
