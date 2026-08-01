@@ -45,18 +45,16 @@ export default function SignIn() {
       router.push("/");
     }
   };
-
-  // --- اضافه شده ---
+// For Google Login
   const OnGoogleSignIn = async () => {
     await signIn("google", { callbackUrl: "/" });
   };
-  // --- پایان اضافه شده ---
 
   return (
     <>
       <section className="d-flex justify-content-center align-items-center auth-container">
-        <section className="d-flex justify-content-center align-items-center flex-column gap-3 auth-box p-5 shadow-sm">
-          <div className="show-lg">
+        <section className="d-flex justify-content-center align-items-center flex-column gap-3 auth-box p-5  shadow-sm">
+          <Link href={"/"} className="show-lg">
             <Image
               src="/img/logo.webp"
               alt="ConDev"
@@ -65,9 +63,9 @@ export default function SignIn() {
               height={40}
               className="logo"
             />
-          </div>
+          </Link>
 
-          <div className="d-flex justify-content-center align-content-center gap-2 w-75 mt-3 show-lg">
+          <div className="d-flex justify-content-center align-content-center gap-2 w-75 mt-lg-3 show-lg">
             <Link className={`btn-main w-50 btn-color `} href={"/auth/signin"}>
               ورود
             </Link>
@@ -76,7 +74,7 @@ export default function SignIn() {
             </Link>
           </div>
 
-          <h2 className="auth-title mt-3 mt-lg-4 pt-lg-3">ورود به سایت</h2>
+          <h2 className="auth-title mt-1 mt-sm-4 pt-sm-3">ورود به سایت</h2>
 
           <input
             className="input-group-text mt-2"
@@ -99,17 +97,6 @@ export default function SignIn() {
             ورود
           </button>
 
-          {/* --- اضافه شده: دکمه ورود با گوگل --- */}
-          <button
-            className="btn-main btn-light w-100 mt-1 d-flex justify-content-center align-items-center gap-2"
-            onClick={OnGoogleSignIn}
-            type="button"
-          >
-            <FaGoogle size={24} />
-            ورود با گوگل
-          </button>
-          {/* --- پایان اضافه شده --- */}
-
           <small className=" w-100 small px-1  mt-1 mt-lg-0 d-lg-none ">
             حساب کاربری ندارید؟
             <small onClick={() => router.push("/auth/signup")} className="mx-2">
@@ -126,6 +113,20 @@ export default function SignIn() {
               ایجاد رمز جدید
             </Link>
           </small>
+          <div className="d-flex align-items-center w-100 mt-2">
+            <hr className="flex-grow-1" />
+            <small className="mx-2 small">OR</small>
+            <hr className="flex-grow-1" />
+          </div>
+
+          <button
+            className="btn-main btn-light w-100 d-flex justify-content-center align-items-center gap-2"
+            onClick={OnGoogleSignIn}
+            type="button"
+          >
+            <FaGoogle size={24} />
+            ورود با گوگل
+          </button>
         </section>
       </section>
     </>

@@ -15,7 +15,7 @@
   height: 100%;
   position: absolute;
   inset: 0px;
-  opacity: 0.2;
+  opacity: 0.1;
   background:
     radial-gradient(
       circle,
@@ -54,6 +54,7 @@
   background: var(--bg);
   position: relative;
   z-index: 1002;
+  min-width: 380px;
 }
 
 .auth-container input {
@@ -63,11 +64,13 @@
   border: none !important;
   outline: none !important;
   border-radius: var(--round-sm) !important;
-  padding: 7px 5px !important;
+  padding: 10px 5px !important;
   direction: ltr !important;
+  width: 100%;
 }
 
 .auth-container .btn-color,
+.auth-container .btn-dark,
 .auth-container .btn-light {
   padding: 13px 15px !important;
 }
@@ -92,7 +95,8 @@
   .auth-box {
     width: 80% !important;
     height: max-content !important;
-    padding: 30px 40px !important;
+    padding: 35px !important;
+    min-width: auto;
   }
 
   .auth-box > * {
@@ -109,7 +113,8 @@
     position: relative;
   }
 
-  .auth-box .small {
+  .auth-box .small,
+  .auth-box small {
     font-size: 10px !important;
   }
 
