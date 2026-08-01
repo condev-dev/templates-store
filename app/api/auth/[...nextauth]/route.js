@@ -6,6 +6,7 @@ import { getDb } from "@/lib/getDb";
 import { randomUUID } from "crypto";
 
 export const authOptions = {
+  debug: true,
   providers: [
     CredentialsProvider({
       credentials: {
@@ -32,19 +33,16 @@ export const authOptions = {
         return null;
       },
     }),
-    // --- اضافه شده: گوگل ---
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
-    // --- پایان اضافه شده ---
   ],
   session: {
     strategy: "jwt",
   },
   secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
-    // --- اضافه شده: برای اینکه یوزر گوگل توی دیتابیس خودت هم ساخته/پیدا بشه ---
     async signIn({ user, account }) {
       if (account.provider === "google") {
         const db = await getDb();
@@ -53,7 +51,6 @@ export const authOptions = {
           .findOne({ email: user.email });
 
         if (!existingUser) {
-          // یوزر جدید از گوگل - بدون پسورد واقعی (رندوم هش می‌کنیم چون فیلد password اجباریه)
           const randomPassword = await bcrypt.hash(randomUUID(), 10);
           const newUser = {
             id: randomUUID(),
@@ -63,15 +60,19 @@ export const authOptions = {
             fullname: user.name || "",
           };
           await db.collection("users").insertOne(newUser);
+
+          await db.collection("carts").insertOne({
+            id: randomUUID(),
+            user_id: newUser.id,
+            carts: [],
+          });
         }
       }
       return true;
     },
-    // --- پایان اضافه شده ---
 
     async jwt({ token, user, trigger, session }) {
       if (user) {
-        // --- اضافه شده: چون یوزر گوگل شکلش فرق داره، از دیتابیس خودمون می‌خونیم ---
         const db = await getDb();
         const dbUser = await db
           .collection("users")
@@ -88,7 +89,6 @@ export const authOptions = {
           token.username = user.username;
           token.fullname = user.fullname;
         }
-        // --- پایان اضافه شده ---
       }
       if (trigger === "update" && session?.user) {
         return { ...token, ...session.user };
