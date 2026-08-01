@@ -1,3 +1,4 @@
+import Link from "next/link";
 import "./index.css";
 
 const Intro = () => {
@@ -11,12 +12,18 @@ const Intro = () => {
         </h2>
 
         <div className="d-flex gap-2 gap-sm-3 mt-4">
-          <a href="#categories" className="btn-main btn-color shadow-sm">
-            مشاهده قالب ها
-          </a>
-          <a href="#demo" className="btn-main btn-dark shadow-sm ">
-            دموهای زنده
-          </a>
+          <Link
+              href={"/templates/filter/بایو"}
+          
+           className="btn-main btn-color shadow-sm">
+            قالب های بایو
+          </Link>
+          <Link
+            href={"/templates/filter/بازی"}
+            className="btn-main btn-dark shadow-sm "
+          >
+            بازی ها
+          </Link>
         </div>
       </div>
     </section>
