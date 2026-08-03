@@ -58,26 +58,15 @@
   background: linear-gradient(
     120deg,
     var(--bg) 20%,
-    var(--bg-main),
+    var(--bg-main), 
     var(--bg) 80%
   ) !important;
 }
 
-.swiper-slide {
+.swiper-slide:not(.swiper-slide-active) {
   transform: scale(0.85) !important;
   position: relative;
   overflow: hidden !important;
-}
-
-.swiper-slide:not(.swiper-slide-active)::after {
-  content: "";
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  inset: 0px;
-  background: var(--bg);
-  opacity: 0.5;
-  border-radius: var(--round-lg);
 }
 
 .swiper-slide-active {

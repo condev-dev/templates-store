@@ -12,8 +12,15 @@ export default function ForgotPassword() {
   const BaseUrl = process.env.NEXT_PUBLIC_API_URL;
 
   const OnCheck = async () => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
     if (email.trim() === "") {
       toast.error("لطفا ایمیل را وارد کنید.");
+      return;
+    }
+
+    if (!emailRegex.test(email.trim())) {
+      toast.error("لطفا یک ایمیل معتبر وارد کنید.");
       return;
     }
 
@@ -24,7 +31,7 @@ export default function ForgotPassword() {
     const data = await res.json();
 
     if (data.exists) {
-      router.push(`/auth/reset-password?email=${email}`);
+      router.push(`/auth/reset-password?email=${encodeURIComponent(email)}`);
     } else {
       toast.error("کاربری با این ایمیل یافت نشد.");
     }
@@ -46,17 +53,17 @@ export default function ForgotPassword() {
         </button>
 
         <small className=" w-100 small mt-2 d-flex justify-content-end ">
-         
           <Link
             href="/auth/signin"
             className=" d-flex justify-content-center"
             style={{ color: "var(--bg-btn-color)" }}
           >
             بازگشت
-           <FiArrowLeft size={14} 
-           className=" mx-1"
-                      style={{ color: "var(--bg-btn-color)" }}
-          />
+            <FiArrowLeft
+              size={14}
+              className=" mx-1"
+              style={{ color: "var(--bg-btn-color)" }}
+            />
           </Link>
         </small>
       </section>

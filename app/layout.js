@@ -13,7 +13,7 @@ import AuthProvider from "./AuthProvider";
 import ToastProvider from "@/components/common/ToastProvider";
 // Loading Skeleton
 import "react-loading-skeleton/dist/skeleton.css";
-
+import ScrollToTop from "@/components/common/ScrollToTop";
 
 export const metadata = {
   title: "ConDev | Casino Templates",
@@ -45,6 +45,8 @@ export default function RootLayout({ children, modal }) {
       <body>
         <AuthProvider>
           <Container>
+            <ScrollToTop />
+
             {/* flex-grow-1 */}
             <main className="d-flex flex-column  align-items-center justify-content-center">
               {modal}
