@@ -17,19 +17,16 @@ const TemplateGames = async () => {
   const templates = res.ok ? await res.json() : [];
 
   return (
-    <section className=" w-100 d-flex flex-column mt-4 mb-sm-3 pt-4">
+    <section className="w-100 d-flex flex-column mt-4 mb-sm-3 pt-4">
       <section className="template-category-title d-flex justify-content-between align-items-center w-100">
-        <h3 className="mt-2">بازی های اختصاصی </h3>
+        <h3 className="mt-2">بازی های اختصاصی</h3>
       </section>
 
-      <section className="d-flex flex-column-reverse flex-lg-row mt-4 mt-sm-5 pt-1 ">
+      <section className="d-flex flex-column-reverse flex-lg-row mt-4 mt-sm-5 pt-1">
+        {/* ۴ کارت کوچک در دسکتاپ */}
         <div className="template-container-game-sm template-container-games gap-4 ps-lg-4">
           {templates.slice(1, 5).map((template) => (
-            <div
-              key={template.id}
-              className="template-box-game sm-game"
-              target="_blank"
-            >
+            <div key={template.id} className="template-box-game sm-game">
               <CustomLoadingImage
                 src={template.image}
                 alt={template.title}
@@ -44,7 +41,6 @@ const TemplateGames = async () => {
                   rel="noopener noreferrer"
                   className="btn-main btn-light w-50"
                 >
-                  {" "}
                   پیشنمایش قالب
                 </Link>
 
@@ -56,14 +52,10 @@ const TemplateGames = async () => {
           ))}
         </div>
 
-        <div className="template-container-game-lg  gap-4 mb-4 mb-lg-0">
+        {/* ۱ کارت بزرگ در دسکتاپ (که در موبایل یکدست و کوچک می‌شود) */}
+        <div className="template-container-game-lg gap-4 mb-4 mb-lg-0">
           {templates.slice(0, 1).map((template) => (
-            <div
-              href={template.demo_url}
-              key={template.id}
-              className="template-box-game lg-game"
-              target="_blank"
-            >
+            <div key={template.id} className="template-box-game lg-game">
               <CustomLoadingImage
                 src={template.image}
                 alt={template.title}
@@ -78,7 +70,6 @@ const TemplateGames = async () => {
                   rel="noopener noreferrer"
                   className="btn-main btn-light w-50"
                 >
-                  {" "}
                   پیشنمایش قالب
                 </Link>
 
