@@ -315,19 +315,13 @@
   }
 
   /* template category */
- .template-category-title h3 {
+  .template-category-title h3 {
     font-size: 18px;
     padding-right: 15px;
   }
 
- .template-category-title h3::before {
+  .template-category-title h3::before {
     top: 38% !important;
-    background: linear-gradient(
-      to right,
-      transparent,
-      var(--bg-color)
-    ) !important;
-    width: 100px;
     height: 140%;
     z-index: -1 !important;
   }
@@ -338,7 +332,6 @@
     flex: 0 0 70% !important;
     max-width: 70% !important;
     scroll-snap-align: start;
-    border-radius: var(--round-md) !important;
   }
 
   .template-category-4 .template-box img,
@@ -371,11 +364,13 @@
   }
 
   .template-category-4 .template-box-price span:nth-child(1) {
-    font-size: 14px;
+    font-size: 15px;
   }
   .template-category-4 .template-box-price svg {
     width: 16px !important;
     height: 16px !important;
+    margin-left: 2px !important;
+    margin-bottom: 5px !important;
   }
 
   .template-category-4 .btn-main {
