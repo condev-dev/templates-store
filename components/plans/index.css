@@ -38,6 +38,7 @@
   background: var(--bg-dark);
   overflow: hidden;
 }
+
 .plan:not(:nth-child(1))::before {
   content: "";
   width: 100%;
@@ -128,6 +129,39 @@
   color: var(--text) !important;
 }
 
+/* Mobile Tabs Styles */
+.btn-plan-tab {
+  background: var(--bg-dark);
+  width: 25% !important;
+  border: 1px solid var(--border-light);
+  color: var(--text);
+  padding: 10px ;
+  border-radius: var(--round-md);
+  font-size: 14px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-plan-tab.active {
+  background: var(--bg-color);
+  color: var(--text-white);
+  border-color: var(--bg-color);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Keyframe for Tab Transition */
+@keyframes planFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Animation */
 @keyframes planCircle {
   0% {
@@ -138,6 +172,7 @@
   }
 }
 
+/* Responsive Media Queries */
 @media (max-width: 1300px) {
   .plans-container {
     gap: 25px !important;
@@ -169,19 +204,27 @@
   .plans-text {
     width: 100% !important;
   }
+
   .plans-container {
-    grid-template-columns: 1fr 1fr !important;
-  }
-  .plans-container {
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: none !important;
+    margin-top: 20px !important;
     overflow: hidden !important;
+  }
+
+  .plan {
+    display: none !important;
+  }
+
+  .plan.tab-active {
+    display: flex !important;
+    width: 100% !important;
+    animation: planFadeIn 0.35s ease-in-out;
   }
 }
 
 @media (max-width: 500px) {
-  .plans-container {
-    grid-template-columns: 1fr !important;
-    margin-top: 30px !important;
-  }
   .plans-text h5 {
     font-size: 20px;
   }
