@@ -329,15 +329,15 @@
   /* For Template-Box in Sm - category 4 */
 
   .template-category-4 .template-box {
-    flex: 0 0 70% !important;
-    max-width: 70% !important;
+    flex: 0 0 77% !important;
+    max-width: 77% !important;
     scroll-snap-align: start;
   }
 
   .template-category-4 .template-box img,
   .template-category-4 .image-placeholder-container {
-    min-height: 200px !important;
-    height: 200px !important;
+    min-height: 230px !important;
+    height: 230px !important;
   }
 
   .template-category-4 .template-box .btn-demo-link {
@@ -374,7 +374,7 @@
   }
 
   .template-category-4 .btn-main {
-    font-size: 10px !important;
+    font-size: 12px !important;
   }
 }
 @media (max-width: 768px) {
