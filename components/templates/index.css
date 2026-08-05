@@ -376,6 +376,14 @@
   .template-category-4 .btn-main {
     font-size: 12px !important;
   }
+  /* --- */
+  .template-category-4 .template-box > div:first-child {
+    height: 230px !important;
+  }
+
+  .template-category-4 .template-box .d-flex.gap-2 > *:first-child {
+    display: none !important;
+  }
 }
 @media (max-width: 768px) {
   .template-box-game .position-relative {

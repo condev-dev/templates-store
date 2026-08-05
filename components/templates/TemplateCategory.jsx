@@ -1,5 +1,4 @@
 import Link from "next/link";
-//
 import "./index.css";
 import TemplateItem from "./TemplateItem";
 import TemplateItemLoading from "./TemplateItemLoading";
@@ -18,7 +17,7 @@ const TemplateCategory = async ({ title, filterBy }) => {
   const templates = res.ok ? await res.json() : [];
 
   return (
-    <section className=" w-100 d-flex flex-column mt-4 mt-sm-5 pt-4 template-category-4">
+    <section className="w-100 d-flex flex-column mt-4 mt-sm-5 pt-4 template-category-4">
       <section className="template-category-title d-flex justify-content-between align-items-center w-100">
         <h3 className="mt-2">{title}</h3>
 

@@ -1,65 +1,32 @@
-"use client";
-import FaNumber from "../common/FaNumber";
-import Toman from "../common/Toman";
-import { Fragment } from "react";
-import AddToCart from "./AddToCart";
-import Link from "next/link";
-import { FiEye } from "react-icons/fi";
-//
-import "./index.css";
-import CustomLoadingImage from "../ui/loading-image/CustomLoadingImage";
+import Skeleton from "react-loading-skeleton";
 
-const TemplateItem = ({ image, title, categories, price, id, demo_url }) => {
+const TemplateItemLoading = () => {
   return (
-    <div className="template-box d-flex flex-column position-relative  shadow-sm">
-      <Link href={`/template/${id}`}>
-        <CustomLoadingImage
-          src={image}
-          alt={title}
-          width={1200}
-          height={600}
-          className="w-100 shadow-sm"
-        />
-        <h5 className="mt-4 template-box-title">{title}</h5>
+    <div className="template-box d-flex flex-column position-relative shadow-sm">
+      <div className="w-100" style={{ height: "300px" }}>
+        <Skeleton height="100%" borderRadius="var(--round-sm)" />
+      </div>
 
-        <h6 className="mt-3 template-box-category">
-          <span>دسته بندی :</span>
-          <span>
-            {categories?.slice(0, 3).map((category, index) => (
-              <Fragment key={index}>
-                {index > 0 && <small className="mx-1">|</small>}
-                <small key={index}> {category}</small>
-              </Fragment>
-            ))}
-          </span>
-        </h6>
-      </Link>
+      <div className="mt-4">
+        <Skeleton height={24} width="70%" />
+      </div>
 
-      <div className="mt-3  d-flex flex-row-reverse justify-content-between align-items-center">
-        <h6 className="template-box-price d-flex align-items-center justify-content-center row-gap-2 pt-2 mt-1">
-          <span className="mx-1 px-1">
-            {" "}
-            <FaNumber number={price} />{" "}
-          </span>
-          <Toman size={22} />
-        </h6>
+      <div className="mt-3">
+        <Skeleton height={18} width="40%" />
+      </div>
+
+      <div className="mt-3 d-flex flex-row-reverse justify-content-between align-items-center">
+        <div className="d-flex align-items-center gap-1 pt-2 mt-1">
+          <Skeleton height={24} width={80} />
+        </div>
 
         <div className="d-flex gap-2">
-          <Link
-            href={demo_url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-main btn-light ms-1 btn-eys btn-demo-link"
-          >
-            {" "}
-            <FiEye size={16} />
-          </Link>
-
-          <AddToCart templateId={id} />
+          <Skeleton height={38} width={45} borderRadius="6px" />
+          <Skeleton height={38} width={110} borderRadius="6px" />
         </div>
       </div>
     </div>
   );
 };
 
-export default TemplateItem;
+export default TemplateItemLoading;
