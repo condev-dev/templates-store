@@ -29,23 +29,17 @@ const TemplateCategory = async ({ title, filterBy }) => {
       </section>
 
       <section className="template-container gap-4 mt-2 mt-sm-5 pt-1">
-        {templates.length === 0
-          ? Array(4)
-              .fill(0)
-              .map((_, index) => <TemplateItemLoading key={index} />)
-          : templates
-              .slice(0, 4)
-              .map((template) => (
-                <TemplateItem
-                  key={template.id}
-                  image={template.image}
-                  title={template.title}
-                  categories={template.categories}
-                  price={template.price}
-                  id={template.id}
-                  demo_url={template.demo_url}
-                />
-              ))}
+        {templates?.slice(0, 4).map((template) => (
+          <TemplateItem
+            key={template.id}
+            image={template.image}
+            title={template.title}
+            categories={template.categories}
+            price={template.price}
+            id={template.id}
+            demo_url={template.demo_url}
+          />
+        ))}
       </section>
     </section>
   );
