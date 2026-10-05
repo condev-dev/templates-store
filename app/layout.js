@@ -16,8 +16,11 @@ import "react-loading-skeleton/dist/skeleton.css";
 import ScrollToTop from "@/components/common/ScrollToTop";
 
 export const metadata = {
-  title: "ConDev | Casino Templates",
-  description: "Casino & Game Templates",
+  title: "خرید قالب کازینو، گیمینگ و پیش بینی | Con Dev",
+  description: "دانلود و خرید قالب های تک صفحه ای HTML برای سایت های کازینو، بازی آنلاین و پیش بینی. سرعت فوق العاده، کد کلین، کاملا ریسپانسیو و سئو شده.",
+  alternates: {
+    canonical: "https://www.condev.ir",
+  },
 };
 
 export default function RootLayout({ children, modal }) {
