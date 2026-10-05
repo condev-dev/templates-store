@@ -52,7 +52,7 @@ const TemplateGames = async () => {
           ))}
         </div>
 
-        {/* ۱ کارت بزرگ در دسکتاپ (که در موبایل یکدست و کوچک می‌شود) */}
+        {/* ۱ کارت بزرگ در دسکتاپ (که در موبایل یکدست و کوچک می شود) */}
         <div className="template-container-game-lg gap-4 mb-4 mb-lg-0">
           {templates.slice(0, 1).map((template) => (
             <div key={template.id} className="template-box-game lg-game">

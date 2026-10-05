@@ -1,8 +1,27 @@
 import { FiArrowLeft } from "react-icons/fi";
 import "./index.css";
 import Link from "next/link";
+import { GetTemplateCountByFilter } from "@/services/templates";
 
-const Categories = () => {
+// The numbers on these cards are read from the database, so they can never drift out of sync
+// with the catalogue again (they were hardcoded as 80 / 30 / 50 / 5). If the read fails the card
+// simply shows no number instead of taking the page down.
+async function safeCount(filter) {
+  try {
+    return await GetTemplateCountByFilter(filter);
+  } catch {
+    return null;
+  }
+}
+
+const Categories = async () => {
+  const [faCount, trCount, bioCount, gameCount] = await Promise.all([
+    safeCount("لندینگ فارسی"),
+    safeCount("ترکی"),
+    safeCount("بایو"),
+    safeCount("بازی"),
+  ]);
+
   return (
     <>
       <section
@@ -18,7 +37,7 @@ const Categories = () => {
               قالب های <span className="mx-1">فارسی زبان</span>
             </h5>
             <div className="d-flex align-items-center w-100 flex-wrap">
-              <small className=" ">80 +</small>
+              <small className=" ">{faCount}</small>
               <small className="  mx-2">|</small>
               <small className="  mx-2">FA</small>
             </div>
@@ -40,7 +59,7 @@ const Categories = () => {
               قالب های <span className="mx-1">ترکی زبان</span>
             </h5>
             <div className="d-flex align-items-center w-100 flex-wrap">
-              <small className=" ">30 +</small>
+              <small className=" ">{trCount}</small>
               <small className="  mx-2">|</small>
               <small className="  mx-2">TR</small>
             </div>
@@ -62,9 +81,9 @@ const Categories = () => {
               قالب های <span className="mx-1">بایو</span>
             </h5>
             <div className="d-flex align-items-center w-100 flex-wrap">
-              <small className=" ">50 +</small>
+              <small className=" ">{bioCount}</small>
               <small className="  mx-2">|</small>
-              <small className="  mx-2"> ADVERTISEMENT</small>
+              <small className="  mx-2"> BIO</small>
             </div>
             <Link
               href={"/templates/filter/بایو"}
@@ -84,7 +103,7 @@ const Categories = () => {
               قالب های <span className="mx-1">بازی</span>
             </h5>
             <div className="d-flex align-items-center w-100 flex-wrap">
-              <small className=" ">5 +</small>
+              <small className=" ">{gameCount}</small>
               <small className="  mx-2">|</small>
               <small className="  mx-2">GAME</small>
             </div>

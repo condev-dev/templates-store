@@ -3,16 +3,16 @@ import { useState } from "react";
 import "./index.css";
 
 const Plans = () => {
-  const [activeTab, setActiveTab] = useState(2); // پیش‌فرض: پرو (پلن وسط)
+  const [activeTab, setActiveTab] = useState(2); // پیش فرض: پرو (پلن وسط)
 
   return (
     <section className="d-flex justify-content-between align-items-center plans-main-container mt-4 mt-sm-5 pt-5" id="plans">
       {/* Title */}
       <div className="d-flex flex-column align-items-start plans-text w-25">
-        <h5>پلن‌های ویژه</h5>
+        <h5>پلن های ویژه</h5>
         <p className="mt-3 px-2 px-sm-0">
-          قالب گیم و بت | پوسته اختصاصی HTML و CSS | مرجع دانلود و خرید قالب
-          رویال کاندو | طراحی حرفه‌ای و ریسپانسیو برای سایت‌های گیم و شرط‌بندی
+          مرجع خرید و دانلود قالب های گیم و بت. هر پلن ترکیبی از قالب های لندینگ فارسی،
+          ترکی و بایو است و پیش نمایش زنده همه قالب ها در دسترس است.
         </p>
       </div>
 

@@ -5,10 +5,10 @@ const Intro = () => {
   return (
     <section className="intro-main w-100 d-flex justify-content-between  p-5 mt-5 shadow-sm">
       <div className="d-flex flex-column align-items-start  w-50 intro-description">
-        <h1>قالب‌های آماده‌ی حرفه‌ای</h1>
+        <h1>قالب های آماده ی حرفه ای</h1>
         <h2 className="mt-3">
-          اگر دنبال قالب‌هایی هستید که هم زیبا باشند، هم سریع و کاربردی، اینجا
-          مجموعه‌ای انتخاب‌شده برای شما آماده شده است.
+          اگر دنبال قالب هایی هستید که هم زیبا باشند، هم سریع و کاربردی، اینجا
+          مجموعه ای انتخاب شده برای شما آماده شده است.
         </h2>
 
         <div className="d-flex gap-2 gap-sm-3 mt-4">

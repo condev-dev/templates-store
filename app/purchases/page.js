@@ -44,7 +44,7 @@ async function PurchasesData({ userId }) {
   const purchases = res.ok ? await res.json() : null;
 
   if (purchases?.length === 0) {
-    return <Empty text={"هنوز خریدی ثبت نکرده‌اید."} />;
+    return <Empty text={"هنوز خریدی ثبت نکرده اید."} />;
   }
 
   if (purchases) {

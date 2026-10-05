@@ -99,7 +99,7 @@ const Template = async ({ params }) => {
             </div>
             <div className="w-100 d-flex align-items-center justify-content-start px-1">
               <FaCheck size={12} className="ms-2 mb-2" />
-              <p>رده‌بندی : قالب {data?.categories?.slice(0, 2).join(" ، ")}</p>
+              <p>رده بندی : قالب {data?.categories?.slice(0, 2).join(" ، ")}</p>
             </div>
             <div className="w-100 d-flex align-items-center justify-content-start px-1 mt-3 pt-1">
               <FaCheck size={12} className="ms-2 mb-2" />
@@ -133,7 +133,7 @@ const Template = async ({ params }) => {
           <section className="d-flex align-items-start justify-content-start flex-column mt-5 mb-4 pb-1 single-template-description-title ">
             <h4>درباره و مشخصات قالب</h4>
             <p className=" mt-2 mt-sm-4 three-line ">
-              {`قالب ${data?.title || ""} یکی از مدرن ترین و بهینه ترین قالب های تک صفحه‌ای اختصاصی برای حوزه گیم، بازی و سایت های تعاملی است. این قالب با ساختار کاملاً استاندارد و ریسپانسیو طراحی شده تا کاربران در تمامی دستگاه‌ها (موبایل، تبلت و دسکتاپ) تجربه‌ای سریع و روان داشته باشند. طراحی مدرن، سرعت بارگذاری بالا و رعایت اصول اولیه سئو از ویژگی های بارز این محصول می‌باشد.`}
+              {`قالب ${data?.title || ""} یکی از مدرن ترین و بهینه ترین قالب های تک صفحه ای اختصاصی برای حوزه گیم، بازی و سایت های تعاملی است. این قالب با ساختار کاملاً استاندارد و ریسپانسیو طراحی شده تا کاربران در تمامی دستگاه ها (موبایل، تبلت و دسکتاپ) تجربه ای سریع و روان داشته باشند. طراحی مدرن، سرعت بارگذاری بالا و رعایت اصول اولیه سئو از ویژگی های بارز این محصول می باشد.`}
             </p>
           </section>
 

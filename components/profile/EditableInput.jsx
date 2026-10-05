@@ -21,7 +21,7 @@ const EditableInput = ({ label, value, type = "text", name }) => {
       // ---------- Checks
       // Check if the new value is empty
       if (newValue.trim() === "") {
-        toast.error("این فیلد نمی‌تواند خالی باشد.");
+        toast.error("این فیلد نمی تواند خالی باشد.");
         inputRef.current.value = value || "";
         setDisabled(true);
         return;

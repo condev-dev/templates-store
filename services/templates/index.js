@@ -31,3 +31,10 @@ export async function GetTemplateById(templateId) {
   const template = await db.collection("templates").findOne({ id: String(templateId) });
   return template ? JSON.parse(JSON.stringify(template)) : [];
 }
+
+// Number of templates in a category. Used by the home page category cards, which used to show
+// hardcoded numbers (80 / 30 / 50) that no longer matched the catalogue.
+export async function GetTemplateCountByFilter(filterBy) {
+  const db = await getDb();
+  return db.collection("templates").countDocuments({ categories: filterBy });
+}

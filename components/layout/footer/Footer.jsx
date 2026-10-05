@@ -25,18 +25,18 @@ const Footer = () => {
               className="logo"
             />
             <p className="footer-information-text mt-3 mt-sm-4 pt-sm-2 four-line">
-              condev از ابتدا با این چشم‌انداز شکل گرفت که ابزارهای قدرتمند و
-              جذابی برای ساختن فضاهای آنلاین موفق، به‌خصوص در عرصه بازی و
-              شرط‌بندی، فراهم کند. ما با اشتیاق، قالب‌هایی را طراحی و کدنویسی
-              می‌کنیم که نه‌تنها ظاهری حرفه‌ای دارند، بلکه به کسب‌وکارها کمک
-              می‌کنند تا مخاطبان بیشتری جذب کرده و به اهدافشان سریع‌تر دست
+              ConDev از ابتدا با این چشم انداز شکل گرفت که ابزارهای قدرتمند و
+              جذابی برای ساختن فضاهای آنلاین موفق، به خصوص در عرصه بازی و
+              شرط بندی، فراهم کند. ما با اشتیاق، قالب هایی را طراحی و کدنویسی
+              می کنیم که نه تنها ظاهری حرفه ای دارند، بلکه به کسب و کارها کمک
+              می کنند تا مخاطبان بیشتری جذب کرده و به اهدافشان سریع تر دست
               یابند.
             </p>
           </div>
 
           <div className="w-50 pe-5 d-flex flex-column footer-social">
             <div className="social-media-title gap-3">
-              <h6>ما را در شبکه‌های اجتماعی دنبال کنید</h6>
+              <h6>ما را در شبکه های اجتماعی دنبال کنید</h6>
             </div>
             <div className="social-media-container gap-3 mt-2">
               {/*  */}
@@ -88,7 +88,7 @@ const Footer = () => {
                   <FaTelegram size={25} />
                 </div>
                 <div className="social-medial-text d-flex align-items-start flex-column me-3">
-                  <small>چنل ما در تلگرام</small>
+                  <small>کانال ما در تلگرام</small>
                   <small>t.me/ConDev_TP</small>
                 </div>
               </Link>

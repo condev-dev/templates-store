@@ -104,7 +104,7 @@ export default function SignIn() {
             </small>
           </small>
           <small className=" w-100 small px-1">
-            رمز عبورتان را گم کرده‌اید؟{" "}
+            رمز عبورتان را گم کرده اید؟{" "}
             <Link
               href="/auth/ForgotPassword"
               className="mx-2"

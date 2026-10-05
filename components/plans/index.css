@@ -109,7 +109,7 @@
 }
 
 .plan-soon::after {
-  content: "به‌زودی" !important;
+  content: "به زودی" !important;
   position: absolute;
   top: 15px;
   left: 15px;

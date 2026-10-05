@@ -45,7 +45,7 @@ const Profile = () => {
 
         {/* <button className="btn-main btn-light ">
           <FiSettings className="ms-3" size={18} />
-          تنظیمات اعلانیه‌ها
+          تنظیمات اعلانیه ها
         </button> */}
 
         {/* <button className="btn-main btn-light ">

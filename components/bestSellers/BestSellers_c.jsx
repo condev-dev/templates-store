@@ -24,7 +24,7 @@ export default function BestSellers_c({ templates: templatesProp }) {
       id="demo"
     >
       <section className="best-sellers-title d-flex justify-content-center align-items-center w-100 mt-5">
-        <h3 className="mt-2">پرفروش‌ترین قالب‌ها</h3>
+        <h3 className="mt-2">پرفروش ترین قالب ها</h3>
       </section>
 
       <section className="best-sellers-container pt-sm-4 mt-md-5 pt-md-5 ">
