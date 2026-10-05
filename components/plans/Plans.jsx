@@ -45,13 +45,13 @@ const Plans = () => {
           <h5 className="plan-title">پلاس</h5>
 
           <div className="plan-list d-flex justify-content-center align-items-center flex-column my-4 py-2">
-            <p>+4 قالب گیم و بت</p>
-            <p>+4 قالب اختصاصی</p>
-            <p>+4 قالب تبلیغاتی</p>
-            <p>+4 قالب موبایلی</p>
+            <p>۲ قالب لندینگ فارسی</p>
+            <p>۱ قالب لندینگ ترکی</p>
+            <p>۱ قالب بایو</p>
+            <p>ارزش خرید تکی: ۲٬۰۰۰٬۰۰۰ تومان</p>
           </div>
 
-          <h5 className="plan-price mb-4 pb-2">۷۰۰ هزار تومان</h5>
+          <h5 className="plan-price mb-4 pb-2">۱٬۶۰۰٬۰۰۰ تومان</h5>
 
           <button className="btn-main w-50 btn-dark" disabled>خرید پلن</button>
         </div>
@@ -61,13 +61,13 @@ const Plans = () => {
           <h5 className="plan-title">پرو</h5>
 
           <div className="plan-list d-flex justify-content-center align-items-center flex-column my-4 py-2">
-            <p>+6 قالب گیم و بت</p>
-            <p>+6 قالب اختصاصی</p>
-            <p>+6 قالب تبلیغاتی</p>
-            <p>پشتیبانی اختصاصی</p>
+            <p>۳ قالب لندینگ فارسی</p>
+            <p>۲ قالب لندینگ ترکی</p>
+            <p>۱ قالب بایو</p>
+            <p>ارزش خرید تکی: ۳٬۱۰۰٬۰۰۰ تومان</p>
           </div>
 
-          <h5 className="plan-price mb-4 pb-2">۱٬۲۰۰ هزار تومان</h5>
+          <h5 className="plan-price mb-4 pb-2">۲٬۴۰۰٬۰۰۰ تومان</h5>
 
           <button className="btn-main w-50 btn-color" disabled>خرید پلن</button>
         </div>
@@ -77,13 +77,13 @@ const Plans = () => {
           <h5 className="plan-title">پرو مکس</h5>
 
           <div className="plan-list d-flex justify-content-center align-items-center flex-column my-4 py-2">
-            <p>+8 قالب گیم و بت</p>
-            <p>+8 قالب اختصاصی</p>
-            <p>پشتیبانی اختصاصی</p>
-            <p>بروزرسانی مادام‌العمر</p>
+            <p>۴ قالب لندینگ فارسی</p>
+            <p>۳ قالب لندینگ ترکی</p>
+            <p>۲ قالب بایو</p>
+            <p>ارزش خرید تکی: ۴٬۵۰۰٬۰۰۰ تومان</p>
           </div>
 
-          <h5 className="plan-price mb-4 pb-2">۱٬۵۰۰ هزار تومان</h5>
+          <h5 className="plan-price mb-4 pb-2">۳٬۶۰۰٬۰۰۰ تومان</h5>
 
           <button className="btn-main w-50 btn-color" disabled>خرید پلن</button>
         </div>
