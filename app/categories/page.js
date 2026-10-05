@@ -2,6 +2,15 @@ import { FaAngleLeft } from "react-icons/fa";
 import "./index.css";
 import Link from "next/link";
 
+// Own metadata so this page stops inheriting the home page's title/canonical.
+export const metadata = {
+  title: "دسته بندی قالب ها | Con Dev",
+  description: "دسته بندی قالب های تک صفحه ای Con Dev: قالب های فارسی، ترکی، بایو و بازی ها.",
+  alternates: {
+    canonical: "https://www.condev.ir/categories",
+  },
+};
+
 const Categories = () => {
   return (
     <section className="d-flex flex-column w-100 mt-4 categories-container">

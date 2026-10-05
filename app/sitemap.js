@@ -1,14 +1,10 @@
 export default async function sitemap() {
   const baseUrl = "https://www.condev.ir";
 
-  const staticPages = [
-    "",
-    "/cart",
-    "/profile",
-    "/purchases",
-    "/auth/signin",
-    "/auth/signup",
-  ].map((route) => ({
+  // Publicly useful, indexable pages only. The account / utility routes (/cart, /profile,
+  // /purchases, /auth/signin, /auth/signup) are private or need a session, so they are
+  // deliberately NOT offered to Google any more.
+  const staticPages = [""].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: route === "" ? "daily" : "weekly",

@@ -6,6 +6,7 @@ import Toman from "@/components/common/Toman";
 import Link from "next/link";
 import CustomLoadingImage from "@/components/ui/loading-image/CustomLoadingImage";
 import { templatesData } from "@/data/templates";
+import { GetTemplateById } from "@/services/templates";
 
 export async function generateMetadata({ params }) {
   const { id } = await params;
@@ -18,11 +19,38 @@ export async function generateMetadata({ params }) {
     };
   }
 
+  const canonical = `https://www.condev.ir/template/${id}`;
+
+  // og:image needs the template's picture, which lives in the database rather than in
+  // templatesData. A read failure here must never take the page down, so it is guarded.
+  let image;
+  try {
+    const template = await GetTemplateById(id);
+    image = template?.image;
+  } catch {
+    image = undefined;
+  }
+
   return {
     title: templateMeta.title,
     description: templateMeta.description,
     alternates: {
-      canonical: `https://www.condev.ir/template/${id}`,
+      canonical,
+    },
+    openGraph: {
+      type: "website",
+      url: canonical,
+      siteName: "Con Dev",
+      locale: "fa_IR",
+      title: templateMeta.title,
+      description: templateMeta.description,
+      images: image ? [{ url: image, alt: templateMeta.title }] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: templateMeta.title,
+      description: templateMeta.description,
+      images: image ? [image] : undefined,
     },
   };
 }
@@ -40,7 +68,9 @@ const Template = async ({ params }) => {
   });
   const data = res.ok ? await res.json() : null;
 
-  if (!data || data.length <= 0) return <div> این قالب پیدا نشد. </div>;
+  // GetTemplateById returns a single OBJECT (or [] when there is no such template), so the old
+  // `data.length <= 0` test was meaningless for the object case. Check the id instead.
+  if (!data || !data.id) return <div> این قالب پیدا نشد. </div>;
 
   return (
     <section className="d-flex flex-column mt-4">

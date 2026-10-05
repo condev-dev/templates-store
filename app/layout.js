@@ -15,12 +15,14 @@ import ToastProvider from "@/components/common/ToastProvider";
 import "react-loading-skeleton/dist/skeleton.css";
 import ScrollToTop from "@/components/common/ScrollToTop";
 
+// NOTE: there is deliberately NO `alternates.canonical` in this root layout.
+// A canonical declared here is inherited by EVERY page that does not override it, which made
+// /categories, /templates/filter/* and the account pages all claim to be duplicates of the home
+// page - so Google refused to index them. The home page now declares it in app/page.js, and each
+// template page declares its own in app/template/[id]/page.js.
 export const metadata = {
   title: "خرید قالب کازینو، گیمینگ و پیش بینی | Con Dev",
   description: "دانلود و خرید قالب های تک صفحه ای HTML برای سایت های کازینو، بازی آنلاین و پیش بینی. سرعت فوق العاده، کد کلین، کاملا ریسپانسیو و سئو شده.",
-  alternates: {
-    canonical: "https://www.condev.ir",
-  },
 };
 
 export default function RootLayout({ children, modal }) {

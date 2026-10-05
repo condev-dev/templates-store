@@ -5,6 +5,13 @@ import Plans from "@/components/plans/Plans";
 import TemplateCategory from "@/components/templates/TemplateCategory";
 import TemplateGames from "@/components/templates/TemplateGames";
 
+// The home page keeps its explicit canonical now that the root layout no longer sets one.
+export const metadata = {
+  alternates: {
+    canonical: "https://www.condev.ir",
+  },
+};
+
 export default function Home() {
   // const BaseUrl = process.env.NEXT_PUBLIC_API_URL;
 
