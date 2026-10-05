@@ -21,8 +21,13 @@ export async function GetTemplatesByFilter(filterBy) {
 }
 
 export async function GetTemplateById(templateId) {
-  const templates = await GetAllTemplates();
-
-  const filtered = templates?.find((template) => template.id === templateId);
-  return filtered || [];
+  // Look the template up directly instead of searching the cached full list:
+  //   * String() on both sides removes any string/number mismatch, which is what makes every
+  //     single-template page fall through to the "not found" branch;
+  //   * it no longer depends on the unstable_cache snapshot.
+  // The shape is unchanged: an object, or [] when there is no such template, because the page
+  // reads data?.title / data?.id / data?.image (a single object, not an array).
+  const db = await getDb();
+  const template = await db.collection("templates").findOne({ id: String(templateId) });
+  return template ? JSON.parse(JSON.stringify(template)) : [];
 }
