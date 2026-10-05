@@ -4,13 +4,16 @@ import crypto from "crypto";
 export async function AddCart(userId) {
   const db = await getDb();
 
-  // // اگه از قبل سبدی برای این یوزر ساخته شده، دوباره نساز
-  // const existingCart = await db
-  //   .collection("carts")
-  //   .findOne({ user_id: userId });
-  // if (existingCart) {
-  //   return existingCart;
-  // }
+  // If this user already has a cart, hand it back instead of inserting a second one.
+  // Without this a repeated call created a duplicate (empty) cart document, and GetUserCart's
+  // findOne could then return that empty duplicate - making a user's cart look empty.
+  const existingCart = await db
+    .collection("carts")
+    .findOne({ user_id: userId });
+
+  if (existingCart) {
+    return existingCart;
+  }
 
   const cartToAdd = {
     id: crypto.randomUUID(),

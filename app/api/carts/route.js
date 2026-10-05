@@ -5,45 +5,50 @@ import {
   RemoveTemplate,
 } from "@/services/cart";
 import { NextResponse } from "next/server";
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
-// // GET
-export async function GET(request) {
-  // ----------------------------------------------------------------- Check Api Key - If Was Like backend then return data
-  // get public of front - show in client too
-  const res_ApiKey = request.headers.get("api-key");
-  // get secret api from env - just backend not show anywhere
-  const ApiKey = process.env.NEXT_API_SECRET_KEY;
+// Every method below acts on the SIGNED-IN user's cart only.
+// The session is the authority: a userId sent by the caller is ignored, so nobody can read or
+// modify someone else's cart. This is the same getServerSession pattern already used by
+// app/purchases/page.js, so it stays consistent with the rest of the app.
+//
+// It replaces the old api-key check, which compared against NEXT_PUBLIC_API_SECRET_KEY - a value
+// that is shipped to the browser, so it never actually protected anything.
+async function currentUserId() {
+  const session = await getServerSession(authOptions);
+  return session?.user?.id || null;
+}
 
-  // add res with secret api
-  const Secret_Public_ApiKey = ApiKey + res_ApiKey;
-  // so here have public in static here
-  const Secret_ApiKey = process.env.NEXT_API_SECRET_KEY + "SGVsbGeVjCEg8";
+const NOT_SIGNED_IN = { message: "لطفا وارد حساب خود شوید." };
 
-  // Check If User Write Link Like : /api/templates - redirect to not-found and don't return any data
-  if (!Secret_Public_ApiKey || Secret_Public_ApiKey !== Secret_ApiKey) {
-    return NextResponse.redirect(new URL("/not-found", request.url));
+// GET
+export async function GET() {
+  const userId = await currentUserId();
+
+  if (!userId) {
+    return NextResponse.json(NOT_SIGNED_IN, { status: 401 });
   }
-  // -----------------------------------------------------------------
 
-  const { searchParams } = new URL(request.url);
-  const userId = searchParams.get("userId");
+  const userCartTemplates = await GetUserCart(userId);
 
-  if (userId) {
-    const userCartTemplates = await GetUserCart(userId);
-    //
-    return NextResponse.json(userCartTemplates);
-  } else {
-    return NextResponse.json(
-      { message: "خطا در دریافت سبد خرید." },
-      { status: 500 },
-    );
-  }
+  return NextResponse.json(userCartTemplates);
 }
 
 // POST
+// Called by the sign-up form to open a new user's cart, and that happens BEFORE the user signs
+// in - so this one cannot require a session. It is harmless anyway: AddCart now returns the
+// existing cart instead of inserting a second one, so calling it gains nothing.
 export async function POST(request) {
   try {
     const body = await request.json();
+
+    if (!body?.userId) {
+      return NextResponse.json(
+        { message: "کاربر مشخص نشده است." },
+        { status: 400 },
+      );
+    }
 
     const newCart = await AddCart(body.userId);
 
@@ -56,11 +61,18 @@ export async function POST(request) {
   }
 }
 
-// // PUT
+// PUT
 export async function PUT(request) {
+  const userId = await currentUserId();
+
+  if (!userId) {
+    return NextResponse.json(NOT_SIGNED_IN, { status: 401 });
+  }
+
   try {
     const body = await request.json();
-    const result = await AddTemplate(body);
+    // userId comes from the session, never from the request body
+    const result = await AddTemplate({ ...body, userId });
 
     if (result.matchedCount === 0) {
       return NextResponse.json(
@@ -78,11 +90,18 @@ export async function PUT(request) {
   }
 }
 
-// // DELETE
+// DELETE
 export async function DELETE(request) {
+  const userId = await currentUserId();
+
+  if (!userId) {
+    return NextResponse.json(NOT_SIGNED_IN, { status: 401 });
+  }
+
   try {
     const body = await request.json();
-    await RemoveTemplate(body);
+    // userId comes from the session, never from the request body
+    await RemoveTemplate({ ...body, userId });
 
     return NextResponse.json({ status: 201 });
   } catch (error) {
