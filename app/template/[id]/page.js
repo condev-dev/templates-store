@@ -26,7 +26,10 @@ export async function generateMetadata({ params }) {
   let image;
   try {
     const template = await GetTemplateById(id);
-    image = template?.image;
+    const raw = template?.image;
+    // ?dl=1 so social crawlers get the real picture instead of postimg's 60x180 thumbnail
+    image =
+      raw && raw.includes("postimg.cc") && !raw.includes("dl=1") ? `${raw}?dl=1` : raw;
   } catch {
     image = undefined;
   }

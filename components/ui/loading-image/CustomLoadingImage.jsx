@@ -29,6 +29,15 @@ const CustomLoadingImage = ({
   const [hasError, setHasError] = useState(false);
   const boxRef = useRef(null);
 
+  // postimg hands out a tiny 60x180 thumbnail to any client that advertises webp support - which
+  // is exactly what a browser does, and what the image optimiser does too. Appending ?dl=1 makes
+  // it serve the real file instead, for every kind of client. Without this the optimiser would
+  // "helpfully" resize a thumbnail and the cards would be blurry.
+  const source =
+    typeof src === "string" && src.includes("postimg.cc") && !src.includes("dl=1")
+      ? `${src}${src.includes("?") ? "&" : "?"}dl=1`
+      : src;
+
   // A cached picture can finish before React attaches its handlers, so the load event never
   // fires. Look the element up directly rather than relying on a ref to the inner <img>.
   useEffect(() => {
@@ -59,11 +68,11 @@ const CustomLoadingImage = ({
         />
       )}
 
-      {hasError || !src ? (
+      {hasError || !source ? (
         <ImagePlaceholder />
       ) : (
         <Image
-          src={src}
+          src={source}
           alt={alt || ""}
           fill
           sizes={sizes}
