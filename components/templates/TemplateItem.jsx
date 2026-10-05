@@ -9,12 +9,15 @@ import { FiEye } from "react-icons/fi";
 import "./index.css";
 import CustomLoadingImage from "../ui/loading-image/CustomLoadingImage";
 
-const TemplateItem = ({ image, title, categories, price, id, demo_url }) => {
+// image_card is the lighter copy of the same picture (identical proportions, about 30 KB instead
+// of the 1920px original). Cards use it so the page loads fast; the template page keeps the full
+// resolution one.
+const TemplateItem = ({ image, image_card, title, categories, price, id, demo_url }) => {
   return (
     <div className="template-box d-flex flex-column position-relative  shadow-sm">
       <Link href={`/template/${id}`}>
         <CustomLoadingImage
-          src={image}
+          src={image_card || image}
           alt={title}
           width={1200}
           height={600}

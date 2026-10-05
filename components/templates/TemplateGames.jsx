@@ -28,7 +28,7 @@ const TemplateGames = async () => {
           {templates.slice(1, 5).map((template) => (
             <div key={template.id} className="template-box-game sm-game">
               <CustomLoadingImage
-                src={template.image}
+                src={template.image_card || template.image}
                 alt={template.title}
                 width={1200}
                 height={600}
@@ -57,7 +57,7 @@ const TemplateGames = async () => {
           {templates.slice(0, 1).map((template) => (
             <div key={template.id} className="template-box-game lg-game">
               <CustomLoadingImage
-                src={template.image}
+                src={template.image_card || template.image}
                 alt={template.title}
                 width={1200}
                 height={1620}

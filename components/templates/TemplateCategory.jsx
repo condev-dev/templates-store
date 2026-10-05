@@ -32,7 +32,7 @@ const TemplateCategory = async ({ title, filterBy }) => {
         {templates?.slice(0, 4).map((template) => (
           <TemplateItem
             key={template.id}
-            image={template.image}
+            image={template.image_card || template.image}
             title={template.title}
             categories={template.categories}
             price={template.price}
