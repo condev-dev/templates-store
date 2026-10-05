@@ -87,6 +87,9 @@ const Template = async ({ params }) => {
               width={1200}
               height={600}
               className="w-100 shadow-sm no-hover-image"
+              sizes="(max-width: 992px) 100vw, 70vw"
+              quality={88}
+              priority
             />
           </section>
 
@@ -155,6 +158,8 @@ const Template = async ({ params }) => {
             width={1200}
             height={600}
             className="w-100 shadow-sm mt-4 no-hover-image"
+            sizes="100vw"
+            quality={88}
           />
         </section>
       </section>
