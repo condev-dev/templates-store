@@ -5,6 +5,27 @@ import FaNumber from "@/components/common/FaNumber";
 import Toman from "@/components/common/Toman";
 import Link from "next/link";
 import CustomLoadingImage from "@/components/ui/loading-image/CustomLoadingImage";
+import { templatesData } from "@/data/templates";
+
+export async function generateMetadata({ params }) {
+  const { id } = await params;
+  const templateMeta = templatesData[id];
+
+  if (!templateMeta) {
+    return {
+      title: "قالب یافت نشد | Con Dev",
+      description: "قالب مورد نظر در سیستم ثبت نشده است.",
+    };
+  }
+
+  return {
+    title: templateMeta.title,
+    description: templateMeta.description,
+    alternates: {
+      canonical: `https://www.condev.ir/template/${id}`,
+    },
+  };
+}
 
 const Template = async ({ params }) => {
   const BaseUrl = process.env.NEXT_PUBLIC_API_URL;
@@ -82,8 +103,7 @@ const Template = async ({ params }) => {
           <section className="d-flex align-items-start justify-content-start flex-column mt-5 mb-4 pb-1 single-template-description-title ">
             <h4>درباره و مشخصات قالب</h4>
             <p className=" mt-2 mt-sm-4 three-line ">
-              {
-                `قالب ${data?.title || ""} یکی از مدرن ترین و بهینه ترین قالب های تک صفحه‌ای اختصاصی برای حوزه گیم، بازی و سایت های تعاملی است. این قالب با ساختار کاملاً استاندارد و ریسپانسیو طراحی شده تا کاربران در تمامی دستگاه‌ها (موبایل، تبلت و دسکتاپ) تجربه‌ای سریع و روان داشته باشند. طراحی مدرن، سرعت بارگذاری بالا و رعایت اصول اولیه سئو از ویژگی های بارز این محصول می‌باشد.`}
+              {`قالب ${data?.title || ""} یکی از مدرن ترین و بهینه ترین قالب های تک صفحه‌ای اختصاصی برای حوزه گیم، بازی و سایت های تعاملی است. این قالب با ساختار کاملاً استاندارد و ریسپانسیو طراحی شده تا کاربران در تمامی دستگاه‌ها (موبایل، تبلت و دسکتاپ) تجربه‌ای سریع و روان داشته باشند. طراحی مدرن، سرعت بارگذاری بالا و رعایت اصول اولیه سئو از ویژگی های بارز این محصول می‌باشد.`}
             </p>
           </section>
 
