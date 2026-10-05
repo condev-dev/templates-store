@@ -20,9 +20,39 @@ import ScrollToTop from "@/components/common/ScrollToTop";
 // /categories, /templates/filter/* and the account pages all claim to be duplicates of the home
 // page - so Google refused to index them. The home page now declares it in app/page.js, and each
 // template page declares its own in app/template/[id]/page.js.
+// metadataBase makes every relative address below resolve to an absolute one. Without it the
+// og:image and icon entries can be emitted as paths, which crawlers and sharing tools reject -
+// that is what produced the "og:image is missing" report.
+const SITE_TITLE = "خرید قالب کازینو، گیمینگ و پیش بینی | Con Dev";
+const SITE_DESC =
+  "دانلود و خرید قالب های تک صفحه ای HTML برای سایت های کازینو، بازی آنلاین و پیش بینی. سرعت فوق العاده، کد کلین، کاملا ریسپانسیو و سئو شده.";
+const OG_IMAGE = "/icon-512x512.png";
+
 export const metadata = {
-  title: "خرید قالب کازینو، گیمینگ و پیش بینی | Con Dev",
-  description: "دانلود و خرید قالب های تک صفحه ای HTML برای سایت های کازینو، بازی آنلاین و پیش بینی. سرعت فوق العاده، کد کلین، کاملا ریسپانسیو و سئو شده.",
+  metadataBase: new URL("https://www.condev.ir"),
+  title: SITE_TITLE,
+  description: SITE_DESC,
+  // Explicit icon links so the mark shows up in browser tabs and next to search results.
+  icons: {
+    icon: ["/favicon.ico", "/icon-192x192.png"],
+    apple: "/icon-192x192.png",
+  },
+  // Defaults for every page that does not define its own; template pages override these.
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: "Con Dev",
+    locale: "fa_IR",
+    title: SITE_TITLE,
+    description: SITE_DESC,
+    images: [{ url: OG_IMAGE, width: 512, height: 512, alt: "Con Dev" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_TITLE,
+    description: SITE_DESC,
+    images: [OG_IMAGE],
+  },
 };
 
 export default function RootLayout({ children, modal }) {
