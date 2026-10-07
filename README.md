@@ -1,36 +1,125 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# فروشگاه قالب
 
-## Getting Started
+فروشگاه اینترنتی برای فروش قالب‌های آمادهٔ صفحات وب و بازی‌های مرورگری. بازدیدکننده قالب‌ها را می‌بیند، جزئیات هر کدام را بررسی می‌کند، به سبد خرید اضافه می‌کند، پرداخت را انجام می‌دهد و فایل را از کتابخانهٔ خریدهای خودش برمی‌دارد.
 
-First, run the development server:
+نسخهٔ زنده: [condev.ir](https://www.condev.ir)
+
+## امکانات
+
+- نمایش قالب‌ها همراه با دسته‌بندی و امکان فیلتر
+- صفحهٔ اختصاصی هر قالب با پیش‌نمایش زندهٔ دمو
+- سبد خرید
+- پرداخت آنلاین از درگاه زرین‌پال و بازگشت از درگاه
+- کتابخانهٔ خریدهای کاربر
+- حساب کاربری: ثبت‌نام، ورود، فراموشی رمز و تعیین رمز تازه
+- ورود با حساب گوگل
+- پروفایل کاربر و ویرایش اطلاعات، شامل تغییر رمز و حذف حساب
+- حالت روشن و تاریک
+- اعداد فارسی و چیدمان کامل راست‌به‌چپ
+- نقشهٔ سایت و فایل راهنمای خزنده‌های جست‌وجو
+
+## فناوری‌ها
+
+- Next.js ۱۶ (App Router)
+- React ۱۹
+- MongoDB
+- NextAuth
+- Bootstrap
+- SWR
+- Swiper
+- SweetAlert2، React Toastify
+- React Loading Skeleton، ldrs
+- bcrypt
+- date-fns
+- react-icons
+
+## ساختار پروژه
+
+| مسیر | توضیح |
+| --- | --- |
+| `app` | صفحه‌ها و مسیرهای سروری |
+| `components` | اجزای رابط کاربری، هر کدام در پوشهٔ خودش همراه با استایل |
+| `data` | عنوان و توضیحات قالب‌ها برای اطلاعات صفحه |
+| `lib` | اتصال پایگاه داده و تنظیم قلم |
+| `services` | توابع ارتباط با مسیرهای سروری |
+| `public` | فایل‌های عمومی |
+
+## پیش‌نیاز
+
+- Node.js نسخهٔ ۲۰ یا بالاتر
+- یک پایگاه دادهٔ MongoDB
+
+## راه‌اندازی
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+سپس نشانی `http://localhost:3000` را در مرورگر باز کن.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## متغیرهای محیطی
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+فایل `.env.local` را در ریشهٔ پروژه بساز و این کلیدها را در آن بگذار:
 
-## Learn More
+| کلید | کاربرد |
+| --- | --- |
+| `MONGODB_URI` | نشانی اتصال به پایگاه داده |
+| `NEXTAUTH_SECRET` | کلید امضای نشست کاربر |
+| `NEXTAUTH_URL` | نشانی سایت |
+| `GOOGLE_CLIENT_ID` | شناسهٔ ورود با گوگل |
+| `GOOGLE_CLIENT_SECRET` | کلید ورود با گوگل |
+| `ZARINPAL_MERCHANT_ID` | شناسهٔ پذیرنده در زرین‌پال |
+| `ZARINPAL_BASE_URL` | نشانی درگاه زرین‌پال |
+| `NEXT_API_SECRET_KEY` | کلید محافظت از مسیرهای سروری |
+| `NEXT_PUBLIC_API_SECRET_KEY` | همان کلید برای استفاده در مرورگر |
+| `NEXT_PUBLIC_API_URL` | نشانی پایهٔ سرویس |
 
-To learn more about Next.js, take a look at the following resources:
+## دستورها
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| دستور | کار |
+| --- | --- |
+| `npm run dev` | اجرای حالت توسعه |
+| `npm run build` | ساخت نسخهٔ نهایی |
+| `npm start` | اجرای نسخهٔ ساخته‌شده |
+| `npm run lint` | بررسی کیفیت کد |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## صفحه‌ها
 
-## Deploy on Vercel
+| مسیر | توضیح |
+| --- | --- |
+| `/` | صفحهٔ اصلی |
+| `/templates/filter/[filterBy]` | فهرست قالب‌ها بر اساس دسته |
+| `/template/[id]` | جزئیات یک قالب |
+| `/cart` | سبد خرید |
+| `/purchases` | خریدهای کاربر |
+| `/profile` | پروفایل کاربر |
+| `/auth/signin` و `/auth/signup` | ورود و ثبت‌نام |
+| `/auth/ForgotPassword` و `/auth/reset-password` | بازیابی رمز |
+| `/payment/callback` | بازگشت از درگاه پرداخت |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## مسیرهای سروری
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| مسیر | توضیح |
+| --- | --- |
+| `/api/templates` | فهرست قالب‌ها |
+| `/api/carts` | سبد خرید |
+| `/api/purchases` | خریدها |
+| `/api/users` | کاربران |
+| `/api/users/check-email` | بررسی تکراری نبودن رایانامه |
+| `/api/users/reset-password` | تعیین رمز تازه |
+| `/api/payment/request` | ساخت درخواست پرداخت |
+| `/api/payment/verify` | تأیید پرداخت |
+| `/api/auth/[...nextauth]` | ورود و نشست کاربر |
+
+## نکته‌هایی دربارهٔ پیاده‌سازی
+
+- اتصال به پایگاه داده یک بار ساخته و بعد دوباره استفاده می‌شود تا در حالت توسعه شمار اتصال‌ها بالا نرود.
+- عنوان و توضیحات هر قالب در `data/templates.js` نگهداری می‌شود و تصویر و نشانی نمایش آن از پایگاه داده خوانده می‌شود. اگر خواندن تصویر ناموفق باشد، صفحه سالم می‌ماند.
+- هر قالب یک شناسهٔ عددی دارد و نشانی صفحهٔ آن از همان شناسه ساخته می‌شود.
+- قالب‌ها روی دامنه‌های جداگانه میزبانی می‌شوند و صفحهٔ فروشگاه، نشانی اصلی هر کدام است؛ همین باعث می‌شود اعتبار جست‌وجو به یک نشانی برسد.
+- داده‌های هر قالب در دو جا نگهداری می‌شود: متن‌ها در مخزن و تصویر و نشانی نمایش در پایگاه داده.
+
+## انتشار
+
+پروژه برای انتشار روی میزبان ابری آماده است. بعد از وصل کردن مخزن، همان کلیدهای بخش متغیرهای محیطی را در تنظیمات میزبان بگذار.
