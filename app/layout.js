@@ -26,7 +26,7 @@ import ScrollToTop from "@/components/common/ScrollToTop";
 const SITE_TITLE = "خرید قالب کازینو، گیمینگ و پیش بینی | Con Dev";
 const SITE_DESC =
   "دانلود و خرید قالب های تک صفحه ای HTML برای سایت های کازینو، بازی آنلاین و پیش بینی. سرعت فوق العاده، کد کلین، کاملا ریسپانسیو و سئو شده.";
-const OG_IMAGE = "/icon-512x512.png";
+const OG_IMAGE = "/og-image.png";
 
 export const metadata = {
   metadataBase: new URL("https://www.condev.ir"),
@@ -45,7 +45,7 @@ export const metadata = {
     locale: "fa_IR",
     title: SITE_TITLE,
     description: SITE_DESC,
-    images: [{ url: OG_IMAGE, width: 512, height: 512, alt: "Con Dev" }],
+    images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: "قالب های آماده ی حرفه ای و کاربردی | Con Dev" }],
   },
   twitter: {
     card: "summary_large_image",
