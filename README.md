@@ -78,11 +78,9 @@ A visitor browses the catalogue, opens the live demo of any template, adds it to
 
 ### 🔐 Authentication
 
-*Sign in, sign up and the password reset flow, all on the same themed layout.*
+*Sign in with email or Google, plus account recovery.*
 
 ![Sign in](https://raw.githubusercontent.com/condev-dev/templates-store/main/public/img/readme/Signin-Demo.png)
-
-![Sign up](https://raw.githubusercontent.com/condev-dev/templates-store/main/public/img/readme/Signup-Demo.png)
 
 ---
 
