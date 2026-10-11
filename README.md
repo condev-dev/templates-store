@@ -52,14 +52,6 @@ A visitor browses the catalogue, opens the live demo of any template, adds it to
 
 ---
 
-### 🗂 Categories
-
-*Four entry points: Persian landing, Turkish landing, bio and games.*
-
-![Categories](https://raw.githubusercontent.com/condev-dev/templates-store/main/public/img/readme/Categories-Demo.png)
-
----
-
 ### 🔖 Template List
 
 *Every template in a category with the live demo link on each card.*
@@ -78,7 +70,7 @@ A visitor browses the catalogue, opens the live demo of any template, adds it to
 
 ### 🛒 Cart
 
-*Cart items, the running total and the way to checkout.*
+*Cart items, running total and the checkout button.*
 
 ![Cart](https://raw.githubusercontent.com/condev-dev/templates-store/main/public/img/readme/Cart-Demo.png)
 
@@ -96,7 +88,7 @@ A visitor browses the catalogue, opens the live demo of any template, adds it to
 
 ### 📦 Purchases
 
-*Bought templates stay in the account, ready to download.*
+*Bought templates attached to the user account, ready to download.*
 
 ![Purchases](https://raw.githubusercontent.com/condev-dev/templates-store/main/public/img/readme/Purchases-Demo.png)
 
@@ -104,7 +96,7 @@ A visitor browses the catalogue, opens the live demo of any template, adds it to
 
 ### 👤 Profile
 
-*Personal details, password change, theme switcher and account deletion.*
+*Account details, password change, theme switcher and account deletion.*
 
 ![Profile](https://raw.githubusercontent.com/condev-dev/templates-store/main/public/img/readme/Profile-Demo.png)
 
