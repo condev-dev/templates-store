@@ -1,98 +1,263 @@
+/* ================================================================== Intro */
+/* Movieto-style hero, adapted to the store's own palette and font. A tilted
+   mosaic of real template previews fills the whole hero; a dark gradient from
+   the copy side keeps the headline readable; the mosaic fades into the page
+   on all four sides so there is no visible cut and no card. */
+
 .intro-main {
-  border-radius: var(--round-lg);
   position: relative;
+  width: 100%;
+  min-height: 560px;
   overflow: hidden;
+  isolation: isolate;
 }
 
-.intro-main h1,
-.intro-main h2 {
+/* ------------------------------------------------------------------ Mosaic */
+/* Fills the whole hero, tilted, scaled past 1 so the rotation never shows
+   an empty corner. Faded softly on every side so it melts into the page. */
+.intro-mosaic {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  -webkit-mask-image:
+    linear-gradient(to right, transparent 0%, #000 32%, #000 100%),
+    linear-gradient(180deg, #000 0%, #000 45%, transparent 100%);
+  -webkit-mask-composite: source-in;
+          mask-image:
+    linear-gradient(to right, transparent 0%, #000 32%, #000 100%),
+    linear-gradient(180deg, #000 0%, #000 45%, transparent 100%);
+          mask-composite: intersect;
+}
+
+.intro-mosaic-track {
+  --wall-gap: 18px;
+  position: absolute;
+  inset: -12%;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  align-items: start;
+  gap: var(--wall-gap);
+  transform: rotate(-8deg) scale(1.2);
+  transform-origin: center;
+}
+
+.intro-mosaic-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--wall-gap);
+  animation: introMosaicUp 60s linear infinite;
+  will-change: transform;
+}
+
+.intro-mosaic-col-reverse {
+  animation-name: introMosaicDown;
+  animation-duration: 75s;
+}
+
+.intro-mosaic-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--wall-gap);
+}
+
+
+
+.intro-shot {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 14px;
+  background: var(--bg-main);
+}
+
+.intro-shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+/* ------------------------------------------------------------------ Veil */
+/* The dark gradient that sits over the mosaic. Opaque on the copy side,
+   fading to transparent toward the picture side — exactly like Movieto. */
+.intro-veil {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    to left,
+    var(--bg) 0%,
+    color-mix(in srgb, var(--bg) 85%, transparent) 42%,
+    color-mix(in srgb, var(--bg) 55%, transparent) 68%,
+    color-mix(in srgb, var(--bg) 20%, transparent) 88%,
+    transparent 100%
+  );
+}
+
+/* ------------------------------------------------------------------ Copy */
+.intro-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 560px;
+  padding: 2rem 0;
+  max-width: 640px;
+}
+
+.intro-title {
   font-family: var(--font-rokh) !important;
-  font-weight: 600 !important;
+  font-size: clamp(32px, 3.8vw, 56px);
+  font-weight: 900 !important;
+  line-height: 1.4;
+  color: var(--text);
+  margin: 0;
+  text-shadow:
+    0 2px 12px rgba(0, 0, 0, 0.55),
+    0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
-.intro-main::before {
-  content: "";
-  position: absolute;
-  background: var(--bg-color) !important;
-  filter: blur(100px) !important;
-  width: 150% !important;
-  height: 140% !important;
-  top: 50% !important;
-  transform: translateY(-60%) !important;
-  z-index: -2;
+/* Family and weight are repeated here because the global `*` rule sets them
+   directly on every element, which beats what the span would otherwise
+   inherit from the h1. */
+.intro-title-accent {
+  display: block;
+  width: fit-content;
+  font-family: var(--font-rokh) !important;
+  font-weight: 900 !important;
+  color: var(--text-color);
 }
 
-.intro-main::after {
-  content: "";
-  position: absolute;
-  background: url("https://i.postimg.cc/HpxFMFmQ/Template-8-B.webp") !important;
-  background-size: cover !important;
-  width: 600px !important;
-  height: 100% !important;
-  z-index: -1;
-  left: 0px;
-  top: 0px;
-  object-fit: cover !important;
-  object-position: center top !important;
-}
-
-.intro-main h1 {
-  font-size: 40px;
-  font-weight: 800 !important;
-}
-
-.intro-main h2 {
-  font-size: 20px;
+.intro-sub {
+  margin-top: 1rem;
+  max-width: 32rem;
+  font-family: var(--font-iransans) !important;
+  font-size: var(--font-text-2-lg);
+  font-weight: 500 !important;
   line-height: 2;
+  color: var(--text-light);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
 }
-@media (max-width: 1400px) {
-  .intro-main::after {
-    width: 300px !important;
-  }
 
-  .intro-description {
-    width: 75% !important;
+.intro-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 1.75rem;
+}
+
+/* ------------------------------------------------------------- Animation */
+@keyframes introMosaicUp {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(calc(-50% - var(--wall-gap) / 2));
+  }
+}
+
+@keyframes introMosaicDown {
+  from {
+    transform: translateY(calc(-50% - var(--wall-gap) / 2));
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* ------------------------------------------------------------ Responsive */
+@media (max-width: 1400px) {
+  .intro-main,
+  .intro-content {
+    min-height: 500px;
+  }
+  .intro-content {
+    padding: 1.5rem 0;
+  }
+  .intro-sub {
+    font-size: 16px;
   }
 }
 
 @media (max-width: 992px) {
-  .intro-main::after {
-    filter: blur(10);
-    transform: scale(2) rotate(20deg) translateY(-50);
-    opacity: 0.8;
+  .intro-main {
+    min-height: 0;
   }
-
-  .intro-description {
-    width: 100% !important;
+  .intro-content {
+    min-height: 0;
+    padding: 2.5rem 0;
+    max-width: 100%;
+  }
+  /* Stacked layout: mosaic sits full width behind the copy. The veil is
+     opaque under the text (top) and fades toward the bottom so the mosaic
+     peeks through the lower edge, mirroring the horizontal fade on desktop. */
+  .intro-veil {
+    background:
+      linear-gradient(
+        to left,
+        color-mix(in srgb, var(--bg) 15%, transparent) 0%,
+        transparent 60%
+      ),
+      linear-gradient(
+        to bottom,
+        var(--bg) 0%,
+        color-mix(in srgb, var(--bg) 85%, transparent) 55%,
+        color-mix(in srgb, var(--bg) 55%, transparent) 80%,
+        color-mix(in srgb, var(--bg) 20%, transparent) 100%
+      );
+  }
+  .intro-mosaic {
+    -webkit-mask-image: linear-gradient(
+      180deg,
+      #000 0%,
+      #000 70%,
+      transparent 100%
+    );
+            mask-image: linear-gradient(
+      180deg,
+      #000 0%,
+      #000 70%,
+      transparent 100%
+    );
+    -webkit-mask-composite: source-over;
+            mask-composite: add;
+  }
+  .intro-mosaic-track {
+    transform: rotate(-6deg) scale(1.3);
   }
 }
 
 @media (max-width: 768px) {
-  .intro-main h1 {
-    font-size: 30px !important;
+  .intro-content {
+    padding: 2rem 0;
   }
-
-  .intro-main h2 {
-    font-size: 18px;
+  .intro-sub {
+    font-size: 15px;
+  }
+  .intro-mosaic-track {
+    --wall-gap: 12px;
   }
 }
 
 @media (max-width: 578px) {
-  .intro-main::after {
-    filter: blur(50);
-    transform: scale(2) rotate(20deg) translateY(-50) translateX(-50%);
+  .intro-content {
+    padding: 1.75rem 0;
   }
+  .intro-mosaic-track {
+    --wall-gap: 10px;
+    transform: rotate(-5deg) scale(1.35);
+  }
+  .intro-shot {
+    border-radius: 10px;
+  }
+}
 
-  .intro-main {
-    padding: 25px !important;
-    padding-bottom: 30px !important;
-  }
-  .intro-main h1 {
-    line-height: 1.7;
-  }
-
-  .intro-main h2 {
-    line-height: 1.8;
-    font-size: 16px;
+@media (prefers-reduced-motion: reduce) {
+  .intro-mosaic-col {
+    animation: none;
   }
 }

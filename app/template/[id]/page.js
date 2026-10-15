@@ -154,7 +154,7 @@ const Template = async ({ params }) => {
                 616-character sentence that was byte-identical on all 123 pages, which is what made
                 every template page look like a duplicate of the others. */}
             <p className="mt-2 mt-sm-4">
-              {templatesData[id]?.description}
+              {templatesData[id]?.longDescription}
             </p>
           </section>
 

@@ -1,0 +1,103 @@
+/* ================================================================== Outro */
+/* End-of-home CTA. No card, no border, no shadow — the section is just the
+   page background with a soft accent glow at the centre that fades out well
+   before every edge, so it blends into the page instead of sitting on it. */
+
+.outro-main {
+  width: 100%;
+  margin-top: 3rem;
+  padding: 6.5rem 1.5rem;
+  text-align: center;
+  background: radial-gradient(
+    ellipse 65% 70% at 50% 50%,
+    color-mix(in srgb, var(--bg-color) 18%, transparent) 0%,
+    color-mix(in srgb, var(--bg-color) 8%, transparent) 40%,
+    transparent 75%
+  );
+}
+
+/* --------------------------------------------------------------- Copy */
+/* Same typographic voice as .intro-title: rokh, weight 900, with an
+   accent-coloured closing word. */
+.outro-title {
+  margin: 0;
+  text-align: center;
+  font-family: var(--font-rokh) !important;
+  font-size: clamp(30px, 3.4vw, 46px);
+  font-weight: 900 !important;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+/* Family and weight are repeated here because the global `*` rule sets them
+   directly on every element, which beats what the span would otherwise
+   inherit from the heading. */
+.outro-title-accent {
+  font-family: var(--font-rokh) !important;
+  font-weight: 900 !important;
+  color: var(--text-color);
+}
+
+.outro-description {
+  margin: 1rem auto 0;
+  max-width: 600px;
+  text-align: center;
+  font-size: 16px;
+  line-height: 2.2;
+  color: var(--text-light);
+}
+
+/* The exact button the rest of the page uses, only a little wider. The shared
+   .btn-color padding is !important, so this override needs it too. */
+.outro-cta {
+  margin: 2rem auto 0;
+  padding: 13px 28px !important;
+}
+
+/* ------------------------------------------------------------ Responsive */
+@media (max-width: 992px) {
+  .outro-main {
+    padding: 5.5rem 1.25rem;
+  }
+
+  .outro-title {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .outro-main {
+    margin-top: 2.5rem;
+    padding: 4.5rem 1rem;
+  }
+
+  .outro-title {
+    font-size: 27px;
+  }
+
+  .outro-description {
+    font-size: 15px;
+    line-height: 2;
+  }
+}
+
+@media (max-width: 578px) {
+  .outro-main {
+    padding: 3.5rem 1rem;
+  }
+
+  .outro-title {
+    font-size: 23px;
+    line-height: 1.7;
+  }
+
+  .outro-description {
+    margin-top: 0.85rem;
+    font-size: 14px;
+    line-height: 1.9;
+  }
+
+  .outro-cta {
+    margin-top: 1.5rem;
+  }
+}

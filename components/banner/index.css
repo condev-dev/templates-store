@@ -1,0 +1,164 @@
+/* ================================================================ Banner */
+/* Same recipe as every other card on the site: --round-lg radius, a 1px border,
+   shadow-sm (added in the JSX), a blurred --bg-color glow, and rokh headings.
+   No animation anywhere, so it stays calm next to the rest of the page. */
+.banner-main {
+  position: relative;
+  width: 100%;
+  isolation: isolate;
+  overflow: hidden;
+  margin-top: 3rem;
+  padding: 3.5rem 2.5rem;
+  text-align: center;
+  border: 1px solid var(--border-color);
+  border-radius: var(--round-lg);
+  background: linear-gradient(180deg, var(--bg-main) 0%, var(--bg) 100%);
+}
+
+/* The site's signature glow — the intro and the plan cards both build their
+   background this way — only static, so nothing moves. */
+.banner-glow {
+  position: absolute;
+  top: -70%;
+  left: 50%;
+  z-index: 0;
+  width: 820px;
+  height: 820px;
+  margin-left: -410px;
+  border-radius: 50%;
+  background: var(--bg-color);
+  filter: blur(110px);
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+/* Faint dot texture in the accent colour — reads as a background tint rather
+   than a pattern, because the mask fades it out well before the corners. */
+.banner-texture {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: radial-gradient(var(--bg-color) 1px, transparent 1px);
+  background-size: 22px 22px;
+  opacity: 0.16;
+  -webkit-mask-image: radial-gradient(ellipse 72% 78% at 50% 34%, #000 0%, transparent 70%);
+  mask-image: radial-gradient(ellipse 72% 78% at 50% 34%, #000 0%, transparent 70%);
+}
+
+/* Hairline accent on the top edge, the same idea as the decorative line the
+   category cards draw across their top. */
+.banner-main::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 20%;
+  left: 20%;
+  z-index: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--bg-color), transparent);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* ---------------------------------------------------------------- Content */
+.banner-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.banner-title {
+  margin: 0;
+  font-family: var(--font-rokh) !important;
+  font-size: 32px;
+  font-weight: 800 !important;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+.banner-description {
+  margin: 1.25rem 0 0;
+  max-width: 600px;
+  font-size: 16px;
+  line-height: 2.2;
+  color: var(--text-light);
+}
+
+.banner-actions {
+  margin-top: 2rem;
+}
+
+/* The exact button the rest of the page uses, only a little wider. The shared
+   .btn-color padding is !important, so this override needs it too. */
+.banner-main .banner-actions .btn-main {
+  padding: 13px 28px !important;
+}
+
+/* ------------------------------------------------------------- Responsive */
+@media (max-width: 992px) {
+  .banner-main {
+    padding: 3rem 2rem;
+  }
+
+  .banner-glow {
+    width: 660px;
+    height: 660px;
+    margin-left: -330px;
+  }
+
+  .banner-title {
+    font-size: 29px;
+  }
+}
+
+@media (max-width: 768px) {
+  .banner-main {
+    margin-top: 2.5rem;
+    padding: 2.5rem 1.5rem;
+  }
+
+  .banner-title {
+    font-size: 25px;
+  }
+
+  .banner-description {
+    font-size: 15px;
+    line-height: 2;
+  }
+}
+
+@media (max-width: 578px) {
+  .banner-main {
+    padding: 2rem 1.25rem;
+  }
+
+  .banner-glow {
+    width: 520px;
+    height: 520px;
+    margin-left: -260px;
+  }
+
+  .banner-texture {
+    background-size: 18px 18px;
+  }
+
+  .banner-title {
+    font-size: 21px;
+    line-height: 1.8;
+  }
+
+  .banner-description {
+    margin-top: 1rem;
+    font-size: 14px;
+    line-height: 1.9;
+  }
+
+  .banner-actions {
+    margin-top: 1.5rem;
+  }
+}
