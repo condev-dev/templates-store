@@ -81,6 +81,26 @@ const Template = async ({ params }) => {
 
   return (
     <section className="d-flex flex-column mt-4">
+      {/* Structured data: this page is its own product, not a copy of the other template pages.
+          Only values that are really rendered below are listed - no rating and no review. The price
+          is displayed in Toman while schema.org wants the currency in Rial, hence the factor ten. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            name: data?.title,
+            description: templatesData[id]?.description,
+            image: [data?.image],
+            offers: {
+              "@type": "Offer",
+              priceCurrency: "IRR",
+              price: Number(data?.price) * 10,
+            },
+          }),
+        }}
+      />
       <section className="w-100 d-flex justify-content-start align-items-center single-template-title mt-3">
         <h1>{data?.title}</h1>
       </section>
