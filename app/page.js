@@ -1,3 +1,4 @@
+import Link from "next/link";
 import BestSellers_s from "@/components/bestSellers/BestSellers_s";
 import Categories from "@/components/categories/Categories";
 import Intro from "@/components/intro/Intro";
@@ -31,6 +32,14 @@ export default function Home() {
       <Plans />
       <TemplateGames />
       <TemplateCategory title="قالب های ترکی" filterBy="ترکی" />
+
+      {/* The catalogue on /templates links every single template, so pointing the home page at
+          it gives the pages that had no internal link at all a way to be discovered. */}
+      <section className="d-flex justify-content-center mt-4 mt-sm-5 pt-4">
+        <Link href="/templates" className="btn-main btn-color shadow-sm">
+          مشاهده همه قالب ها
+        </Link>
+      </section>
     </>
   );
 }

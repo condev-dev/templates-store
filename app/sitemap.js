@@ -4,7 +4,7 @@ export default async function sitemap() {
   // Publicly useful, indexable pages only. The account / utility routes (/cart, /profile,
   // /purchases, /auth/signin, /auth/signup) are private or need a session, so they are
   // deliberately NOT offered to Google any more.
-  const staticPages = [""].map((route) => ({
+  const staticPages = ["", "/templates"].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: route === "" ? "daily" : "weekly",

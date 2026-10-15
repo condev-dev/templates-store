@@ -96,6 +96,12 @@ const Footer = () => {
             </div>
           </div>
         </section>
+        <section className="w-100 d-flex justify-content-center pt-4 mt-2">
+          <Link href="/templates" className="btn-main btn-color shadow-sm">
+            همه قالب ها
+          </Link>
+        </section>
+
         <small className="copy-right text-center pt-3 pb-1"> ConDev </small>
       </section>
     </footer>

@@ -62,6 +62,14 @@ const Menu = () => {
           <AuthBtn className="mt-3 w-100" />
         )}
 
+        <Link
+          href={"/templates"}
+          className="btn-main menu-btn mt-3 justify-content-start gap-3 shadow-sm"
+        >
+          <FiGrid size={18} />
+          <span>همه قالب ها</span>
+        </Link>
+
         <Link href={"/#categories"} className="btn-main menu-btn mt-4 justify-content-start gap-3 shadow-sm">
           <FiGrid size={18} />
           <span>دسته بندی ها</span>
