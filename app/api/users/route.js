@@ -8,12 +8,6 @@ import {
   EditUserName,
 } from "@/services/users";
 import { NextResponse } from "next/server";
-import { getServerSession } from "next-auth/next";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-
-// Every method below acts on the SIGNED-IN user's own account. The session is the authority and a
-// userId sent by the caller is ignored - trusting it let anyone edit or delete anybody's account.
-const NOT_SIGNED_IN = { message: "لطفا وارد حساب خود شوید." };
 
 // GET
 export async function GET(request) {
@@ -74,33 +68,21 @@ export async function POST(request) {
 
 // PUT
 export async function PUT(request) {
-  // --------- Check Session - the id comes from the session, never from the body
-  const session = await getServerSession(authOptions);
-  const userId = session?.user?.id;
-
-  if (!userId) {
-    return NextResponse.json(NOT_SIGNED_IN, { status: 401 });
-  }
-  // -----------------------------------------------------------------
-
   try {
     const db = await getDb();
     const body = await request.json();
-
-    // Whatever userId the caller sent is discarded.
-    const data = { ...body, userId };
 
     let hasChanges = false;
 
     // For FullName
     if (body.fullname !== undefined) {
-      await EditFullName(data);
+      await EditFullName(body);
       hasChanges = true;
     }
 
     // For UserName
     if (body.username !== undefined) {
-      await EditUserName(data);
+      await EditUserName(body);
       hasChanges = true;
     }
 
@@ -109,7 +91,7 @@ export async function PUT(request) {
       // Check Email Already Exists
       const emailExists = await db.collection("users").findOne({
         email: body.email,
-        id: { $ne: userId },
+        id: { $ne: body.userId },
       });
 
       if (emailExists) {
@@ -120,13 +102,13 @@ export async function PUT(request) {
       }
 
       // Edit Email
-      await EditEmail(data);
+      await EditEmail(body);
       hasChanges = true;
     }
 
     // For Password
     if (body.password !== undefined) {
-      await EditPassword(data);
+      await EditPassword(body);
       hasChanges = true;
     }
 
@@ -152,17 +134,11 @@ export async function PUT(request) {
 }
 
 // DELETE
-export async function DELETE() {
-  // --------- Check Session - a user can only delete their own account
-  const session = await getServerSession(authOptions);
-  const userId = session?.user?.id;
-
-  if (!userId) {
-    return NextResponse.json(NOT_SIGNED_IN, { status: 401 });
-  }
-  // -----------------------------------------------------------------
-
+export async function DELETE(request) {
   try {
+    const body = await request.json();
+    const { userId } = body;
+
     const result = await DeleteUser(userId);
 
     if (result.deletedCount === 0) {

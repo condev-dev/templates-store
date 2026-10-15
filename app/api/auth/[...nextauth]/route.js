@@ -6,7 +6,7 @@ import { getDb } from "@/lib/getDb";
 import { randomUUID } from "crypto";
 
 export const authOptions = {
-  debug: process.env.NODE_ENV === "development",
+  debug: true,
   providers: [
     CredentialsProvider({
       credentials: {
@@ -72,38 +72,27 @@ export const authOptions = {
     },
 
     async jwt({ token, user, trigger, session }) {
-      /*
-       * Identity is only ever read from the database.
-       *
-       * `session.user` in an update() call is CLIENT input. The old
-       * `{ ...token, ...session.user }` let any signed-in user send
-       * update({ user: { id: "<someone else's id>" }) and have the session adopt that
-       * identity, which then unlocked that account's cart and purchases.
-       * An update now re-reads the row by the id the server already trusts.
-       */
       if (user) {
         const db = await getDb();
         const dbUser = await db
           .collection("users")
           .findOne({ email: user.email });
 
-        token.id = dbUser?.id ?? user.id;
-        token.email = dbUser?.email ?? user.email;
-        token.username = dbUser?.username ?? user.username;
-        token.fullname = dbUser?.fullname ?? user.fullname;
-      }
-
-      if (trigger === "update" && session?.user && token.id) {
-        const db = await getDb();
-        const dbUser = await db.collection("users").findOne({ id: token.id });
-
         if (dbUser) {
+          token.id = dbUser.id;
           token.email = dbUser.email;
           token.username = dbUser.username;
           token.fullname = dbUser.fullname;
+        } else {
+          token.id = user.id;
+          token.email = user.email;
+          token.username = user.username;
+          token.fullname = user.fullname;
         }
       }
-
+      if (trigger === "update" && session?.user) {
+        return { ...token, ...session.user };
+      }
       return token;
     },
     async session({ session, token }) {
