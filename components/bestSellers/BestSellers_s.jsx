@@ -6,7 +6,8 @@ async function fetchTemplates() {
   const ApiKey = process.env.NEXT_API_SECRET_KEY;
 
   const res = await fetch(`${BaseUrl}/api/templates`, {
-    cache: "no-store",
+    // Cache the best sellers for an hour instead of rebuilding them on every single crawl.
+    next: { revalidate: 3600 },
     headers: {
       "api-key": ApiKey,
     },

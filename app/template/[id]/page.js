@@ -65,7 +65,8 @@ const Template = async ({ params }) => {
   const { id } = await params;
 
   const res = await fetch(`${BaseUrl}/api/templates?templateId=${id}`, {
-    cache: "no-store",
+    // Cache the template for an hour instead of rebuilding it on every single crawl.
+    next: { revalidate: 3600 },
     headers: {
       "api-key": ApiKey,
     },

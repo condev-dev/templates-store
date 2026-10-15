@@ -8,7 +8,8 @@ const TemplateCategory = async ({ title, filterBy }) => {
   const ApiKey = process.env.NEXT_API_SECRET_KEY;
 
   const res = await fetch(`${BaseUrl}/api/templates?filterBy=${filterBy}`, {
-    cache: "no-store",
+    // Cache the category for an hour instead of rebuilding it on every single crawl.
+    next: { revalidate: 3600 },
     headers: {
       "api-key": ApiKey,
     },

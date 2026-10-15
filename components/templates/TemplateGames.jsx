@@ -8,7 +8,8 @@ const TemplateGames = async () => {
   const ApiKey = process.env.NEXT_API_SECRET_KEY;
 
   const res = await fetch(`${BaseUrl}/api/templates?filterBy=بازی`, {
-    cache: "no-store",
+    // Cache the game templates for an hour instead of rebuilding them on every single crawl.
+    next: { revalidate: 3600 },
     headers: {
       "api-key": ApiKey,
     },
