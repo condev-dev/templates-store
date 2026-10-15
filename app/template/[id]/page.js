@@ -111,21 +111,9 @@ const Template = async ({ params }) => {
               <FaCheck size={12} className="ms-2 mb-2" />
               <p>رده بندی : قالب {data?.categories?.slice(0, 2).join(" ، ")}</p>
             </div>
-            <div className="w-100 d-flex align-items-center justify-content-start px-1 mt-3 pt-1">
-              <FaCheck size={12} className="ms-2 mb-2" />
-              <p>پیاده سازی با Html, Css, Js</p>
-            </div>
-            <div className="w-100 d-flex align-items-center justify-content-start px-1 mt-3 pt-1">
-              <FaCheck size={12} className="ms-2 mb-2" />
-              <p>کاملاً ریسپانسیو روی دستگاه ها</p>
-            </div>
-            <div className="w-100 d-flex align-items-center justify-content-start px-1 mt-3 pt-1">
-              <FaCheck size={12} className="ms-2 mb-2" />
-              <p>سئو شده برای موتورهای جستجو</p>
-            </div>
             <div className="w-100 d-flex align-items-center justify-content-start px-1 mt-3 pt-1 mb-3">
               <FaCheck size={12} className="ms-2 mb-2" />
-              <p>کدنویسی شده به صورت کلین کد</p>
+              <p>پیاده سازی با Html, Css, Js</p>
             </div>
             <Link
               href={data?.demo_url}
@@ -142,8 +130,11 @@ const Template = async ({ params }) => {
         <section className="w-100 mb-3 mb-lg-0 mt-lg-4 single-template-description ">
           <section className="d-flex align-items-start justify-content-start flex-column mt-5 mb-4 pb-1 single-template-description-title ">
             <h4>درباره و مشخصات قالب</h4>
-            <p className=" mt-2 mt-sm-4 three-line ">
-              {`قالب ${data?.title || ""} یکی از مدرن ترین و بهینه ترین قالب های تک صفحه ای اختصاصی برای حوزه گیم، بازی و سایت های تعاملی است. این قالب با ساختار کاملاً استاندارد و ریسپانسیو طراحی شده تا کاربران در تمامی دستگاه ها (موبایل، تبلت و دسکتاپ) تجربه ای سریع و روان داشته باشند. طراحی مدرن، سرعت بارگذاری بالا و رعایت اصول اولیه سئو از ویژگی های بارز این محصول می باشد.`}
+            {/* The paragraph is the description that belongs to this template only. It used to be a
+                616-character sentence that was byte-identical on all 123 pages, which is what made
+                every template page look like a duplicate of the others. */}
+            <p className="mt-2 mt-sm-4">
+              {templatesData[id]?.description}
             </p>
           </section>
 
