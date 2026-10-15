@@ -81,7 +81,7 @@ const Template = async ({ params }) => {
   return (
     <section className="d-flex flex-column mt-4">
       <section className="w-100 d-flex justify-content-start align-items-center single-template-title mt-3">
-        <h4>{data?.title}</h4>
+        <h1>{data?.title}</h1>
       </section>
 
       <section className="w-100 d-flex flex-column">
