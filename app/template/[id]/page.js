@@ -4,6 +4,7 @@ import AddToCart from "@/components/templates/AddToCart";
 import FaNumber from "@/components/common/FaNumber";
 import Toman from "@/components/common/Toman";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import CustomLoadingImage from "@/components/ui/loading-image/CustomLoadingImage";
 import { templatesData } from "@/data/templates";
 import { GetTemplateById } from "@/services/templates";
@@ -73,7 +74,9 @@ const Template = async ({ params }) => {
 
   // GetTemplateById returns a single OBJECT (or [] when there is no such template), so the old
   // `data.length <= 0` test was meaningless for the object case. Check the id instead.
-  if (!data || !data.id) return <div> این قالب پیدا نشد. </div>;
+  // A missing template must answer with a real HTTP 404: returning a 200 page that only says
+  // "not found" is a soft 404, which Google records against the whole domain.
+  if (!data || !data.id) notFound();
 
   return (
     <section className="d-flex flex-column mt-4">
