@@ -397,3 +397,100 @@
     object-position: top center !important;
   }
 }
+
+/* ============================================================ Templates page */
+/* Header + category filter on /templates. The heading follows the same recipe
+   as .template-category-title (rokh 800 + the accent bar on the right), and the
+   filters are the site's own buttons: .btn-color when active, .btn-light when
+   not — so the row reads as one control group instead of loose black blocks. */
+
+.templates-head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.templates-head-title {
+  position: relative;
+  margin: 0;
+  padding-right: 20px;
+  font-family: var(--font-rokh) !important;
+  font-size: 30px;
+  font-weight: 800 !important;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+.templates-head-title::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 42.5%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 78%;
+  background-color: var(--bg-color);
+  border-radius: 0 200px 200px 0;
+}
+
+.templates-head-sub {
+  margin: 0;
+  max-width: 62rem;
+  font-size: var(--font-text-2-lg);
+  line-height: 2.2;
+  color: var(--text-light);
+}
+
+/* ------------------------------------------------------------- Filters */
+.templates-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+/* Same visual weight for every pill: the button classes set their own padding,
+   so only the corner radius and the label weight are normalised here. */
+.templates-filters .btn-main {
+  padding: 11px 20px !important;
+}
+
+@media (max-width: 992px) {
+  .templates-head-title {
+    font-size: 26px;
+  }
+
+  .templates-head-sub {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .templates-head-title {
+    font-size: 22px;
+    padding-right: 15px;
+  }
+
+  .templates-head-sub {
+    font-size: 15px;
+    line-height: 2;
+  }
+}
+
+@media (max-width: 578px) {
+
+  .templates-head-title  {
+    font-size: 26px !important;
+    padding-right: 20px !important;
+  }
+  .templates-head-title::before {
+    height: 90% !important; 
+  }
+
+  .templates-filters {
+    gap: 12px;
+  }
+
+  .templates-filters .btn-main {
+    padding: 9px 16px !important;
+  }
+}
