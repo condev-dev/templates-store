@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import "../index.css";
 import Link from "next/link";
@@ -8,7 +7,6 @@ import { FiArrowLeft } from "react-icons/fi";
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState("");
-  const router = useRouter();
   const BaseUrl = process.env.NEXT_PUBLIC_API_URL;
 
   const OnCheck = async () => {
@@ -24,16 +22,21 @@ export default function ForgotPassword() {
       return;
     }
 
-    const res = await fetch(
-      `${BaseUrl}/api/users/check-email?email=${encodeURIComponent(email)}`,
-    );
+    // The server answers with the same message whether or not the address exists, and the reset
+    // link arrives by email - so this page never reveals whether an account is registered.
+    const res = await fetch(`${BaseUrl}/api/users/forgot-password`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email: email.trim() }),
+    });
 
     const data = await res.json();
 
-    if (data.exists) {
-      router.push(`/auth/reset-password?email=${encodeURIComponent(email)}`);
+    if (res.ok) {
+      toast.success(data.message);
+      setEmail("");
     } else {
-      toast.error("کاربری با این ایمیل یافت نشد.");
+      toast.error(data?.message || "مشکلی پیش آمد.");
     }
   };
 
@@ -49,7 +52,7 @@ export default function ForgotPassword() {
           onChange={(e) => setEmail(e.target.value)}
         />
         <button className="btn-main btn-color w-100 mt-2" onClick={OnCheck}>
-          بررسی ایمیل
+          ارسال لینک بازیابی
         </button>
 
         <small className=" w-100 small mt-2 d-flex justify-content-end ">

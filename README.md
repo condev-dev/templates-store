@@ -155,9 +155,9 @@ A visitor browses the catalogue, opens the live demo of any template, adds it to
 | `/api/templates` | Template list and single template |
 | `/api/carts` | Cart read and write |
 | `/api/purchases` | Purchases of the signed-in user |
-| `/api/users` | Account read, update and delete |
-| `/api/users/check-email` | Email availability check |
-| `/api/users/reset-password` | Set a new password from a reset token |
+| `/api/users` | Account read, update and delete (own account only, taken from the session) |
+| `/api/users/forgot-password` | Email a one-time password reset link |
+| `/api/users/reset-password` | Set a new password from that one-time token |
 | `/api/payment/request` | Create the payment request |
 | `/api/payment/verify` | Verify the gateway callback |
 | `/api/auth/[...nextauth]` | Sessions and the Google provider |
@@ -222,6 +222,8 @@ Create `.env.local` in the project root:
 | `NEXT_API_SECRET_KEY` | Key that protects the server routes |
 | `NEXT_PUBLIC_API_SECRET_KEY` | The same key for browser calls |
 | `NEXT_PUBLIC_API_URL` | Base address of the service |
+| `RESEND_API_KEY` | Sends the password reset emails, through Resend |
+| `MAIL_FROM` | Optional. The reset email sender, defaults to `Con Dev <no-reply@condev.ir>` |
 
 ### 📜 Commands
 

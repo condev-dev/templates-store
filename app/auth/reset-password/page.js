@@ -11,11 +11,18 @@ export default function ResetPassword() {
   const [repeatPassword, setRepeatPassword] = useState("");
   const router = useRouter();
   const searchParams = useSearchParams();
-  const email = searchParams.get("email");
+  // The email is deliberately NOT read from the URL any more: the one-time token is the only thing
+  // that proves the visitor is allowed to change this account's password.
+  const token = searchParams.get("token");
   const BaseUrl = process.env.NEXT_PUBLIC_API_URL;
 
   const OnReset = async () => {
     // ------- Checks
+    if (!token) {
+      toast.error("لینک بازیابی نامعتبر است. لطفا دوباره درخواست کنید.");
+      return;
+    }
+
     // Check if any field is empty
     if (!newPassword || !repeatPassword) {
       toast.error("لطفاً تمام فیلدها را پر کنید.");
@@ -37,14 +44,16 @@ export default function ResetPassword() {
     const res = await fetch(`${BaseUrl}/api/users/reset-password`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password: newPassword }),
+      body: JSON.stringify({ token, password: newPassword }),
     });
+
+    const data = await res.json();
 
     if (res.ok) {
       toast.success("رمز عبور با موفقیت تغییر کرد.");
       router.push("/auth/signin");
     } else {
-      toast.error("مشکلی پیش آمد.");
+      toast.error(data?.message || "مشکلی پیش آمد.");
     }
   };
 
